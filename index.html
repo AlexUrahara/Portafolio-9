@@ -6,7 +6,7 @@
   <title>Roberto Azcorra · Diseño · Frontend · Seguridad</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Google Fonts Inter -->
+  <!-- Google Fonts Inter (respaldo) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
   <!-- CSS externo -->
   <link rel="stylesheet" href="styles.css">
@@ -18,11 +18,28 @@
 
   <nav class="navbar" id="navbar">
     <div class="logo"><a href="#hero">R.A.</a></div>
-    <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+    <!-- Botón hamburguesa animado -->
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#hero">Inicio</a></li>
       <li><a href="#about">Sobre mí</a></li>
       <li><a href="#services">Servicios</a></li>
+      <!-- Nuevo ítem con submenú -->
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Planes y servicios <i class="fas fa-chevron-down"></i></a>
+        <ul class="dropdown-content">
+          <li><a href="#">Plan Básico</a></li>
+          <li><a href="#">Plan Profesional</a></li>
+          <li><a href="#">Plan Empresarial</a></li>
+          <li><a href="#">Diseño express</a></li>
+          <li><a href="#">Desarrollo web</a></li>
+          <li><a href="#">Seguridad avanzada</a></li>
+        </ul>
+      </li>
       <li><a href="#portfolio">Proyectos</a></li>
       <li><a href="#experience">Trayectoria</a></li>
       <li><a href="#contact">Contacto</a></li>
@@ -30,7 +47,7 @@
     </ul>
   </nav>
 
-  <!-- HERO con foto grande animada (EFECTO RESTAURADO) -->
+  <!-- HERO con foto grande animada -->
   <section class="hero" id="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
@@ -52,7 +69,7 @@
     </div>
   </section>
 
-  <!-- SOBRE MÍ -->
+  <!-- SOBRE MÍ (con fuente Montserrat-Light) -->
   <section class="container" id="about">
     <h2 class="section-title reveal">Sobre mí <span>·</span></h2>
     <div class="about-grid">
@@ -69,10 +86,11 @@
     </div>
   </section>
 
-  <!-- SERVICIOS ESTRATÉGICOS (con imágenes de fondo y overlay mostaza) -->
+  <!-- SERVICIOS ESTRATÉGICOS -->
   <section class="container" id="services">
     <h2 class="section-title reveal">Servicios <span>estratégicos</span></h2>
     <div class="services-grid">
+      <!-- 6 servicios (igual que antes) -->
       <div class="service-card reveal" style="background-image: url('https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&auto=format');">
         <div class="service-overlay"></div>
         <div class="service-content">
@@ -137,58 +155,17 @@
     </div>
   </section>
 
-  <!-- PORTAFOLIO / PROYECTOS SELECCIONADOS -->
+  <!-- PORTAFOLIO -->
   <section class="container" id="portfolio">
     <h2 class="section-title reveal">Proyectos <span>seleccionados</span></h2>
     <div class="portfolio-grid">
-      <div class="portfolio-item reveal">
-        <img src="https://picsum.photos/id/1/600/400" alt="Branding">
-        <div class="portfolio-overlay">
-          <h4>Branding Atomic Boost</h4>
-          <p>Identidad corporativa para agencia de marketing.</p>
-          <span class="portfolio-tag">Diseño Gráfico</span>
-        </div>
-      </div>
-      <div class="portfolio-item reveal">
-        <img src="https://picsum.photos/id/2/600/400" alt="Landing Page">
-        <div class="portfolio-overlay">
-          <h4>Landing Page Empresarial</h4>
-          <p>Sitio responsivo HTML/CSS/JS con óptimo rendimiento.</p>
-          <span class="portfolio-tag">Desarrollo Web</span>
-        </div>
-      </div>
-      <div class="portfolio-item reveal">
-        <img src="https://picsum.photos/id/3/600/400" alt="Modelado 3D">
-        <div class="portfolio-overlay">
-          <h4>Modelado 3D para RA</h4>
-          <p>Animación e interacción en Realidad Aumentada.</p>
-          <span class="portfolio-tag">3D / RA</span>
-        </div>
-      </div>
-      <div class="portfolio-item reveal">
-        <img src="https://picsum.photos/id/4/600/400" alt="Brochure">
-        <div class="portfolio-overlay">
-          <h4>Brochure Corporativo</h4>
-          <p>Diseño editorial para cliente del sector financiero.</p>
-          <span class="portfolio-tag">Editorial</span>
-        </div>
-      </div>
-      <div class="portfolio-item reveal">
-        <img src="https://picsum.photos/id/5/600/400" alt="Video Corporativo">
-        <div class="portfolio-overlay">
-          <h4>Video Promocional</h4>
-          <p>Edición con After Effects y Premiere Pro.</p>
-          <span class="portfolio-tag">Audiovisual</span>
-        </div>
-      </div>
-      <div class="portfolio-item reveal">
-        <img src="https://picsum.photos/id/6/600/400" alt="Automatización">
-        <div class="portfolio-overlay">
-          <h4>Dashboard en Excel</h4>
-          <p>Automatización de reportes con macros y VB.</p>
-          <span class="portfolio-tag">Optimización</span>
-        </div>
-      </div>
+      <!-- 6 ítems de portafolio (igual) -->
+      <div class="portfolio-item reveal"><img src="https://picsum.photos/id/1/600/400" alt="Branding"><div class="portfolio-overlay"><h4>Branding Atomic Boost</h4><p>Identidad corporativa para agencia de marketing.</p><span class="portfolio-tag">Diseño Gráfico</span></div></div>
+      <div class="portfolio-item reveal"><img src="https://picsum.photos/id/2/600/400" alt="Landing Page"><div class="portfolio-overlay"><h4>Landing Page Empresarial</h4><p>Sitio responsivo HTML/CSS/JS con óptimo rendimiento.</p><span class="portfolio-tag">Desarrollo Web</span></div></div>
+      <div class="portfolio-item reveal"><img src="https://picsum.photos/id/3/600/400" alt="Modelado 3D"><div class="portfolio-overlay"><h4>Modelado 3D para RA</h4><p>Animación e interacción en Realidad Aumentada.</p><span class="portfolio-tag">3D / RA</span></div></div>
+      <div class="portfolio-item reveal"><img src="https://picsum.photos/id/4/600/400" alt="Brochure"><div class="portfolio-overlay"><h4>Brochure Corporativo</h4><p>Diseño editorial para cliente del sector financiero.</p><span class="portfolio-tag">Editorial</span></div></div>
+      <div class="portfolio-item reveal"><img src="https://picsum.photos/id/5/600/400" alt="Video Corporativo"><div class="portfolio-overlay"><h4>Video Promocional</h4><p>Edición con After Effects y Premiere Pro.</p><span class="portfolio-tag">Audiovisual</span></div></div>
+      <div class="portfolio-item reveal"><img src="https://picsum.photos/id/6/600/400" alt="Automatización"><div class="portfolio-overlay"><h4>Dashboard en Excel</h4><p>Automatización de reportes con macros y VB.</p><span class="portfolio-tag">Optimización</span></div></div>
     </div>
   </section>
 
@@ -208,31 +185,11 @@
   <section class="container" id="education">
     <h2 class="section-title reveal">Formación <span>académica</span></h2>
     <div class="education-grid">
-      <div class="edu-card reveal">
-        <i class="fas fa-university"></i>
-        <h3>Lic. Informática y Sistemas de Seguridad</h3>
-        <p>Centro Universitario Felipe Carrillo Puerto · 2018-2021</p>
-      </div>
-      <div class="edu-card reveal">
-        <i class="fas fa-palette"></i>
-        <h3>Especialidad en Diseño Gráfico Digital</h3>
-        <p>Computación del Golfo · 2023-2024</p>
-      </div>
-      <div class="edu-card reveal">
-        <i class="fas fa-code"></i>
-        <h3>Desarrollo Web Completo</h3>
-        <p>Udemy · HTML, CSS, JS, MySQL · 2022-2023</p>
-      </div>
-      <div class="edu-card reveal">
-        <i class="fas fa-file-excel"></i>
-        <h3>Excel Básico-Intermedio (Macros, VB)</h3>
-        <p>Udemy · 2022-2023</p>
-      </div>
-      <div class="edu-card reveal">
-        <i class="fas fa-school"></i>
-        <h3>Preparatoria COBAY Santa Rosa</h3>
-        <p>Capacitación en Informática · 2015-2018</p>
-      </div>
+      <div class="edu-card reveal"><i class="fas fa-university"></i><h3>Lic. Informática y Sistemas de Seguridad</h3><p>Centro Universitario Felipe Carrillo Puerto · 2018-2021</p></div>
+      <div class="edu-card reveal"><i class="fas fa-palette"></i><h3>Especialidad en Diseño Gráfico Digital</h3><p>Computación del Golfo · 2023-2024</p></div>
+      <div class="edu-card reveal"><i class="fas fa-code"></i><h3>Desarrollo Web Completo</h3><p>Udemy · HTML, CSS, JS, MySQL · 2022-2023</p></div>
+      <div class="edu-card reveal"><i class="fas fa-file-excel"></i><h3>Excel Básico-Intermedio (Macros, VB)</h3><p>Udemy · 2022-2023</p></div>
+      <div class="edu-card reveal"><i class="fas fa-school"></i><h3>Preparatoria COBAY Santa Rosa</h3><p>Capacitación en Informática · 2015-2018</p></div>
     </div>
   </section>
 
@@ -263,26 +220,12 @@
   <section class="container" id="hobbies">
     <h2 class="section-title reveal">Idiomas & <span>pasatiempos</span></h2>
     <div class="hobbies-wrapper">
-      <div class="lang-card reveal">
-        <i class="fas fa-globe"></i>
-        <span>Español: Nativo (100%)</span>
-      </div>
-      <div class="lang-card reveal">
-        <i class="fas fa-language"></i>
-        <span>Inglés: 30%</span>
-      </div>
-      <div class="hobby-card reveal">
-        <i class="fas fa-paint-brush"></i> Crear diseños
-      </div>
-      <div class="hobby-card reveal">
-        <i class="fas fa-guitar"></i> Tocar guitarra
-      </div>
-      <div class="hobby-card reveal">
-        <i class="fas fa-seedling"></i> Jardinería
-      </div>
-      <div class="hobby-card reveal">
-        <i class="fab fa-youtube"></i> YouTube
-      </div>
+      <div class="lang-card reveal"><i class="fas fa-globe"></i><span>Español: Nativo (100%)</span></div>
+      <div class="lang-card reveal"><i class="fas fa-language"></i><span>Inglés: 30%</span></div>
+      <div class="hobby-card reveal"><i class="fas fa-paint-brush"></i> Crear diseños</div>
+      <div class="hobby-card reveal"><i class="fas fa-guitar"></i> Tocar guitarra</div>
+      <div class="hobby-card reveal"><i class="fas fa-seedling"></i> Jardinería</div>
+      <div class="hobby-card reveal"><i class="fab fa-youtube"></i> YouTube</div>
     </div>
   </section>
 
@@ -302,26 +245,10 @@
   <section class="container" id="contact">
     <h2 class="section-title reveal">Trabajemos <span>juntos</span></h2>
     <div class="contact-cards">
-      <div class="contact-card reveal">
-        <i class="fas fa-envelope"></i>
-        <h3>Email</h3>
-        <a href="mailto:teeninformatics@gmail.com">teeninformatics@gmail.com</a>
-      </div>
-      <div class="contact-card reveal">
-        <i class="fas fa-phone-alt"></i>
-        <h3>Teléfono</h3>
-        <a href="tel:+525544705244">+52 554 470 5244</a>
-      </div>
-      <div class="contact-card reveal">
-        <i class="fas fa-map-marker-alt"></i>
-        <h3>Ubicación</h3>
-        <p>Dolores Otero #700, Mérida</p>
-      </div>
-      <div class="contact-card reveal">
-        <i class="fas fa-blog"></i>
-        <h3>Blog</h3>
-        <a href="http://teeninformatics.blogspot.com" target="_blank">teeninformatics.blogspot.com</a>
-      </div>
+      <div class="contact-card reveal"><i class="fas fa-envelope"></i><h3>Email</h3><a href="mailto:teeninformatics@gmail.com">teeninformatics@gmail.com</a></div>
+      <div class="contact-card reveal"><i class="fas fa-phone-alt"></i><h3>Teléfono</h3><a href="tel:+525544705244">+52 554 470 5244</a></div>
+      <div class="contact-card reveal"><i class="fas fa-map-marker-alt"></i><h3>Ubicación</h3><p>Dolores Otero #700, Mérida</p></div>
+      <div class="contact-card reveal"><i class="fas fa-blog"></i><h3>Blog</h3><a href="http://teeninformatics.blogspot.com" target="_blank">teeninformatics.blogspot.com</a></div>
     </div>
     <form class="contact-form reveal" id="contactForm">
       <input type="text" placeholder="Nombre" required>

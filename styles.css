@@ -1,3 +1,12 @@
+/* ===== FUENTE MONTSERRAT-LIGHT ===== */
+@font-face {
+  font-family: 'Montserrat-Light';
+  src: url('Montserrat-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ===== RESET Y VARIABLES ===== */
 * {
   margin: 0;
@@ -199,16 +208,85 @@ body {
   display: none;
 }
 
-/* menu toggle */
-.menu-toggle {
-  display: none;
-  font-size: 1.8rem;
-  color: var(--negro-mate);
-  cursor: pointer;
+/* ===== DROPDOWN (escritorio) ===== */
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
 
-.navbar.scrolled .menu-toggle {
-  color: var(--blanco);
+.dropbtn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--negro-mate);
+  min-width: 200px;
+  box-shadow: var(--sombra-media);
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.dropdown-content li {
+  list-style: none;
+}
+
+.dropdown-content a {
+  color: var(--blanco) !important;
+  padding: 0.8rem 1.5rem;
+  display: block;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.dropdown-content a:hover {
+  background-color: var(--mostaza);
+  color: var(--negro-mate) !important;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* menu toggle animado */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--negro-mate);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled .menu-toggle span {
+  background-color: var(--blanco);
+}
+
+/* Animación a X */
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 /* ===== HERO ===== */
@@ -315,7 +393,7 @@ body {
   transform: translateY(-5px);
 }
 
-/* ===== FOTO CON BORDE ANIMADO (RESTAURADO) ===== */
+/* ===== FOTO CON BORDE ANIMADO ===== */
 .hero-foto {
   flex: 0 0 360px;
   display: flex;
@@ -338,7 +416,6 @@ body {
   border-radius: 50%;
 }
 
-/* Borde animado que rota y palpita (copy exacto del código proporcionado) */
 .animated-border {
   position: absolute;
   top: 0;
@@ -400,7 +477,7 @@ body {
   color: var(--mostaza);
 }
 
-/* ===== ABOUT ===== */
+/* ===== ABOUT con Montserrat-Light ===== */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -409,9 +486,12 @@ body {
 }
 
 .about-text p {
+  font-family: 'Montserrat-Light', 'Inter', sans-serif;
   font-size: 1.2rem;
   color: #333;
   margin-bottom: 1.8rem;
+  font-weight: 300;
+  line-height: 1.7;
 }
 
 .about-highlight {
@@ -422,7 +502,7 @@ body {
   box-shadow: var(--sombra-suave);
 }
 
-/* ===== SERVICIOS ESTRATÉGICOS (con imágenes y overlay) ===== */
+/* ===== SERVICIOS (sin cambios) ===== */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -491,7 +571,7 @@ body {
   font-size: 0.95rem;
 }
 
-/* ===== SECCIÓN: TARJETAS DE PRESENTACIÓN ===== */
+/* ===== TARJETAS DE PRESENTACIÓN ===== */
 .tarjetas-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -521,7 +601,7 @@ body {
   transform: scale(1.02);
 }
 
-/* ===== PORTAFOLIO / PROYECTOS ===== */
+/* ===== PORTAFOLIO ===== */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -587,7 +667,7 @@ body {
   align-self: flex-start;
 }
 
-/* ===== TIMELINE EXPERIENCIA ===== */
+/* ===== TIMELINE ===== */
 .timeline {
   border-left: 4px solid var(--mostaza);
   padding-left: 2rem;
@@ -621,7 +701,7 @@ body {
   margin: 0.2rem 0 0.5rem;
 }
 
-/* ===== FORMACIÓN ACADÉMICA ===== */
+/* ===== EDUCACIÓN ===== */
 .education-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -922,34 +1002,78 @@ body {
     flex-basis: auto;
   }
 
-  .nav-links {
-    display: none;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .navbar .nav-links.active {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: var(--negro-mate);
-    padding: 2rem;
-    gap: 1.5rem;
-    align-items: center;
-  }
-
-  .navbar .nav-links.active a {
-    color: var(--blanco);
-  }
-
   .foto-wrapper {
     width: 280px;
     height: 280px;
+  }
+
+  /* Menú responsivo desde la derecha */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -75%; /* Oculto a la derecha */
+    width: 75%;
+    height: 100vh;
+    background: var(--negro-mate);
+    padding: 80px 2rem 2rem;
+    gap: 1.5rem;
+    align-items: flex-start;
+    transition: right 0.4s ease;
+    box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+    z-index: 99;
+  }
+
+  .nav-links.active {
+    right: 0; /* Se desliza */
+  }
+
+  .nav-links a {
+    color: var(--blanco) !important;
+    font-size: 1.2rem;
+  }
+
+  .phone-link {
+    background: var(--mostaza);
+    color: var(--negro-mate) !important;
+    margin-top: 1rem;
+  }
+
+  /* Dropdown en móvil: se muestra al hacer clic (manejado con JS) */
+  .dropdown-content {
+    position: static;
+    display: none;
+    background: transparent;
+    box-shadow: none;
+    padding-left: 1rem;
+  }
+
+  .dropdown-content a {
+    color: var(--blanco) !important;
+    padding: 0.5rem 0;
+    border-bottom: none;
+  }
+
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Overlay para el fondo cuando el menú está abierto */
+  .navbar .nav-links.active::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+    pointer-events: none;
   }
 }
 
