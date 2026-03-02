@@ -40,13 +40,14 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // Menú hamburguesa
+  // Menú hamburguesa con animación X
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
 
   if (menuToggle) {
     menuToggle.addEventListener('click', function() {
       navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('open'); // animación a X
     });
   }
 
@@ -54,6 +55,19 @@
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('active');
+      menuToggle.classList.remove('open');
+    });
+  });
+
+  // Dropdown en móvil: clic para abrir/cerrar submenú
+  const dropdowns = document.querySelectorAll('.dropdown');
+  dropdowns.forEach(drop => {
+    const link = drop.querySelector('.dropbtn');
+    link.addEventListener('click', (e) => {
+      if (window.innerWidth <= 992) { // solo en móvil
+        e.preventDefault();
+        drop.classList.toggle('active');
+      }
     });
   });
 
