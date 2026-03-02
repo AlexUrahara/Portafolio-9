@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roberto Azcorra · Diseño · Frontend · Seguridad</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="loader"><div class="loader-spinner"></div></div>
+  <div id="progress-bar"></div>
+  <div id="back-to-top"><i class="fas fa-arrow-up"></i></div>
+
+  <nav class="navbar" id="navbar">
+    <div class="logo"><a href="#hero">R.A.</a></div>
+    <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Inicio</a></li>
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#services">Servicios</a></li>
+      <li><a href="#portfolio">Proyectos</a></li>
+      <li><a href="#experience">Trayectoria</a></li>
+      <li><a href="#contact">Contacto</a></li>
+      <li><a href="tel:+525544705244" class="phone-link"><i class="fas fa-phone-alt"></i> +52 554 470 5244</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO con foto grande animada -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-name reveal">Roberto Alejandro<br><span class="mostaza">Azcorra Cauich</span></h1>
+        <p class="hero-tagline reveal">Lic. Informática y Sistemas de Seguridad · Esp. Diseño Gráfico</p>
+        <p class="hero-sub reveal">Creatividad, tecnología y seguridad para soluciones digitales completas.</p>
+        <div class="btn-group reveal">
+          <a href="#contact" class="btn btn-primary">Trabajemos juntos</a>
+          <a href="#portfolio" class="btn btn-secondary">Ver proyectos</a>
+        </div>
+      </div>
+      <div class="hero-foto reveal">
+        <div class="foto-wrapper">
+          <img src="foto.jpg" alt="Roberto Azcorra">
+          <div class="animated-border"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section class="container" id="about">
+    <h2 class="section-title reveal">Sobre mí <span>·</span></h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>Soy un profesional de 28 años, serio, organizado y con una actitud dinámica y alegre. Mi creatividad y elocuencia me permiten destacar en diversos desafíos. Siempre motivado para aprender y trabajar en equipo, resuelvo problemas con iniciativa y enfoque en metas.</p>
+        <p><strong>Licenciado en Informática y Sistemas de Seguridad</strong> con sólida experiencia en diseño gráfico y conocimientos en desarrollo FrontEnd (HTML, CSS, JavaScript). Me caracterizo por la mejora continua y estar al día en tendencias tecnológicas y de diseño.</p>
+        <p>Con 4 años de experiencia en atención al cliente y más de 6 años como freelancer en diseño, he desarrollado habilidades de comunicación efectiva, trabajo en equipo y adaptación rápida. Busco aportar valor, creatividad y compromiso a cada proyecto.</p>
+      </div>
+      <div class="about-highlight reveal">
+        <i class="fas fa-quote-left" style="color: var(--mostaza); font-size: 2rem;"></i>
+        <p style="font-size: 1.3rem; font-style: italic;">"Integro creatividad, tecnología y seguridad para que tu negocio crezca sin riesgos."</p>
+        <p style="margin-top: 1rem;">– Roberto Azcorra</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS ESTRATÉGICOS (con imágenes de fondo y overlay mostaza) -->
+  <section class="container" id="services">
+    <h2 class="section-title reveal">Servicios <span>estratégicos</span></h2>
+    <div class="services-grid">
+      <div class="service-card reveal" style="background-image: url('https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&auto=format');">
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+          <h3>Diseño Gráfico Profesional</h3>
+          <p>Branding, identidad corporativa, brochures, material editorial y campañas visuales de alto impacto.</p>
+        </div>
+      </div>
+      <div class="service-card reveal" style="background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&auto=format');">
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <div class="service-icon"><i class="fas fa-code"></i></div>
+          <h3>Desarrollo FrontEnd</h3>
+          <p>Sitios web responsivos con HTML, CSS, JavaScript y conectividad a bases de datos. Experiencias de usuario modernas.</p>
+        </div>
+      </div>
+      <div class="service-card reveal" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&auto=format');">
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Seguridad Informática</h3>
+          <p>Hardening, auditorías, protección de datos y conceptos de ciberseguridad para mantener tu negocio seguro.</p>
+        </div>
+      </div>
+      <div class="service-card reveal" style="background-image: url('https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=600&auto=format');">
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <div class="service-icon"><i class="fas fa-cube"></i></div>
+          <h3>Modelado 3D / RA</h3>
+          <p>Creación de modelos 3D con Blender y experiencias de Realidad Aumentada para productos y marketing.</p>
+        </div>
+      </div>
+      <div class="service-card reveal" style="background-image: url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&auto=format');">
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <div class="service-icon"><i class="fas fa-video"></i></div>
+          <h3>Edición Audiovisual</h3>
+          <p>After Effects, Premiere Pro para piezas multimedia, videos corporativos y contenido dinámico.</p>
+        </div>
+      </div>
+      <div class="service-card reveal" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format');">
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Automatización Excel</h3>
+          <p>Macros, Visual Basic, fórmulas dinámicas y optimización de procesos para eficiencia operativa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUEVA SECCIÓN: Diseño de tarjetas de presentación -->
+  <section class="container" id="tarjetas">
+    <h2 class="section-title reveal">Diseño de <span>tarjetas de presentación</span></h2>
+    <div class="tarjetas-grid">
+      <div class="tarjetas-texto reveal">
+        <p>Mi proceso para diseñar e imprimir tarjetas de presentación comienza con una entrevista contigo para entender la esencia de tu marca. Luego realizo bocetos y propuestas digitales con herramientas como Illustrator y Photoshop, cuidando tipografías, colores y materiales. Una vez aprobado el diseño, preparo los archivos para impresión en alta resolución, superviso pruebas de color y coordino con proveedores de impresión para garantizar la mejor calidad. Finalmente, empaqueto y entrego tus tarjetas listas para causar una excelente primera impresión.</p>
+      </div>
+      <div class="tarjetas-imagen reveal">
+        <img src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?w=600&auto=format" alt="Tarjetas de presentación">
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTAFOLIO / PROYECTOS SELECCIONADOS -->
+  <section class="container" id="portfolio">
+    <h2 class="section-title reveal">Proyectos <span>seleccionados</span></h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item reveal">
+        <img src="https://picsum.photos/id/1/600/400" alt="Branding">
+        <div class="portfolio-overlay">
+          <h4>Branding Atomic Boost</h4>
+          <p>Identidad corporativa para agencia de marketing.</p>
+          <span class="portfolio-tag">Diseño Gráfico</span>
+        </div>
+      </div>
+      <div class="portfolio-item reveal">
+        <img src="https://picsum.photos/id/2/600/400" alt="Landing Page">
+        <div class="portfolio-overlay">
+          <h4>Landing Page Empresarial</h4>
+          <p>Sitio responsivo HTML/CSS/JS con óptimo rendimiento.</p>
+          <span class="portfolio-tag">Desarrollo Web</span>
+        </div>
+      </div>
+      <div class="portfolio-item reveal">
+        <img src="https://picsum.photos/id/3/600/400" alt="Modelado 3D">
+        <div class="portfolio-overlay">
+          <h4>Modelado 3D para RA</h4>
+          <p>Animación e interacción en Realidad Aumentada.</p>
+          <span class="portfolio-tag">3D / RA</span>
+        </div>
+      </div>
+      <div class="portfolio-item reveal">
+        <img src="https://picsum.photos/id/4/600/400" alt="Brochure">
+        <div class="portfolio-overlay">
+          <h4>Brochure Corporativo</h4>
+          <p>Diseño editorial para cliente del sector financiero.</p>
+          <span class="portfolio-tag">Editorial</span>
+        </div>
+      </div>
+      <div class="portfolio-item reveal">
+        <img src="https://picsum.photos/id/5/600/400" alt="Video Corporativo">
+        <div class="portfolio-overlay">
+          <h4>Video Promocional</h4>
+          <p>Edición con After Effects y Premiere Pro.</p>
+          <span class="portfolio-tag">Audiovisual</span>
+        </div>
+      </div>
+      <div class="portfolio-item reveal">
+        <img src="https://picsum.photos/id/6/600/400" alt="Automatización">
+        <div class="portfolio-overlay">
+          <h4>Dashboard en Excel</h4>
+          <p>Automatización de reportes con macros y VB.</p>
+          <span class="portfolio-tag">Optimización</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA LABORAL -->
+  <section class="container" id="experience">
+    <h2 class="section-title reveal">Experiencia <span>profesional</span></h2>
+    <div class="timeline reveal">
+      <div class="timeline-item"><h3>Agencia Atomic Boost</h3><h4>Diseñador gráfico · Ene 2024 - May 2024</h4><p>Diseño de logotipos, identidad corporativa, brochures y materiales de branding. Enfoque en comunicación visual efectiva.</p></div>
+      <div class="timeline-item"><h3>Corporativo Black MetaDryve</h3><h4>Modelador 3D / Diseñador · Mar 2023 - Jul 2023</h4><p>Desarrollo de servicios de Realidad Aumentada, modelado 3D con Blender, vectorizado de logos, nociones de CRM y Wizard.</p></div>
+      <div class="timeline-item"><h3>Freelance</h3><h4>Diseñador Gráfico · Mar 2020 - Sep 2023</h4><p>Más de 6 años realizando proyectos de diseño por cuenta propia, aprendiendo y mejorando continuamente habilidades.</p></div>
+      <div class="timeline-item"><h3>Comercializadora Almacenes García</h3><h4>Auxiliar de Sistemas / Vendedor · Mar 2019 - Ene 2023</h4><p>Atención al cliente, mantenimiento de equipos, automatización Excel, soporte técnico.</p></div>
+      <div class="timeline-item"><h3>Empresa TECNO</h3><h4>Prácticas · Ene 2019 - Mar 2019</h4><p>Apoyo en mantenimiento de sistemas.</p></div>
+    </div>
+  </section>
+
+  <!-- FORMACIÓN ACADÉMICA -->
+  <section class="container" id="education">
+    <h2 class="section-title reveal">Formación <span>académica</span></h2>
+    <div class="education-grid">
+      <div class="edu-card reveal">
+        <i class="fas fa-university"></i>
+        <h3>Lic. Informática y Sistemas de Seguridad</h3>
+        <p>Centro Universitario Felipe Carrillo Puerto · 2018-2021</p>
+      </div>
+      <div class="edu-card reveal">
+        <i class="fas fa-palette"></i>
+        <h3>Especialidad en Diseño Gráfico Digital</h3>
+        <p>Computación del Golfo · 2023-2024</p>
+      </div>
+      <div class="edu-card reveal">
+        <i class="fas fa-code"></i>
+        <h3>Desarrollo Web Completo</h3>
+        <p>Udemy · HTML, CSS, JS, MySQL · 2022-2023</p>
+      </div>
+      <div class="edu-card reveal">
+        <i class="fas fa-file-excel"></i>
+        <h3>Excel Básico-Intermedio (Macros, VB)</h3>
+        <p>Udemy · 2022-2023</p>
+      </div>
+      <div class="edu-card reveal">
+        <i class="fas fa-school"></i>
+        <h3>Preparatoria COBAY Santa Rosa</h3>
+        <p>Capacitación en Informática · 2015-2018</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES TÉCNICAS -->
+  <section class="container" id="skills">
+    <h2 class="section-title reveal">Habilidades <span>técnicas</span></h2>
+    <div class="skills-wrapper">
+      <div>
+        <h3>Lenguajes y herramientas</h3>
+        <div class="skill-item"><div class="skill-info"><span>HTML5</span><span>80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80%"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>CSS3</span><span>75%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="75%"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>JavaScript</span><span>60%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="60%"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>PHP/MySQL</span><span>50%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="50%"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>Flutter</span><span>40%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="40%"></div></div></div>
+      </div>
+      <div>
+        <h3>Diseño y ofimática</h3>
+        <div class="skill-item"><div class="skill-info"><span>Photoshop / Illustrator</span><span>95%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="95%"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>InDesign / After Effects</span><span>85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85%"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>Premiere Pro</span><span>80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80%"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>Excel (Macros, VB)</span><span>70%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="70%"></div></div></div>
+        <div class="skill-item"><div class="skill-info"><span>Blender (3D/RA)</span><span>65%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="65%"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IDIOMAS Y PASATIEMPOS -->
+  <section class="container" id="hobbies">
+    <h2 class="section-title reveal">Idiomas & <span>pasatiempos</span></h2>
+    <div class="hobbies-wrapper">
+      <div class="lang-card reveal">
+        <i class="fas fa-globe"></i>
+        <span>Español: Nativo (100%)</span>
+      </div>
+      <div class="lang-card reveal">
+        <i class="fas fa-language"></i>
+        <span>Inglés: 30%</span>
+      </div>
+      <div class="hobby-card reveal">
+        <i class="fas fa-paint-brush"></i> Crear diseños
+      </div>
+      <div class="hobby-card reveal">
+        <i class="fas fa-guitar"></i> Tocar guitarra
+      </div>
+      <div class="hobby-card reveal">
+        <i class="fas fa-seedling"></i> Jardinería
+      </div>
+      <div class="hobby-card reveal">
+        <i class="fab fa-youtube"></i> YouTube
+      </div>
+    </div>
+  </section>
+
+  <!-- INFORMACIÓN ADICIONAL -->
+  <section class="container" id="extra">
+    <h2 class="section-title reveal">Info <span>adicional</span></h2>
+    <div class="extra-grid">
+      <div class="extra-item reveal"><i class="fas fa-print"></i> <strong>Conocimientos en acabados:</strong> Apoyo en imprenta (manejo de máquinas de impresión digital).</div>
+      <div class="extra-item reveal"><i class="fas fa-camera"></i> <strong>Fotografía:</strong> Uso de cámara digital y retoque en Photoshop.</div>
+      <div class="extra-item reveal"><i class="fas fa-id-card"></i> <strong>Título universitario:</strong> Licenciatura concluida.</div>
+      <div class="extra-item reveal"><i class="fas fa-motorcycle"></i> <strong>Licencia de conducir:</strong> Moto.</div>
+      <div class="extra-item reveal"><i class="fas fa-clock"></i> <strong>Disponibilidad:</strong> Actualmente trabajo en agencia de marketing, busco ingreso extra remoto. Presencial: miércoles, sábados y domingos.</div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="container" id="contact">
+    <h2 class="section-title reveal">Trabajemos <span>juntos</span></h2>
+    <div class="contact-cards">
+      <div class="contact-card reveal">
+        <i class="fas fa-envelope"></i>
+        <h3>Email</h3>
+        <a href="mailto:teeninformatics@gmail.com">teeninformatics@gmail.com</a>
+      </div>
+      <div class="contact-card reveal">
+        <i class="fas fa-phone-alt"></i>
+        <h3>Teléfono</h3>
+        <a href="tel:+525544705244">+52 554 470 5244</a>
+      </div>
+      <div class="contact-card reveal">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Ubicación</h3>
+        <p>Dolores Otero #700, Mérida</p>
+      </div>
+      <div class="contact-card reveal">
+        <i class="fas fa-blog"></i>
+        <h3>Blog</h3>
+        <a href="http://teeninformatics.blogspot.com" target="_blank">teeninformatics.blogspot.com</a>
+      </div>
+    </div>
+    <form class="contact-form reveal" id="contactForm">
+      <input type="text" placeholder="Nombre" required>
+      <input type="email" placeholder="Correo electrónico" required>
+      <textarea rows="5" placeholder="Cuéntame tu idea..."></textarea>
+      <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <div class="social-links">
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-behance"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+    <p>© 2025 Roberto Alejandro Azcorra Cauich · Diseño · Frontend · Seguridad</p>
+  </footer>
+
+  <!-- JavaScript externo -->
+  <script src="scripts.js"></script>
+</body>
+</html>
