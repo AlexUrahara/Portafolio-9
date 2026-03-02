@@ -40,35 +40,63 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // Menú hamburguesa con animación X
+  // Elementos del menú responsivo
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
+  const menuOverlay = document.getElementById('menu-overlay');
 
   if (menuToggle) {
     menuToggle.addEventListener('click', function() {
+      const isActive = navLinks.classList.contains('active');
       navLinks.classList.toggle('active');
-      menuToggle.classList.toggle('open'); // animación a X
+      menuToggle.classList.toggle('open');
+      if (menuOverlay) {
+        menuOverlay.classList.toggle('active');
+      }
+      // Prevenir scroll del body cuando el menú está abierto
+      document.body.style.overflow = isActive ? '' : 'hidden';
+    });
+  }
+
+  // Cerrar menú al hacer clic en overlay
+  if (menuOverlay) {
+    menuOverlay.addEventListener('click', function() {
+      navLinks.classList.remove('active');
+      menuToggle.classList.remove('open');
+      menuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
     });
   }
 
   // Cerrar menú al hacer clic en un enlace
   document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-      menuToggle.classList.remove('open');
+    link.addEventListener('click', (e) => {
+      // Si es el enlace del dropdown, no cerrar el menú principal
+      if (link.closest('.dropdown') && window.innerWidth <= 992) {
+        e.preventDefault();
+        // Toggle submenú en móvil
+        const dropdown = link.closest('.dropdown');
+        dropdown.classList.toggle('active');
+        return;
+      }
+      // Para otros enlaces, cerrar menú
+      if (window.innerWidth <= 992) {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('open');
+        if (menuOverlay) menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
     });
   });
 
-  // Dropdown en móvil: clic para abrir/cerrar submenú
-  const dropdowns = document.querySelectorAll('.dropdown');
-  dropdowns.forEach(drop => {
-    const link = drop.querySelector('.dropbtn');
-    link.addEventListener('click', (e) => {
-      if (window.innerWidth <= 992) { // solo en móvil
-        e.preventDefault();
-        drop.classList.toggle('active');
-      }
-    });
+  // Cerrar menú al redimensionar a desktop
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 992) {
+      navLinks.classList.remove('active');
+      menuToggle.classList.remove('open');
+      if (menuOverlay) menuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   });
 
   // Intersection Observer para animaciones reveal
