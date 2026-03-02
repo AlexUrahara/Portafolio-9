@@ -1,12 +1,3 @@
-/* ===== FUENTE MONTSERRAT-LIGHT ===== */
-@font-face {
-  font-family: 'Montserrat-Light';
-  src: url('Montserrat-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* ===== RESET Y VARIABLES ===== */
 * {
   margin: 0;
@@ -208,7 +199,7 @@ body {
   display: none;
 }
 
-/* ===== DROPDOWN (escritorio) ===== */
+/* ===== DROPDOWN (escritorio) - AHORA EN BLANCO ===== */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -225,7 +216,7 @@ body {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: var(--negro-mate);
+  background-color: var(--blanco); /* Fondo blanco */
   min-width: 200px;
   box-shadow: var(--sombra-media);
   border-radius: 12px;
@@ -238,11 +229,11 @@ body {
 }
 
 .dropdown-content a {
-  color: var(--blanco) !important;
+  color: var(--negro-mate) !important; /* Texto negro */
   padding: 0.8rem 1.5rem;
   display: block;
   font-size: 0.9rem;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .dropdown-content a:hover {
@@ -342,10 +333,11 @@ body {
   color: #333;
 }
 
+/* Color gris medio fuerte para hero-sub y about-text */
 .hero-sub {
   font-size: 1.2rem;
   max-width: 600px;
-  color: #555;
+  color: #666; /* Gris medio fuerte */
   margin-bottom: 2rem;
 }
 
@@ -477,7 +469,7 @@ body {
   color: var(--mostaza);
 }
 
-/* ===== ABOUT con Montserrat-Light ===== */
+/* ===== ABOUT ===== */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -485,12 +477,13 @@ body {
   align-items: start;
 }
 
+/* Texto de about con la misma fuente y color gris medio */
 .about-text p {
-  font-family: 'Montserrat-Light', 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif; /* misma que hero-sub */
   font-size: 1.2rem;
-  color: #333;
+  color: #666; /* gris medio fuerte */
   margin-bottom: 1.8rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.7;
 }
 
@@ -1007,7 +1000,7 @@ body {
     height: 280px;
   }
 
-  /* Menú responsivo desde la derecha */
+  /* Menú responsivo desde la derecha - AHORA EN BLANCO */
   .nav-links {
     display: flex;
     flex-direction: column;
@@ -1016,7 +1009,7 @@ body {
     right: -75%; /* Oculto a la derecha */
     width: 75%;
     height: 100vh;
-    background: var(--negro-mate);
+    background: var(--blanco); /* Fondo blanco */
     padding: 80px 2rem 2rem;
     gap: 1.5rem;
     align-items: flex-start;
@@ -1030,7 +1023,7 @@ body {
   }
 
   .nav-links a {
-    color: var(--blanco) !important;
+    color: var(--negro-mate) !important; /* Texto negro */
     font-size: 1.2rem;
   }
 
@@ -1040,17 +1033,17 @@ body {
     margin-top: 1rem;
   }
 
-  /* Dropdown en móvil: se muestra al hacer clic (manejado con JS) */
+  /* Dropdown en móvil: fondo blanco y texto negro */
   .dropdown-content {
     position: static;
     display: none;
-    background: transparent;
+    background: transparent; /* Hereda del fondo blanco */
     box-shadow: none;
     padding-left: 1rem;
   }
 
   .dropdown-content a {
-    color: var(--blanco) !important;
+    color: var(--negro-mate) !important;
     padding: 0.5rem 0;
     border-bottom: none;
   }
@@ -1061,6 +1054,11 @@ body {
 
   .menu-toggle {
     display: flex;
+  }
+
+  /* Color de las barras cuando el navbar no está scrolleado en móvil */
+  .navbar:not(.scrolled) .menu-toggle span {
+    background-color: var(--negro-mate);
   }
 
   /* Overlay para el fondo cuando el menú está abierto */
@@ -1090,4 +1088,53 @@ body {
     width: 340px;
     height: 340px;
   }
+}
+
+
+
+
+/* ========== BOTÓN SCROLL ========== */
+.btn-scroll {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 1.5px solid rgba(172, 55, 55, 0.8);
+  border-radius: 50%;
+  color: rgb(198, 53, 53);
+  font-size: 1.8rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  animation: bounce 2.5s infinite ease-in-out;
+  background: transparent;
+  backdrop-filter: blur(2px);
+  z-index: 4;
+}
+
+.btn-scroll i {
+  line-height: 1;
+  transition: transform 0.2s;
+}
+
+.btn-scroll:hover {
+  background-color: rgb(219, 66, 66);
+  color: var(--gris-oscuro);
+  border-color: rgb(210, 55, 55);
+  transform: translateX(-50%) scale(1.1);
+  animation: none;
+}
+
+.btn-scroll:hover i {
+  transform: translateY(3px);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-10px); }
+  60% { transform: translateX(-50%) translateY(-5px); }
 }
