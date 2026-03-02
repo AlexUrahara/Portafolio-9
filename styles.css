@@ -1183,7 +1183,57 @@ body {
   transform: translateX(-50%) scale(1.1);
   animation: none;
 }
+/* ===== BOTÓN SCROLL HACIA ABAJO ===== */
+.btn-scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 2px solid var(--mostaza);
+  border-radius: 50%;
+  color: var(--mostaza);
+  font-size: 1.8rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  animation: bounce 2.5s infinite ease-in-out;
+  background: transparent;
+  backdrop-filter: blur(2px);
+  z-index: 10;
+}
 
+.btn-scroll i {
+  line-height: 1;
+  transition: transform 0.2s;
+}
+
+.btn-scroll:hover {
+  background-color: var(--mostaza);
+  color: var(--negro-mate);
+  border-color: var(--mostaza);
+  transform: translateX(-50%) scale(1.1);
+  animation: none;
+}
+
+.btn-scroll:hover i {
+  transform: translateY(3px);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-12px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-6px);
+  }
+}
 .btn-scroll:hover i {
   transform: translateY(3px);
 }
