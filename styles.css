@@ -315,7 +315,7 @@ body {
   transform: translateY(-5px);
 }
 
-/* Foto redonda animada (más grande) - CORREGIDA */
+/* ===== FOTO CON BORDE ANIMADO (RESTAURADO) ===== */
 .hero-foto {
   flex: 0 0 360px;
   display: flex;
@@ -323,12 +323,11 @@ body {
 }
 
 .foto-wrapper {
-  width: 320px;
-  height: 320px;
+  width: 520px;
+  height: 520px;
   border-radius: 50%;
   position: relative;
   box-shadow: var(--sombra-media);
-  /* overflow: hidden ELIMINADO para que el borde sea visible */
 }
 
 .foto-wrapper img {
@@ -339,40 +338,34 @@ body {
   border-radius: 50%;
 }
 
-/* ANIMACIÓN CORREGIDA: BORDE MOSTAZA QUE ROTA Y PALPITA */
+/* Borde animado que rota y palpita (copy exacto del código proporcionado) */
 .animated-border {
   position: absolute;
-  top: -12px;
-  left: -12px;
-  right: -12px;
-  bottom: -12px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
-  border: 4px solid var(--mostaza);
-  box-shadow: 0 0 20px var(--mostaza), 0 0 40px rgba(212, 160, 56, 0.3);
-  animation: pulseRotate 2.5s infinite ease-in-out;
-  pointer-events: none;
+  border: 7px solid transparent;
+  border-top-color: var(--mostaza);
+  border-right-color: var(--mostaza);
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  animation: rotateBorder 4s linear infinite, pulseGlow 2s ease-in-out infinite;
+  box-shadow: 0 0 15px var(--mostaza);
   z-index: 2;
+  pointer-events: none;
 }
 
-@keyframes pulseRotate {
-  0% {
-    transform: rotate(0deg) scale(1);
-    border-width: 4px;
-    opacity: 0.8;
-    box-shadow: 0 0 15px var(--mostaza);
-  }
-  50% {
-    transform: rotate(180deg) scale(1.08);
-    border-width: 8px;
-    opacity: 1;
-    box-shadow: 0 0 30px var(--mostaza), 0 0 60px rgba(212, 160, 56, 0.5);
-  }
-  100% {
-    transform: rotate(360deg) scale(1);
-    border-width: 4px;
-    opacity: 0.8;
-    box-shadow: 0 0 15px var(--mostaza);
-  }
+@keyframes rotateBorder {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulseGlow {
+  0% { opacity: 0.6; box-shadow: 0 0 10px var(--mostaza); }
+  50% { opacity: 1; box-shadow: 0 0 25px var(--mostaza), 0 0 40px var(--mostaza); }
+  100% { opacity: 0.6; box-shadow: 0 0 10px var(--mostaza); }
 }
 
 /* ===== REVEAL ===== */
@@ -498,7 +491,7 @@ body {
   font-size: 0.95rem;
 }
 
-/* ===== NUEVA SECCIÓN: TARJETAS DE PRESENTACIÓN ===== */
+/* ===== SECCIÓN: TARJETAS DE PRESENTACIÓN ===== */
 .tarjetas-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -970,7 +963,7 @@ body {
   }
 
   .foto-wrapper {
-    width: 240px;
-    height: 240px;
+    width: 340px;
+    height: 340px;
   }
 }
