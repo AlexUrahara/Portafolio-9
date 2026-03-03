@@ -537,7 +537,7 @@ body {
   100% { opacity: 0.6; box-shadow: 0 0 10px var(--mostaza); }
 }
 
-/* ===== BOTÓN SCROLL (más lento) ===== */
+/* ===== BOTÓN SCROLL ===== */
 .btn-scroll {
   position: absolute;
   bottom: 30px;
@@ -554,7 +554,7 @@ body {
   font-size: 1.8rem;
   text-decoration: none;
   transition: all 0.3s ease;
-  animation: bounce 4s infinite ease-in-out; /* más lento */
+  animation: bounce 2.5s infinite ease-in-out;
   background: transparent;
   backdrop-filter: blur(2px);
   z-index: 10;
@@ -589,121 +589,108 @@ body {
   }
 }
 
-/* ===== RESPONSIVE PARA MÓVIL (buena distribución) ===== */
+/* ===== RESPONSIVE PARA HERO ===== */
 @media (max-width: 992px) {
   .hero {
-    padding: 70px 5% 20px; /* espacio para navbar, reducido */
-    align-items: center; /* centrado vertical */
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 60px; /* Reducido para subir el contenido */
+    padding-bottom: 0;
   }
 
   .hero-content {
     flex-direction: column;
     text-align: center;
-    gap: 2rem; /* más espacio entre elementos */
+    gap: 1.5rem; /* Reducido */
     justify-content: center;
   }
 
   .hero-text {
-    margin-top: 0;
+    margin-top: 0; /* Eliminado el margen superior */
   }
 
   .hero-name {
-    font-size: 3.5rem; /* más grande */
+    font-size: 3.2rem;
   }
 
   .hero-tagline {
-    font-size: 1.6rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
   }
 
   .hero-sub {
-    font-size: 1.3rem;
-    max-width: 90%;
+    font-size: 1.2rem;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem; /* Reducido */
   }
 
   .hero-foto {
     flex-basis: auto;
-    margin: 0.5rem 0;
+    margin-bottom: 0; /* Eliminado margen inferior */
   }
 
   .foto-wrapper {
-    width: 340px; /* más grande */
-    height: 340px;
+    width: 320px;
+    height: 320px;
   }
 
   .btn-group {
     justify-content: center;
-    margin: 1.5rem 0 2.5rem; /* espacio inferior para el botón scroll */
+    margin-bottom: 1rem; /* Reducido */
   }
 
   .btn-scroll {
-    bottom: 20px; /* visible y bien posicionado */
-    width: 48px;
-    height: 48px;
-    font-size: 1.6rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-name {
-    font-size: 3.2rem;
-  }
-  .hero-tagline {
-    font-size: 1.5rem;
-  }
-  .hero-sub {
-    font-size: 1.2rem;
-  }
-  .foto-wrapper {
-    width: 300px;
-    height: 300px;
+    bottom: 5%; /* Posición relativa para adaptarse a la altura */
   }
 }
 
 @media (max-width: 576px) {
   .hero {
-    padding-top: 60px;
+    padding-top: 50px;
   }
+
   .hero-name {
     font-size: 2.8rem;
   }
+
   .hero-tagline {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
+
   .hero-sub {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
+
   .foto-wrapper {
-    width: 260px;
-    height: 260px;
+    width: 280px;
+    height: 280px;
   }
+
   .btn-scroll {
-    bottom: 15px;
+    bottom: 5%;
     width: 44px;
     height: 44px;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 }
 
 @media (max-width: 400px) {
+  .hero {
+    padding-top: 40px;
+  }
+
   .hero-name {
     font-size: 2.4rem;
   }
-  .hero-tagline {
-    font-size: 1.2rem;
-  }
-  .hero-sub {
-    font-size: 1rem;
-  }
+
   .foto-wrapper {
-    width: 220px;
-    height: 220px;
+    width: 240px;
+    height: 240px;
   }
+
   .btn-scroll {
-    bottom: 10px;
+    bottom: 5%;
   }
 }
 /* ===== REVEAL ===== */
