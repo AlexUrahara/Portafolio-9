@@ -79,7 +79,7 @@
   }
 
   // Cerrar menú al hacer clic en un enlace (excepto dropdown)
- // Manejo de clics en enlaces del nav
+// Manejo de clics en enlaces del nav
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', (e) => {
     // Si es un enlace dentro de un dropdown en móvil
