@@ -382,7 +382,7 @@ body {
 
 /* ===== HERO ===== */
 .hero {
-  min-height: 100vh;
+  min-height: 94vh;
   display: flex;
   align-items: center;
   padding: 0 5%;
@@ -428,14 +428,14 @@ body {
 }
 
 .hero-tagline {
-  font-size: 1.5rem;
+  font-size: 2.4rem;
   font-weight: 300;
   margin: 1rem 0 0.5rem;
   color: #333;
 }
 
 .hero-sub {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   max-width: 600px;
   color: var(--gris-texto);
   margin-bottom: 2rem;
@@ -616,7 +616,7 @@ body {
   }
 
   .hero-tagline {
-    font-size: 1.4rem;
+    font-size: 2.5rem;
   }
 
   .hero-sub {
@@ -652,11 +652,11 @@ body {
   }
 
   .hero-name {
-    font-size: 2.8rem;
+    font-size: 3rem;
   }
 
   .hero-tagline {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
   }
 
   .hero-sub {
@@ -690,7 +690,7 @@ body {
   }
 
   .hero-name {
-    font-size: 2.4rem;
+    font-size: 2.9rem;
   }
 
   .foto-wrapper {
@@ -712,6 +712,9 @@ body {
   .btn {
     padding: 0.6rem 0.8rem; /* Padding aún más pequeño */
     font-size: 0.8rem;
+  }
+  .hero-name {
+    font-size: 2.9rem;
   }
 }
 }
@@ -1137,6 +1140,10 @@ body {
     height: 35px;
     font-size: 1rem;
   }
+  .service-icon {
+    font-size: 1.6rem;
+  }
+  
 }
 
 @media (max-width: 480px) {
@@ -1149,7 +1156,8 @@ body {
   }
 
   .service-icon {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    margin-bottom: -5px;
   }
 
   .service-content h3 {
@@ -1611,15 +1619,15 @@ body {
   }
 
   .hero-name {
-    font-size: 2.8rem;
+    font-size: 3rem;
   }
 
   .hero-tagline {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .hero-sub {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-bottom: 1.5rem;
   }
 
@@ -1733,15 +1741,15 @@ body {
   }
 
   .hero-name {
-    font-size: 2.4rem;
+    font-size: 2.6rem;
   }
 
   .hero-tagline {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   .hero-sub {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
 
   .foto-wrapper {
@@ -1754,5 +1762,72 @@ body {
     width: 40px;
     height: 40px;
     font-size: 1.3rem;
+  }
+}
+/* ===== ESTILOS PARA EL NAVBAR CUANDO EL MENÚ ESTÁ ABIERTO ===== */
+.navbar.menu-open {
+  background-color: var(--blanco) !important;
+  transition: background-color 0.3s ease;
+}
+
+.navbar.menu-open .logo a {
+  color: var(--negro-mate) !important;
+}
+
+.navbar.menu-open .menu-toggle span {
+  background-color: var(--negro-mate) !important;
+}
+
+/* Asegurar que la X se vea negra en menú abierto (sobre fondo blanco) */
+.navbar.menu-open .menu-toggle.open span {
+  background-color: var(--negro-mate) !important;
+}
+
+/* ===== REDES SOCIALES EN MENÚ RESPONSIVO ===== */
+ /* ===== REDES SOCIALES EN MENÚ (OCULTAS EN ESCRITORIO) ===== */
+.nav-links .social-header,
+.nav-links .social-items {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  /* Aseguramos que el menú tenga espacio abajo */
+  .nav-links {
+    padding-bottom: 3rem; /* más espacio para que las redes se vean */
+  }
+
+  .nav-links .social-header {
+    display: block;
+    margin-top: auto; /* empuja hacia abajo */
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: #888;
+    letter-spacing: 1px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 0.5px solid var(--gris-medio);
+    padding-bottom: 0.5rem;
+  }
+
+  .nav-links .social-items {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 1rem; /* separación del borde inferior */
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    justify-content: center; /* ← esto centra los iconos */
+  }
+
+  .nav-links .social-item {
+    color: var(--mostaza);
+    font-size: 1.5rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+    text-decoration: none;
+  }
+
+  .nav-links .social-item:hover {
+    transform: translateY(-3px);
   }
 }

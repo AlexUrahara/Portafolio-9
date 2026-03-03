@@ -44,6 +44,7 @@
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
   const menuOverlay = document.getElementById('menu-overlay');
+  // NOTA: navbar ya está declarado arriba, no volver a declarar
 
   if (menuToggle) {
     menuToggle.addEventListener('click', function(e) {
@@ -51,6 +52,14 @@
       const isActive = navLinks.classList.contains('active');
       navLinks.classList.toggle('active');
       menuToggle.classList.toggle('open');
+      
+      // Gestionar clase menu-open en el navbar
+      if (!isActive) {
+        navbar.classList.add('menu-open');
+      } else {
+        navbar.classList.remove('menu-open');
+      }
+      
       if (menuOverlay) {
         menuOverlay.classList.toggle('active');
       }
@@ -63,6 +72,7 @@
     menuOverlay.addEventListener('click', function() {
       navLinks.classList.remove('active');
       menuToggle.classList.remove('open');
+      navbar.classList.remove('menu-open');
       menuOverlay.classList.remove('active');
       document.body.style.overflow = '';
     });
@@ -81,6 +91,7 @@
       if (window.innerWidth <= 992 && !link.closest('.dropdown')) {
         navLinks.classList.remove('active');
         menuToggle.classList.remove('open');
+        navbar.classList.remove('menu-open');
         if (menuOverlay) menuOverlay.classList.remove('active');
         document.body.style.overflow = '';
       }
@@ -92,6 +103,7 @@
     if (window.innerWidth > 992) {
       navLinks.classList.remove('active');
       menuToggle.classList.remove('open');
+      navbar.classList.remove('menu-open');
       if (menuOverlay) menuOverlay.classList.remove('active');
       document.body.style.overflow = '';
       document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
@@ -270,46 +282,47 @@ document.addEventListener('DOMContentLoaded', function() {
       carouselInterval = null;
     }
   }
-// Navegación entre servicios con slide completo de toda la ventana
-function changeService(direction) {
-  stopCarousel(); // Detiene el carrusel automático mientras se anima
-  
-  const modalSlider = document.querySelector('.modal-slider');
-  
-  // Clases según dirección: 1 = siguiente, -1 = anterior
-  const outClass = direction === 1 ? 'slide-out-left' : 'slide-out-right';
-  const inClass = direction === 1 ? 'slide-in-right' : 'slide-in-left';
-  
-  // Aplicar clase de salida
-  modalSlider.classList.add(outClass);
-  
-  // Esperar a que termine la animación de salida (600ms)
-  setTimeout(() => {
-    // Calcular nuevo índice
-    currentServiceIndex = (currentServiceIndex + direction + servicesData.length) % servicesData.length;
+
+  // Navegación entre servicios con slide completo de toda la ventana
+  function changeService(direction) {
+    stopCarousel(); // Detiene el carrusel automático mientras se anima
     
-    // Actualizar todo el contenido con el nuevo servicio
-    const service = servicesData[currentServiceIndex];
-    document.getElementById('modalTitle').textContent = service.title;
-    document.getElementById('modalDescription').innerHTML = service.description;
-    document.getElementById('modalImg1').src = service.images[0];
-    document.getElementById('modalImg2').src = service.images[1];
-    currentImageIndex = 0;
-    updateCarousel(); // Reinicia el carrusel a la primera imagen
+    const modalSlider = document.querySelector('.modal-slider');
     
-    // Quitar clase de salida y aplicar clase de entrada
-    modalSlider.classList.remove(outClass);
-    modalSlider.classList.add(inClass);
+    // Clases según dirección: 1 = siguiente, -1 = anterior
+    const outClass = direction === 1 ? 'slide-out-left' : 'slide-out-right';
+    const inClass = direction === 1 ? 'slide-in-right' : 'slide-in-left';
     
-    // Reiniciar el carrusel automático después de que entre el nuevo contenido
-    startCarousel();
+    // Aplicar clase de salida
+    modalSlider.classList.add(outClass);
     
-    // Quitar la clase de entrada después de la animación para dejar el estado limpio
+    // Esperar a que termine la animación de salida (600ms)
     setTimeout(() => {
-      modalSlider.classList.remove(inClass);
-    }, 600);
-  }, 600); // Mismo tiempo que la transición CSS
-}
+      // Calcular nuevo índice
+      currentServiceIndex = (currentServiceIndex + direction + servicesData.length) % servicesData.length;
+      
+      // Actualizar todo el contenido con el nuevo servicio
+      const service = servicesData[currentServiceIndex];
+      document.getElementById('modalTitle').textContent = service.title;
+      document.getElementById('modalDescription').innerHTML = service.description;
+      document.getElementById('modalImg1').src = service.images[0];
+      document.getElementById('modalImg2').src = service.images[1];
+      currentImageIndex = 0;
+      updateCarousel(); // Reinicia el carrusel a la primera imagen
+      
+      // Quitar clase de salida y aplicar clase de entrada
+      modalSlider.classList.remove(outClass);
+      modalSlider.classList.add(inClass);
+      
+      // Reiniciar el carrusel automático después de que entre el nuevo contenido
+      startCarousel();
+      
+      // Quitar la clase de entrada después de la animación para dejar el estado limpio
+      setTimeout(() => {
+        modalSlider.classList.remove(inClass);
+      }, 600);
+    }, 600); // Mismo tiempo que la transición CSS
+  }
 
   if (prevServiceBtn) {
     prevServiceBtn.addEventListener('click', (e) => {
