@@ -537,23 +537,75 @@ body {
   100% { opacity: 0.6; box-shadow: 0 0 10px var(--mostaza); }
 }
 
+/* ===== BOTÓN SCROLL ===== */
+.btn-scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 2px solid var(--mostaza);
+  border-radius: 50%;
+  color: var(--mostaza);
+  font-size: 1.8rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  animation: bounce 2.5s infinite ease-in-out;
+  background: transparent;
+  backdrop-filter: blur(2px);
+  z-index: 10;
+}
+
+.btn-scroll i {
+  line-height: 1;
+  transition: transform 0.2s;
+}
+
+.btn-scroll:hover {
+  background-color: var(--mostaza);
+  color: var(--negro-mate);
+  border-color: var(--mostaza);
+  transform: translateX(-50%) scale(1.1);
+  animation: none;
+}
+
+.btn-scroll:hover i {
+  transform: translateY(3px);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-12px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-6px);
+  }
+}
+
 /* ===== RESPONSIVE PARA HERO ===== */
 @media (max-width: 992px) {
   .hero {
     flex-direction: column;
     justify-content: center;
-    padding: 80px 5% 30px; /* Ajuste de padding para centrar */
+    padding: 40px 5% 20px; /* Reducido de 80px a 40px */
   }
 
   .hero-content {
     flex-direction: column;
     text-align: center;
-    gap: 1.5rem;
+    gap: 1rem; /* Reducido de 1.5rem a 1rem */
     justify-content: center;
   }
 
   .hero-text {
-    margin-top: 0;
+    margin-top: -10px; /* Nuevo: desplaza el texto hacia arriba */
   }
 
   .hero-name {
@@ -568,12 +620,13 @@ body {
     font-size: 1.2rem;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem; /* Reducido de 1.5rem a 1rem */
   }
 
   .hero-foto {
     flex-basis: auto;
     margin-bottom: 0;
+    margin-top: -10px; /* Nuevo: sube la foto */
   }
 
   .foto-wrapper {
@@ -583,11 +636,11 @@ body {
 
   .btn-group {
     justify-content: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem; /* Reducido de 1.5rem a 1rem */
   }
 
   .btn-scroll {
-    bottom: 20px; /* Fijo y visible */
+    bottom: 10px; /* Reducido de 20px a 10px */
     width: 48px;
     height: 48px;
     font-size: 1.6rem;
@@ -596,7 +649,7 @@ body {
 
 @media (max-width: 576px) {
   .hero {
-    padding: 60px 5% 20px;
+    padding: 30px 5% 15px; /* Reducido de 60px a 30px */
   }
 
   .hero-name {
@@ -609,7 +662,7 @@ body {
 
   .hero-sub {
     font-size: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem; /* Reducido */
   }
 
   .foto-wrapper {
@@ -617,8 +670,12 @@ body {
     height: 280px;
   }
 
+  .hero-foto {
+    margin-top: -5px; /* Sube un poco más */
+  }
+
   .btn-scroll {
-    bottom: 15px;
+    bottom: 8px; /* Reducido de 15px a 8px */
     width: 44px;
     height: 44px;
     font-size: 1.5rem;
@@ -627,7 +684,7 @@ body {
 
 @media (max-width: 400px) {
   .hero {
-    padding: 40px 5% 15px;
+    padding: 20px 5% 10px; /* Reducido de 40px a 20px */
   }
 
   .hero-name {
@@ -639,8 +696,12 @@ body {
     height: 240px;
   }
 
+  .hero-foto {
+    margin-top: 0;
+  }
+
   .btn-scroll {
-    bottom: 10px;
+    bottom: 5px; /* Reducido de 10px a 5px */
     width: 40px;
     height: 40px;
     font-size: 1.3rem;
