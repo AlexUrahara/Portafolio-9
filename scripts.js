@@ -71,7 +71,6 @@
   // Cerrar menú al hacer clic en un enlace (excepto dropdown)
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', (e) => {
-      // Si es el enlace del dropdown en móvil, prevenir salto y toggle submenú
       if (link.closest('.dropdown') && window.innerWidth <= 992) {
         e.preventDefault();
         e.stopPropagation();
@@ -79,7 +78,6 @@
         dropdown.classList.toggle('active');
         return;
       }
-      // Para otros enlaces, cerrar menú
       if (window.innerWidth <= 992 && !link.closest('.dropdown')) {
         navLinks.classList.remove('active');
         menuToggle.classList.remove('open');
@@ -96,7 +94,6 @@
       menuToggle.classList.remove('open');
       if (menuOverlay) menuOverlay.classList.remove('active');
       document.body.style.overflow = '';
-      // Resetear dropdowns activos
       document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
     }
   });
@@ -113,7 +110,7 @@
 
   reveals.forEach(r => observer.observe(r));
 
-  // Animación de barras de habilidades cuando sean visibles
+  // Animación de barras de habilidades
   const skillBars = document.querySelectorAll('.skill-bar-fill');
   const skillsSection = document.getElementById('skills');
   let animated = false;
@@ -134,7 +131,7 @@
     skillsObserver.observe(skillsSection);
   }
 
-  // Prevenir envío del formulario (demostración)
+  // Formulario demo
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {

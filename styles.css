@@ -188,7 +188,7 @@ body {
   width: 0%;
   height: 2px;
   background: var(--mostaza);
-  transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* más lento y suave */
+  transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .nav-links > li > a:hover::after {
@@ -258,7 +258,7 @@ body {
   display: block;
   font-size: 0.9rem;
   border-bottom: 1px solid var(--gris-medio);
-  transition: transform 0.3s ease, color 0.2s; /* transición suave */
+  transition: transform 0.3s ease, color 0.2s;
   position: relative;
 }
 
@@ -1084,15 +1084,46 @@ body {
   .hero-content {
     justify-content: center;
     text-align: center;
+    gap: 2rem;
   }
 
   .hero-foto {
     flex-basis: auto;
+    margin-bottom: 1rem;
   }
 
   .foto-wrapper {
     width: 280px;
     height: 280px;
+  }
+
+  .hero-text {
+    margin-top: 2rem; /* reducir espacio superior */
+  }
+
+  .hero-name {
+    font-size: 2.8rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.2rem;
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-group {
+    justify-content: center;
+  }
+
+  /* Ajustar el botón scroll para que sea visible */
+  .btn-scroll {
+    bottom: 20px;
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
   }
 
   /* Menú responsivo desde la derecha - FONDO BLANCO */
@@ -1126,12 +1157,10 @@ body {
     color: var(--mostaza);
   }
 
-  /* Línea inferior más suave en móvil */
   .nav-links > li > a::after {
     transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  /* Dropdown en móvil con transición suave */
   .dropdown-content {
     position: static;
     max-height: 0;
@@ -1145,7 +1174,7 @@ body {
   }
 
   .dropdown.active .dropdown-content {
-    max-height: 300px; /* ajustar según contenido */
+    max-height: 300px;
     opacity: 1;
   }
 
@@ -1195,11 +1224,26 @@ body {
   }
 
   .hero-name {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+  }
+
+  .hero-sub {
+    font-size: 0.9rem;
   }
 
   .foto-wrapper {
-    width: 340px;
-    height: 340px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .btn-scroll {
+    bottom: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
   }
 }
