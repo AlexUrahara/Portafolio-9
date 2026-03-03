@@ -328,7 +328,7 @@ body {
   transform: translateY(-9px) rotate(-45deg);
 }
 
-/* ===== BOTÓN SCROLL (única definición) ===== */
+/* ===== BOTÓN SCROLL ===== */
 .btn-scroll {
   position: absolute;
   bottom: 30px;
@@ -537,71 +537,23 @@ body {
   100% { opacity: 0.6; box-shadow: 0 0 10px var(--mostaza); }
 }
 
-/* ===== BOTÓN SCROLL ===== */
-.btn-scroll {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  border: 2px solid var(--mostaza);
-  border-radius: 50%;
-  color: var(--mostaza);
-  font-size: 1.8rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  animation: bounce 2.5s infinite ease-in-out;
-  background: transparent;
-  backdrop-filter: blur(2px);
-  z-index: 10;
-}
-
-.btn-scroll i {
-  line-height: 1;
-  transition: transform 0.2s;
-}
-
-.btn-scroll:hover {
-  background-color: var(--mostaza);
-  color: var(--negro-mate);
-  border-color: var(--mostaza);
-  transform: translateX(-50%) scale(1.1);
-  animation: none;
-}
-
-.btn-scroll:hover i {
-  transform: translateY(3px);
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateX(-50%) translateY(0);
-  }
-  40% {
-    transform: translateX(-50%) translateY(-12px);
-  }
-  60% {
-    transform: translateX(-50%) translateY(-6px);
-  }
-}
-
 /* ===== RESPONSIVE PARA HERO ===== */
 @media (max-width: 992px) {
   .hero {
     flex-direction: column;
     justify-content: center;
-    padding: 20px 5% 10px; /* Muy reducido para subir todo */
+    padding: 20px 5% 10px;
   }
 
   .hero-content {
     flex-direction: column;
     text-align: center;
-    gap: 0.5rem; /* Espacio mínimo */
+    gap: 0.5rem;
     justify-content: center;
+  }
+
+  .hero-text {
+    margin-top: 0;
   }
 
   .hero-name {
@@ -624,7 +576,7 @@ body {
   }
 
   .foto-wrapper {
-    width: 300px; /* Ligeramente más pequeño para que quepa mejor */
+    width: 300px;
     height: 300px;
   }
 
@@ -634,7 +586,7 @@ body {
   }
 
   .btn-scroll {
-    bottom: 5px; /* Subido al máximo */
+    bottom: 5px;
     width: 44px;
     height: 44px;
     font-size: 1.5rem;
@@ -726,7 +678,7 @@ body {
   color: var(--mostaza);
 }
 
-/* ===== ABOUT (con imagen que aparece/desaparece y flota) ===== */
+/* ===== ABOUT ===== */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -755,7 +707,6 @@ body {
   transform: translateY(0);
 }
 
-/* Efecto flotante solo cuando es visible */
 .about-image.visible {
   animation: float 3s infinite ease-in-out;
 }
@@ -773,7 +724,6 @@ body {
   object-fit: cover;
 }
 
-/* Estilos para móvil */
 @media (max-width: 992px) {
   .about-grid {
     grid-template-columns: 1fr;
@@ -812,7 +762,7 @@ body {
   transform: translateY(0);
 }
 
-/* ===== SERVICIOS CUADRADOS - CONTENIDO CENTRADO ===== */
+/* ===== SERVICIOS ===== */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -888,7 +838,7 @@ body {
   line-height: 1.4;
 }
 
-/* ===== MODAL CON SLIDE COMPLETO ===== */
+/* ===== MODAL ===== */
 .modal {
   display: none;
   position: fixed;
@@ -1556,7 +1506,7 @@ body {
   color: var(--mostaza);
 }
 
-/* ===== RESPONSIVE GENERAL ===== */
+/* ===== RESPONSIVE GENERAL (solo menú y otros) ===== */
 @media (max-width: 992px) {
   .about-grid,
   .skills-wrapper,
@@ -1564,7 +1514,7 @@ body {
     grid-template-columns: 1fr;
   }
 
-  /* Menú responsivo desde la derecha - FONDO BLANCO */
+  /* Menú responsivo */
   .nav-links {
     display: flex;
     flex-direction: column;
