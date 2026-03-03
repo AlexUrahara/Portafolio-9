@@ -594,18 +594,14 @@ body {
   .hero {
     flex-direction: column;
     justify-content: center;
-    padding: 40px 5% 20px; /* Reducido de 80px a 40px */
+    padding: 20px 5% 10px; /* Muy reducido para subir todo */
   }
 
   .hero-content {
     flex-direction: column;
     text-align: center;
-    gap: 1rem; /* Reducido de 1.5rem a 1rem */
+    gap: 0.5rem; /* Espacio mínimo */
     justify-content: center;
-  }
-
-  .hero-text {
-    margin-top: -10px; /* Nuevo: desplaza el texto hacia arriba */
   }
 
   .hero-name {
@@ -620,36 +616,34 @@ body {
     font-size: 1.2rem;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1rem; /* Reducido de 1.5rem a 1rem */
+    margin-bottom: 0.5rem;
   }
 
   .hero-foto {
     flex-basis: auto;
-    margin-bottom: 0;
-    margin-top: -10px; /* Nuevo: sube la foto */
   }
 
   .foto-wrapper {
-    width: 320px;
-    height: 320px;
+    width: 300px; /* Ligeramente más pequeño para que quepa mejor */
+    height: 300px;
   }
 
   .btn-group {
     justify-content: center;
-    margin-bottom: 1rem; /* Reducido de 1.5rem a 1rem */
+    margin-bottom: 0.5rem;
   }
 
   .btn-scroll {
-    bottom: 10px; /* Reducido de 20px a 10px */
-    width: 48px;
-    height: 48px;
-    font-size: 1.6rem;
+    bottom: 5px; /* Subido al máximo */
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
   }
 }
 
 @media (max-width: 576px) {
   .hero {
-    padding: 30px 5% 15px; /* Reducido de 60px a 30px */
+    padding: 15px 5% 5px;
   }
 
   .hero-name {
@@ -662,29 +656,25 @@ body {
 
   .hero-sub {
     font-size: 1rem;
-    margin-bottom: 0.8rem; /* Reducido */
+    margin-bottom: 0.3rem;
   }
 
   .foto-wrapper {
-    width: 280px;
-    height: 280px;
-  }
-
-  .hero-foto {
-    margin-top: -5px; /* Sube un poco más */
+    width: 250px;
+    height: 250px;
   }
 
   .btn-scroll {
-    bottom: 8px; /* Reducido de 15px a 8px */
-    width: 44px;
-    height: 44px;
-    font-size: 1.5rem;
+    bottom: 3px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
   }
 }
 
 @media (max-width: 400px) {
   .hero {
-    padding: 20px 5% 10px; /* Reducido de 40px a 20px */
+    padding: 10px 5% 0;
   }
 
   .hero-name {
@@ -692,19 +682,15 @@ body {
   }
 
   .foto-wrapper {
-    width: 240px;
-    height: 240px;
-  }
-
-  .hero-foto {
-    margin-top: 0;
+    width: 200px;
+    height: 200px;
   }
 
   .btn-scroll {
-    bottom: 5px; /* Reducido de 10px a 5px */
-    width: 40px;
-    height: 40px;
-    font-size: 1.3rem;
+    bottom: 0px;
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
   }
 }
 
