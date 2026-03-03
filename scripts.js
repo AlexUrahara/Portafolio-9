@@ -46,14 +46,14 @@
   const menuOverlay = document.getElementById('menu-overlay');
 
   if (menuToggle) {
-    menuToggle.addEventListener('click', function() {
+    menuToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
       const isActive = navLinks.classList.contains('active');
       navLinks.classList.toggle('active');
       menuToggle.classList.toggle('open');
       if (menuOverlay) {
         menuOverlay.classList.toggle('active');
       }
-      // Prevenir scroll del body cuando el menú está abierto
       document.body.style.overflow = isActive ? '' : 'hidden';
     });
   }
@@ -68,19 +68,19 @@
     });
   }
 
-  // Cerrar menú al hacer clic en un enlace
+  // Cerrar menú al hacer clic en un enlace (excepto dropdown)
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', (e) => {
-      // Si es el enlace del dropdown, no cerrar el menú principal
+      // Si es el enlace del dropdown en móvil, prevenir salto y toggle submenú
       if (link.closest('.dropdown') && window.innerWidth <= 992) {
         e.preventDefault();
-        // Toggle submenú en móvil
+        e.stopPropagation();
         const dropdown = link.closest('.dropdown');
         dropdown.classList.toggle('active');
         return;
       }
       // Para otros enlaces, cerrar menú
-      if (window.innerWidth <= 992) {
+      if (window.innerWidth <= 992 && !link.closest('.dropdown')) {
         navLinks.classList.remove('active');
         menuToggle.classList.remove('open');
         if (menuOverlay) menuOverlay.classList.remove('active');
@@ -96,6 +96,8 @@
       menuToggle.classList.remove('open');
       if (menuOverlay) menuOverlay.classList.remove('active');
       document.body.style.overflow = '';
+      // Resetear dropdowns activos
+      document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
     }
   });
 
