@@ -653,7 +653,7 @@ body {
   transform: translateY(0);
 }
 
-/* ===== SERVICIOS ===== */
+/* ===== SERVICIOS CUADRADOS ===== */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -670,9 +670,10 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 320px;
+  aspect-ratio: 1 / 1; /* Hace la tarjeta cuadrada */
   display: flex;
   align-items: flex-end;
+  cursor: pointer;
 }
 
 .service-overlay {
@@ -687,14 +688,6 @@ body {
   transition: opacity 0.3s;
 }
 
-.service-content {
-  position: relative;
-  z-index: 2;
-  color: white;
-  padding: 2rem;
-  width: 100%;
-}
-
 .service-card:hover {
   transform: translateY(-10px);
   box-shadow: var(--sombra-media);
@@ -704,22 +697,242 @@ body {
   opacity: 0.6;
 }
 
+.service-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding: 1.5rem;
+  width: 100%;
+  text-align: center;
+}
+
 .service-icon {
   font-size: 2.5rem;
   color: white;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .service-content h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
   color: white;
 }
 
 .service-content p {
-  color: rgba(255,255,255,0.95);
-  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
+
+/* ===== MODAL MEJORADO ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.modal.hide {
+  opacity: 0;
+}
+
+.modal-content {
+  background-color: var(--blanco);
+  width: 80%;
+  max-width: 900px;
+  height: 70%;
+  max-height: 700px;
+  border-radius: 20px;
+  overflow: hidden; /* Para que la imagen toque los bordes */
+  position: relative;
+  box-shadow: var(--sombra-media);
+  animation: modalFadeIn 0.4s;
+}
+
+.modal.hide .modal-content {
+  animation: modalFadeOut 0.3s forwards;
+}
+
+@keyframes modalFadeIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes modalFadeOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+  z-index: 20;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.close-modal:hover {
+  color: var(--mostaza);
+}
+
+/* Carrusel - imagen pegada arriba */
+.modal-carousel {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: var(--gris-medio);
+}
+
+.modal-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.modal-image.active {
+  opacity: 1;
+}
+
+/* Cuerpo del modal */
+.modal-body {
+  padding: 1.5rem 2rem;
+  overflow-y: auto;
+  height: calc(100% - 200px); /* Resta la altura del carrusel */
+}
+
+#modalTitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--negro-mate);
+  transition: opacity 0.2s ease;
+}
+
+#modalDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 1.5rem;
+  transition: opacity 0.2s ease;
+}
+
+#modalDescription p {
+  margin-bottom: 0.8rem;
+}
+
+/* Navegación entre servicios (flechas pequeñas) */
+.modal-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.modal-nav button {
+  background: var(--negro-mate);
+  color: var(--blanco);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-nav button:hover {
+  background: var(--mostaza);
+  color: var(--negro-mate);
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .modal-content {
+    width: 90%;
+    height: 80%;
+  }
+
+  .modal-carousel {
+    height: 150px;
+  }
+
+  .modal-body {
+    padding: 1rem;
+    height: calc(100% - 150px);
+  }
+
+  #modalTitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-card {
+    aspect-ratio: 1 / 1;
+  }
+
+  .service-content {
+    padding: 1rem;
+  }
+
+  .service-icon {
+    font-size: 2rem;
+  }
+
+  .service-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .service-content p {
+    font-size: 0.8rem;
+  }
+}
+
 
 /* ===== TARJETAS DE PRESENTACIÓN ===== */
 .tarjetas-grid {
