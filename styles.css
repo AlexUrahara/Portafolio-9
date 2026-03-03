@@ -1634,6 +1634,12 @@ body {
   .btn-group {
     justify-content: center;
   }
+   .phone-link {
+    background: var(--mostaza);
+    color: var(--blanco) !important;
+    margin-top: 1rem;
+    align-self: center;
+  }
 
   /* Ajustar el botón scroll para que sea visible */
   .btn-scroll {
@@ -1729,9 +1735,10 @@ body {
 
   .phone-link {
     background: var(--mostaza);
-    color: var(--negro-mate) !important;
+    color: var(--blanco) !important;
     margin-top: 1rem;
     align-self: center;
+    border-radius: 11px;
   }
 }
 
@@ -1763,6 +1770,12 @@ body {
     height: 40px;
     font-size: 1.3rem;
   }
+   .phone-link {
+    background: var(--mostaza);
+    color: var(--blanco) !important;
+    margin-top: 1rem;
+    align-self: center;
+  }
 }
 /* ===== ESTILOS PARA EL NAVBAR CUANDO EL MENÚ ESTÁ ABIERTO ===== */
 .navbar.menu-open {
@@ -1791,9 +1804,8 @@ body {
 }
 
 @media (max-width: 992px) {
-  /* Aseguramos que el menú tenga espacio abajo */
   .nav-links {
-    padding-bottom: 3rem; /* más espacio para que las redes se vean */
+    padding-bottom: 3rem;
   }
 
   .nav-links .social-header {
@@ -1817,7 +1829,7 @@ body {
     width: 100%;
     list-style: none;
     padding: 0;
-    justify-content: center; /* ← esto centra los iconos */
+    justify-content: center;
   }
 
   .nav-links .social-item {
@@ -1829,5 +1841,12 @@ body {
 
   .nav-links .social-item:hover {
     transform: translateY(-3px);
+  }
+  .nav-links .social-item i {
+    color: var(--mostaza-oscuro);
+}
+ /* QUITAR LA LÍNEA AMARILLA */
+  .nav-links .social-item::after {
+    display: none !important;
   }
 }
