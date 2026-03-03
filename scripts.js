@@ -79,24 +79,37 @@
   }
 
   // Cerrar menú al hacer clic en un enlace (excepto dropdown)
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', (e) => {
-      if (link.closest('.dropdown') && window.innerWidth <= 992) {
-        e.preventDefault();
+ // Manejo de clics en enlaces del nav
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    // Si es un enlace dentro de un dropdown en móvil
+    if (link.closest('.dropdown') && window.innerWidth <= 992) {
+      // Si es el enlace principal del dropdown (dropbtn)
+      if (link.classList.contains('dropbtn')) {
+        e.preventDefault(); // Prevenir navegación para desplegar submenú
         e.stopPropagation();
         const dropdown = link.closest('.dropdown');
         dropdown.classList.toggle('active');
         return;
-      }
-      if (window.innerWidth <= 992 && !link.closest('.dropdown')) {
+      } else {
+        // Es un enlace del submenú: permitir navegación y cerrar el menú principal
         navLinks.classList.remove('active');
         menuToggle.classList.remove('open');
         navbar.classList.remove('menu-open');
         if (menuOverlay) menuOverlay.classList.remove('active');
         document.body.style.overflow = '';
+        // El enlace navegará normalmente
       }
-    });
+    } else if (window.innerWidth <= 992 && !link.closest('.dropdown')) {
+      // Enlaces normales en móvil: cerrar menú
+      navLinks.classList.remove('active');
+      menuToggle.classList.remove('open');
+      navbar.classList.remove('menu-open');
+      if (menuOverlay) menuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   });
+});
 
   // Cerrar menú al redimensionar a desktop
   window.addEventListener('resize', function() {
@@ -366,4 +379,4 @@ document.addEventListener('DOMContentLoaded', function() {
   // Añadir estilos para transición de contenido
   modalTitle.style.transition = 'opacity 0.2s ease';
   modalDesc.style.transition = 'opacity 0.2s ease';
-});
+});document.querySelectorAll('.nav-links a')
