@@ -567,13 +567,68 @@ body {
 .section-title span {
   color: var(--mostaza);
 }
-
-/* ===== ABOUT ===== */
+/* ===== ABOUT (con imagen que aparece/desaparece y flota) ===== */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: start;
+}
+
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 500px; /* Ajusta el tamaño de la imagen */
+  margin: 0 auto;
+  overflow: hidden;
+  transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.1, 1), transform 0.9s cubic-bezier(0.2, 0.9, 0.1, 1);
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.about-image.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Efecto flotante solo cuando es visible */
+.about-image.visible {
+  animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Estilos para móvil */
+@media (max-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-right {
+    order: 2; /* Coloca la imagen después del texto */
+  }
+
+  .about-image {
+    max-width: 400px;
+    margin: 0 auto 2rem;
+  }
 }
 
 .about-text p {
@@ -588,6 +643,14 @@ body {
   border-radius: 20px;
   border-left: 6px solid var(--mostaza);
   box-shadow: var(--sombra-suave);
+  transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.1, 1), transform 0.9s cubic-bezier(0.2, 0.9, 0.1, 1);
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.about-highlight.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ===== SERVICIOS ===== */
@@ -600,7 +663,7 @@ body {
 
 .service-card {
   position: relative;
-  border-radius: 30px;
+  border-radius: 6px;
   overflow: hidden;
   box-shadow: var(--sombra-suave);
   transition: all 0.4s;
@@ -619,7 +682,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: var(--mostaza);
-  opacity: 0.5;
+  opacity: 0.9;
   z-index: 1;
   transition: opacity 0.3s;
 }
@@ -630,7 +693,6 @@ body {
   color: white;
   padding: 2rem;
   width: 100%;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
 .service-card:hover {

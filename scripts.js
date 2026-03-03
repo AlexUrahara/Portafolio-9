@@ -98,12 +98,14 @@
     }
   });
 
-  // Intersection Observer para animaciones reveal
-  const reveals = document.querySelectorAll('.reveal');
+  // Intersection Observer para animaciones reveal (entrada y salida)
+  const reveals = document.querySelectorAll('.reveal, .reveal-float');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
       }
     });
   }, { threshold: 0.2, rootMargin: '0px 0px -30px 0px' });
