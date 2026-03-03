@@ -413,7 +413,7 @@ body {
 }
 
 .hero-text {
-  flex: 1 1 300px;
+  flex: 1 1 200px;
 }
 
 .hero-name {
@@ -443,12 +443,13 @@ body {
 
 .btn-group {
   display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* Fuerza a que no se rompa la línea */
+  gap: 1rem;
+  justify-content: center;
 }
 
 .btn {
-  padding: 1rem 2.8rem;
+  padding: 1rem 2rem;
   border-radius: 50px;
   font-weight: 600;
   text-decoration: none;
@@ -457,6 +458,7 @@ body {
   display: inline-block;
   font-size: 1rem;
   cursor: pointer;
+  white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
 }
 
 .btn-primary {
@@ -667,11 +669,18 @@ body {
     height: 280px;
   }
 
+  .btn-group {
+     gap: 0.5rem; /* Reduce el espacio entre botones */
+  }
   .btn-scroll {
     bottom: 5%;
     width: 44px;
     height: 44px;
     font-size: 1.5rem;
+  }
+  .btn {
+    padding: 0.8rem 1.2rem; /* Reduce el padding */
+    font-size: 0.9rem;
   }
 }
 
@@ -692,6 +701,19 @@ body {
   .btn-scroll {
     bottom: 5%;
   }
+    .btn-group {
+    gap: 0.5rem; /* Reduce el espacio entre botones */
+  }
+  .btn {
+    padding: 0.8rem 1.2rem; /* Reduce el padding */
+    font-size: 0.9rem;
+  }
+  @media (max-width: 360px) {
+  .btn {
+    padding: 0.6rem 0.8rem; /* Padding aún más pequeño */
+    font-size: 0.8rem;
+  }
+}
 }
 /* ===== REVEAL ===== */
 .reveal {
