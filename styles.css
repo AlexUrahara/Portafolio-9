@@ -487,14 +487,17 @@ body {
 
 /* ===== FOTO CON BORDE ANIMADO ===== */
 .hero-foto {
-  flex: 0 0 360px;
+  flex: 0 0 auto;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .foto-wrapper {
-  width: 520px;
-  height: 520px;
+  width: min(520px, 40vw);
+  height: min(520px, 40vw);
+  max-width: 520px;
+  max-height: 520px;
   border-radius: 50%;
   position: relative;
   box-shadow: var(--sombra-media);
@@ -538,18 +541,26 @@ body {
 }
 
 /* ===== RESPONSIVE PARA HERO ===== */
+@media (max-width: 1200px) {
+  .hero-content {
+    gap: 2rem;
+  }
+  .foto-wrapper {
+    width: min(450px, 35vw);
+    height: min(450px, 35vw);
+  }
+}
+
 @media (max-width: 992px) {
   .hero {
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px 5% 10px;
+    align-items: center;
+    padding: 80px 5% 20px; /* espacio para navbar */
   }
 
   .hero-content {
     flex-direction: column;
     text-align: center;
-    gap: 0.5rem;
-    justify-content: center;
+    gap: 1.5rem;
   }
 
   .hero-text {
@@ -557,18 +568,18 @@ body {
   }
 
   .hero-name {
-    font-size: 3.2rem;
+    font-size: clamp(2.8rem, 7vw, 4rem);
   }
 
   .hero-tagline {
-    font-size: 1.4rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
   }
 
   .hero-sub {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
 
   .hero-foto {
@@ -576,17 +587,39 @@ body {
   }
 
   .foto-wrapper {
-    width: 300px;
-    height: 300px;
+    width: min(350px, 50vw);
+    height: min(350px, 50vw);
+    max-width: 400px;
+    max-height: 400px;
   }
 
   .btn-group {
     justify-content: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .btn {
+    padding: 0.9rem 2.2rem;
   }
 
   .btn-scroll {
-    bottom: 5px;
+    bottom: 20px;
+    width: 48px;
+    height: 48px;
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 70px 5% 20px;
+  }
+  .foto-wrapper {
+    width: min(300px, 60vw);
+    height: min(300px, 60vw);
+  }
+  .btn-scroll {
+    bottom: 15px;
     width: 44px;
     height: 44px;
     font-size: 1.5rem;
@@ -595,29 +628,31 @@ body {
 
 @media (max-width: 576px) {
   .hero {
-    padding: 15px 5% 5px;
+    padding: 60px 5% 15px;
   }
-
   .hero-name {
-    font-size: 2.8rem;
+    font-size: clamp(2.4rem, 6vw, 2.8rem);
   }
-
   .hero-tagline {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
-
   .hero-sub {
     font-size: 1rem;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.8rem;
   }
-
   .foto-wrapper {
-    width: 250px;
-    height: 250px;
+    width: min(250px, 60vw);
+    height: min(250px, 60vw);
   }
-
+  .btn-group {
+    gap: 1rem;
+  }
+  .btn {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.95rem;
+  }
   .btn-scroll {
-    bottom: 3px;
+    bottom: 10px;
     width: 40px;
     height: 40px;
     font-size: 1.3rem;
@@ -626,23 +661,44 @@ body {
 
 @media (max-width: 400px) {
   .hero {
-    padding: 10px 5% 0;
+    padding: 50px 5% 10px;
   }
-
   .hero-name {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
   }
-
+  .hero-tagline {
+    font-size: 1rem;
+  }
+  .hero-sub {
+    font-size: 0.9rem;
+  }
   .foto-wrapper {
-    width: 200px;
-    height: 200px;
+    width: min(200px, 55vw);
+    height: min(200px, 55vw);
   }
-
   .btn-scroll {
-    bottom: 0px;
+    bottom: 5px;
     width: 36px;
     height: 36px;
     font-size: 1.2rem;
+  }
+}
+
+/* Ajuste para pantallas muy cortas en landscape */
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero {
+    min-height: 120vh; /* o ajustar */
+    padding: 60px 5% 20px;
+  }
+  .hero-content {
+    gap: 1rem;
+  }
+  .foto-wrapper {
+    width: min(200px, 30vh);
+    height: min(200px, 30vh);
+  }
+  .btn-scroll {
+    bottom: 10px;
   }
 }
 
