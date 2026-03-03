@@ -1802,7 +1802,11 @@ body {
 .nav-links .social-items {
   display: none;
 }
-
+.nav-links .social-items {
+  flex-wrap: wrap; /* Para que no se desborden si hay muchos iconos */
+  justify-content: flex-start;
+  gap: 0.8rem;
+}
 @media (max-width: 992px) {
   .nav-links {
     padding-bottom: 3rem;
