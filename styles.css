@@ -653,7 +653,7 @@ body {
   transform: translateY(0);
 }
 
-/* ===== SERVICIOS CUADRADOS ===== */
+/* ===== SERVICIOS CUADRADOS - CONTENIDO CENTRADO ===== */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -670,9 +670,10 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  aspect-ratio: 1 / 1; /* Hace la tarjeta cuadrada */
+  aspect-ratio: 1 / 1;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
 
@@ -704,13 +705,16 @@ body {
   padding: 1.5rem;
   width: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .service-icon {
   font-size: 2.5rem;
   color: white;
   margin-bottom: 0.5rem;
-  text-align: center;
 }
 
 .service-content h3 {
@@ -725,7 +729,7 @@ body {
   line-height: 1.4;
 }
 
-/* ===== MODAL MEJORADO ===== */
+/* ===== MODAL CON SLIDE MEJORADO ===== */
 .modal {
   display: none;
   position: fixed;
@@ -758,7 +762,7 @@ body {
   height: 70%;
   max-height: 700px;
   border-radius: 20px;
-  overflow: hidden; /* Para que la imagen toque los bordes */
+  overflow: hidden;
   position: relative;
   box-shadow: var(--sombra-media);
   animation: modalFadeIn 0.4s;
@@ -807,13 +811,19 @@ body {
   color: var(--mostaza);
 }
 
-/* Carrusel - imagen pegada arriba */
+/* Carrusel de imágenes */
 .modal-carousel {
   position: relative;
   width: 100%;
   height: 200px;
   overflow: hidden;
   background: var(--gris-medio);
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .modal-image {
@@ -831,18 +841,65 @@ body {
   opacity: 1;
 }
 
-/* Cuerpo del modal */
+/* Contenedor de contenido con slide */
 .modal-body {
   padding: 1.5rem 2rem;
+  overflow: hidden;
+  height: calc(100% - 200px);
+  position: relative;
+}
+
+.content-wrapper {
+  width: 100%;
+  height: 100%;
   overflow-y: auto;
-  height: calc(100% - 200px); /* Resta la altura del carrusel */
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.content-wrapper.slide-left {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.content-wrapper.slide-right {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.content-wrapper.slide-in-left {
+  animation: slideInLeft 0.4s ease forwards;
+}
+
+.content-wrapper.slide-in-right {
+  animation: slideInRight 0.4s ease forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 #modalTitle {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: var(--negro-mate);
-  transition: opacity 0.2s ease;
 }
 
 #modalDescription {
@@ -850,7 +907,6 @@ body {
   line-height: 1.6;
   color: #333;
   margin-bottom: 1.5rem;
-  transition: opacity 0.2s ease;
 }
 
 #modalDescription p {
@@ -930,50 +986,6 @@ body {
 
   .service-content p {
     font-size: 0.8rem;
-  }
-}
-/* ===== TRANSICIONES DE SLIDE PARA MODAL ===== */
-.modal-body, .modal-carousel {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.modal-body.slide-out-left, .modal-carousel.slide-out-left {
-  transform: translateX(-30px);
-  opacity: 0;
-}
-
-.modal-body.slide-out-right, .modal-carousel.slide-out-right {
-  transform: translateX(30px);
-  opacity: 0;
-}
-
-.modal-body.slide-in-left, .modal-carousel.slide-in-left {
-  animation: slideInLeft 0.3s ease forwards;
-}
-
-.modal-body.slide-in-right, .modal-carousel.slide-in-right {
-  animation: slideInRight 0.3s ease forwards;
-}
-
-@keyframes slideInLeft {
-  from {
-    transform: translateX(30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    transform: translateX(-30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
   }
 }
 
