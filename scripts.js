@@ -143,7 +143,7 @@
   }
 })();
 
-// ===== MODAL DE SERVICIOS (mejorado) =====
+// ===== MODAL DE SERVICIOS =====
 document.addEventListener('DOMContentLoaded', function() {
   // Datos de los servicios
   const servicesData = [
@@ -153,17 +153,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&auto=format',
         'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&auto=format'
       ],
-      description: `<p><strong>Branding estratégico:</strong> Creación de identidades de marca únicas y memorables.</p>
-        <p><strong>Diseño editorial:</strong> Folletos, revistas, catálogos y libros con maquetación profesional.</p>
-        <p><strong>Material publicitario:</strong> Flyers, carteles, banners y piezas para campañas.</p>
-        <p><strong>Ilustración personalizada:</strong> Gráficos vectoriales, iconos y elementos visuales.</p>
-        <p><strong>Asesoría de imagen:</strong> Consultoría para definir la línea gráfica de tu empresa.</p>
-        <p><strong>Packaging:</strong> Diseño de envases y etiquetas que destacan.</p>
-        <p><strong>Redes sociales:</strong> Contenido visual para Instagram, Facebook y LinkedIn.</p>
-        <p><strong>Presentaciones ejecutivas:</strong> Plantillas profesionales para PowerPoint.</p>
-        <p><strong>Fotografía de producto:</strong> Sesiones y retoque digital para e-commerce.</p>
-        <p><strong>Infografías:</strong> Representación visual de datos complejos.</p>
-        <p><strong>Merchandising:</strong> Diseño de artículos promocionales.</p>`
+      description: `<p>Creación de identidades de marca únicas y memorables, incluyendo branding estratégico, diseño editorial y material publicitario. Desarrollamos folletos, catálogos, flyers y campañas visuales que conectan con tu audiencia.</p>
+        <p>Además, ofrecemos ilustración personalizada, asesoría de imagen corporativa, diseño de packaging y contenido para redes sociales. También creamos presentaciones ejecutivas profesionales en PowerPoint.</p>`
     },
     {
       title: 'Desarrollo FrontEnd',
@@ -171,17 +162,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&auto=format',
         'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format'
       ],
-      description: `<p><strong>Sitios web corporativos:</strong> Diseño y desarrollo profesional.</p>
-        <p><strong>Landing pages:</strong> Optimizadas para campañas de marketing.</p>
-        <p><strong>Tiendas online:</strong> Integración de carritos y pasarelas de pago.</p>
-        <p><strong>Portafolios interactivos:</strong> Galerías dinámicas con efectos visuales.</p>
-        <p><strong>Blogs personalizados:</strong> Plataformas de contenido con panel de administración.</p>
-        <p><strong>Optimización SEO:</strong> Mejora de visibilidad en buscadores.</p>
-        <p><strong>Diseño responsivo:</strong> Adaptación perfecta a todos los dispositivos.</p>
-        <p><strong>Animaciones CSS:</strong> Microinteracciones para mejorar UX.</p>
-        <p><strong>Integración con APIs:</strong> Conexión a servicios externos.</p>
-        <p><strong>Mantenimiento web:</strong> Actualizaciones y soporte técnico.</p>
-        <p><strong>Accesibilidad web:</strong> Cumplimiento de estándares WCAG.</p>`
+      description: `<p>Diseñamos y desarrollamos sitios web corporativos, landing pages optimizadas para campañas y tiendas online con carritos de compra y pasarelas de pago. También creamos portafolios interactivos y blogs personalizados con panel de administración.</p>
+        <p>Nos enfocamos en la optimización SEO, diseño responsivo para todos los dispositivos y accesibilidad web cumpliendo estándares WCAG, garantizando una experiencia de usuario moderna y funcional.</p>`
     },
     {
       title: 'Seguridad Informática',
@@ -189,17 +171,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format',
         'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&auto=format'
       ],
-      description: `<p><strong>Auditorías de seguridad:</strong> Análisis de vulnerabilidades.</p>
-        <p><strong>Hardening de servidores:</strong> Configuración segura de sistemas.</p>
-        <p><strong>Protección contra malware:</strong> Implementación de antivirus y firewalls.</p>
-        <p><strong>Seguridad en aplicaciones web:</strong> Pruebas de penetración.</p>
-        <p><strong>Cifrado de datos:</strong> SSL/TLS y protección de información sensible.</p>
-        <p><strong>Gestión de identidades:</strong> Autenticación robusta (2FA, SSO).</p>
-        <p><strong>Backups automatizados:</strong> Copias de seguridad periódicas.</p>
-        <p><strong>Concienciación para empleados:</strong> Formación en ciberseguridad.</p>
-        <p><strong>Cumplimiento normativo:</strong> Adecuación a GDPR, LOPD.</p>
-        <p><strong>Monitorización 24/7:</strong> Alertas tempranas.</p>
-        <p><strong>Análisis forense:</strong> Investigación de incidentes.</p>`
+      description: `<p>Realizamos auditorías de seguridad y análisis de vulnerabilidades, hardening de servidores y protección contra malware con antivirus y firewalls. Aseguramos tus aplicaciones web mediante pruebas de penetración y cifrado de datos SSL/TLS.</p>
+        <p>Implementamos gestión de identidades con autenticación robusta (2FA, SSO), monitorización 24/7 para alertas tempranas y análisis forense en caso de incidentes, protegiendo tu negocio de principio a fin.</p>`
     },
     {
       title: 'Modelado 3D / RA',
@@ -207,17 +180,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&auto=format',
         'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format'
       ],
-      description: `<p><strong>Modelado de productos:</strong> Representación 3D realista.</p>
-        <p><strong>Realidad Aumentada:</strong> Experiencias interactivas.</p>
-        <p><strong>Animaciones 3D:</strong> Videos promocionales con movimiento.</p>
-        <p><strong>Renderizado fotorrealista:</strong> Imágenes de alta calidad.</p>
-        <p><strong>Escenarios virtuales:</strong> Para videojuegos o simulaciones.</p>
-        <p><strong>Modelado de personajes:</strong> Avatares y figuras.</p>
-        <p><strong>Optimización para web:</strong> Modelos ligeros para navegadores.</p>
-        <p><strong>Impresión 3D:</strong> Preparación de archivos STL.</p>
-        <p><strong>Texturizado y shading:</strong> Materiales realistas.</p>
-        <p><strong>Rigging:</strong> Preparación para animación.</p>
-        <p><strong>Realidad Mixta:</strong> Proyectos inmersivos.</p>`
+      description: `<p>Modelado de productos en 3D con representación realista y animaciones para videos promocionales. Creamos experiencias de Realidad Aumentada interactivas y renderizado fotorrealista de alta calidad para presentaciones.</p>
+        <p>Desarrollamos escenarios virtuales para videojuegos o simulaciones, modelado de personajes y avatares, así como proyectos de Realidad Mixta para aplicaciones inmersivas.</p>`
     },
     {
       title: 'Edición Audiovisual',
@@ -225,17 +189,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&auto=format',
         'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&auto=format'
       ],
-      description: `<p><strong>Edición de video:</strong> Montaje profesional.</p>
-        <p><strong>Corrección de color:</strong> Gradación cromática.</p>
-        <p><strong>Motion graphics:</strong> Animaciones de títulos y gráficos.</p>
-        <p><strong>Producción de spots:</strong> Anuncios para TV y redes.</p>
-        <p><strong>Video corporativo:</strong> Entrevistas y presentaciones.</p>
-        <p><strong>Edición de audio:</strong> Limpieza y mezcla.</p>
-        <p><strong>Efectos especiales:</strong> Composición con CGI.</p>
-        <p><strong>Formatos para web:</strong> Optimización para plataformas.</p>
-        <p><strong>Subtitulación:</strong> Inclusión de subtítulos.</p>
-        <p><strong>Grabación de pantalla:</strong> Tutoriales.</p>
-        <p><strong>Restauración de video:</strong> Mejora de material antiguo.</p>`
+      description: `<p>Edición de video profesional con montaje, corrección de color y motion graphics para títulos y gráficos animados. Producimos spots publicitarios para TV y redes sociales, así como videos corporativos y entrevistas.</p>
+        <p>Ofrecemos edición de audio (limpieza y mezcla), efectos especiales con composición CGI y restauración de material audiovisual antiguo para darle una nueva vida.</p>`
     },
     {
       title: 'Automatización Excel',
@@ -243,17 +198,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format',
         'https://images.unsplash.com/photo-1555421689-3f034debb7a6?w=800&auto=format'
       ],
-      description: `<p><strong>Macros y VBA:</strong> Automatización de tareas.</p>
-        <p><strong>Formularios interactivos:</strong> Interfaces amigables.</p>
-        <p><strong>Conexión con bases de datos:</strong> Importación/exportación.</p>
-        <p><strong>Generación de informes:</strong> Dashboards dinámicos.</p>
-        <p><strong>Limpieza de datos:</strong> Eliminación de duplicados.</p>
-        <p><strong>Plantillas inteligentes:</strong> Hojas preconfiguradas.</p>
-        <p><strong>Integración con otras apps:</strong> Outlook, Word, etc.</p>
-        <p><strong>Cálculos complejos:</strong> Fórmulas avanzadas.</p>
-        <p><strong>Control de inventarios:</strong> Automatización.</p>
-        <p><strong>Facturación automática:</strong> Seguimiento de pagos.</p>
-        <p><strong>Horarios y turnos:</strong> Gestión de personal.</p>`
+      description: `<p>Automatización de tareas repetitivas con macros y VBA, creación de formularios interactivos y conexión con bases de datos para importar/exportar información. Generamos dashboards dinámicos e informes automáticos.</p>
+        <p>Desarrollamos plantillas inteligentes preconfiguradas, limpiamos datos eliminando duplicados e integramos Excel con otras aplicaciones como Outlook y Word. También gestionamos horarios y turnos de personal.</p>`
     }
   ];
 
@@ -324,45 +270,45 @@ document.addEventListener('DOMContentLoaded', function() {
       carouselInterval = null;
     }
   }
-// Navegación entre servicios con efecto slide mejorado
+// Navegación entre servicios con slide completo de toda la ventana
 function changeService(direction) {
-  stopCarousel();
+  stopCarousel(); // Detiene el carrusel automático mientras se anima
   
-  const contentWrapper = document.querySelector('.content-wrapper');
+  const modalSlider = document.querySelector('.modal-slider');
   
-  // Determinar clase de salida según dirección
-  const outClass = direction === 1 ? 'slide-left' : 'slide-right';
+  // Clases según dirección: 1 = siguiente, -1 = anterior
+  const outClass = direction === 1 ? 'slide-out-left' : 'slide-out-right';
   const inClass = direction === 1 ? 'slide-in-right' : 'slide-in-left';
   
   // Aplicar clase de salida
-  contentWrapper.classList.add(outClass);
+  modalSlider.classList.add(outClass);
   
+  // Esperar a que termine la animación de salida (600ms)
   setTimeout(() => {
-    // Cambiar contenido mientras está oculto
+    // Calcular nuevo índice
     currentServiceIndex = (currentServiceIndex + direction + servicesData.length) % servicesData.length;
     
-    // Actualizar título y descripción
-    document.getElementById('modalTitle').textContent = servicesData[currentServiceIndex].title;
-    document.getElementById('modalDescription').innerHTML = servicesData[currentServiceIndex].description;
-    
-    // Actualizar imágenes del carrusel
-    document.getElementById('modalImg1').src = servicesData[currentServiceIndex].images[0];
-    document.getElementById('modalImg2').src = servicesData[currentServiceIndex].images[1];
+    // Actualizar todo el contenido con el nuevo servicio
+    const service = servicesData[currentServiceIndex];
+    document.getElementById('modalTitle').textContent = service.title;
+    document.getElementById('modalDescription').innerHTML = service.description;
+    document.getElementById('modalImg1').src = service.images[0];
+    document.getElementById('modalImg2').src = service.images[1];
     currentImageIndex = 0;
-    updateCarousel();
+    updateCarousel(); // Reinicia el carrusel a la primera imagen
     
     // Quitar clase de salida y aplicar clase de entrada
-    contentWrapper.classList.remove(outClass);
-    contentWrapper.classList.add(inClass);
+    modalSlider.classList.remove(outClass);
+    modalSlider.classList.add(inClass);
     
-    // Reiniciar carrusel automático
+    // Reiniciar el carrusel automático después de que entre el nuevo contenido
     startCarousel();
     
-    // Quitar clase de entrada después de la animación
+    // Quitar la clase de entrada después de la animación para dejar el estado limpio
     setTimeout(() => {
-      contentWrapper.classList.remove(inClass);
-    }, 400);
-  }, 200); // Esperar a que termine la salida (la mitad de la transición)
+      modalSlider.classList.remove(inClass);
+    }, 600);
+  }, 600); // Mismo tiempo que la transición CSS
 }
 
   if (prevServiceBtn) {

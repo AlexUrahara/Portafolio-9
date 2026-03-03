@@ -670,7 +670,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1 / 1; /* Hace la tarjeta cuadrada */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -729,7 +729,7 @@ body {
   line-height: 1.4;
 }
 
-/* ===== MODAL CON SLIDE MEJORADO ===== */
+/* ===== MODAL CON SLIDE COMPLETO ===== */
 .modal {
   display: none;
   position: fixed;
@@ -756,13 +756,13 @@ body {
 }
 
 .modal-content {
-  background-color: var(--blanco);
+  background-color: transparent; /* El fondo lo pone el slider */
   width: 80%;
   max-width: 900px;
   height: 70%;
   max-height: 700px;
-  border-radius: 20px;
-  overflow: hidden;
+  border-radius: 5px;
+  overflow: hidden; /* Importante para que el slider no se salga */
   position: relative;
   box-shadow: var(--sombra-media);
   animation: modalFadeIn 0.4s;
@@ -773,25 +773,13 @@ body {
 }
 
 @keyframes modalFadeIn {
-  from {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 @keyframes modalFadeOut {
-  from {
-    transform: scale(1);
-    opacity: 1;
-  }
-  to {
-    transform: scale(0.9);
-    opacity: 0;
-  }
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0.9); opacity: 0; }
 }
 
 .close-modal {
@@ -803,7 +791,7 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: color 0.2s;
-  z-index: 20;
+  z-index: 30; /* Por encima del slider */
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -811,7 +799,46 @@ body {
   color: var(--mostaza);
 }
 
-/* Carrusel de imágenes */
+/* Slider que contiene toda la ventana blanca (imagen + texto) */
+.modal-slider {
+  width: 100%;
+  height: 100%;
+  background-color: var(--blanco); /* Fondo blanco para que parezca la ventana */
+  transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+  will-change: transform, opacity;
+}
+
+/* Clases para la animación de salida */
+.modal-slider.slide-out-left {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.modal-slider.slide-out-right {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+/* Clases para la animación de entrada */
+.modal-slider.slide-in-left {
+  animation: slideInFromLeft 0.6s ease-in-out forwards;
+}
+
+.modal-slider.slide-in-right {
+  animation: slideInFromRight 0.6s ease-in-out forwards;
+}
+
+@keyframes slideInFromLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Carrusel de imágenes (pegado arriba) */
 .modal-carousel {
   position: relative;
   width: 100%;
@@ -841,59 +868,13 @@ body {
   opacity: 1;
 }
 
-/* Contenedor de contenido con slide */
+/* Cuerpo del modal (texto y botones) */
 .modal-body {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 200px); /* Ajusta según la altura del carrusel */
   padding: 1.5rem 2rem;
-  overflow: hidden;
-  height: calc(100% - 200px);
-  position: relative;
-}
-
-.content-wrapper {
-  width: 100%;
-  height: 100%;
-  overflow-y: auto;
-  transition: transform 0.4s ease, opacity 0.3s ease;
-}
-
-.content-wrapper.slide-left {
-  transform: translateX(-100%);
-  opacity: 0;
-}
-
-.content-wrapper.slide-right {
-  transform: translateX(100%);
-  opacity: 0;
-}
-
-.content-wrapper.slide-in-left {
-  animation: slideInLeft 0.4s ease forwards;
-}
-
-.content-wrapper.slide-in-right {
-  animation: slideInRight 0.4s ease forwards;
-}
-
-@keyframes slideInLeft {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  overflow: hidden; /* Evita scroll doble */
 }
 
 #modalTitle {
@@ -903,10 +884,10 @@ body {
 }
 
 #modalDescription {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #333;
-  margin-bottom: 1.5rem;
+   flex: 1; /* Ocupa el espacio disponible */
+  overflow-y: auto; /* Scroll solo en la descripción si es necesario */
+  margin-bottom: 1rem;
+  padding-right: 0.5rem; /* Espacio para el scroll */
 }
 
 #modalDescription p {
@@ -915,11 +896,15 @@ body {
 
 /* Navegación entre servicios (flechas pequeñas) */
 .modal-nav {
+  flex-shrink: 0; /* Evita que se encoja */
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-top: 1rem;
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid var(--gris-medio); /* Línea opcional para separar */
 }
+
 
 .modal-nav button {
   background: var(--negro-mate);
@@ -958,12 +943,20 @@ body {
   }
 
   .modal-body {
+     .modal-body {
     padding: 1rem;
-    height: calc(100% - 150px);
+    height: calc(100% - 150px); /* Altura del carrusel en móvil */
+  }
   }
 
   #modalTitle {
     font-size: 1.5rem;
+  }
+
+  .modal-nav button {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
   }
 }
 
@@ -987,8 +980,15 @@ body {
   .service-content p {
     font-size: 0.8rem;
   }
+.modal-body {
+    height: calc(100% - 150px);
+  }
+  .modal-nav button {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
 }
-
 /* ===== TARJETAS DE PRESENTACIÓN ===== */
 .tarjetas-grid {
   display: grid;
