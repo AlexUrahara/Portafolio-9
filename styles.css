@@ -380,7 +380,7 @@ body {
   }
 }
 
-/* ===== HERO ===== */
+/* ===== HERO (base) ===== */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -554,7 +554,7 @@ body {
   font-size: 1.8rem;
   text-decoration: none;
   transition: all 0.3s ease;
-  animation: bounce 2.5s infinite ease-in-out;
+  animation: bounce 3.5s infinite ease-in-out; /* más lento */
   background: transparent;
   backdrop-filter: blur(2px);
   z-index: 10;
@@ -589,19 +589,18 @@ body {
   }
 }
 
-/* ===== RESPONSIVE PARA HERO ===== */
+/* ===== RESPONSIVE PARA HERO (móviles) ===== */
 @media (max-width: 992px) {
   .hero {
-    flex-direction: column;
-    justify-content: center;
     padding-top: 80px; /* espacio para navbar */
+    padding-bottom: 20px;
+    align-items: flex-start; /* para que el contenido no quede tan centrado verticalmente */
   }
 
   .hero-content {
     flex-direction: column;
     text-align: center;
-    gap: 2rem;
-    justify-content: center;
+    gap: 1.5rem; /* reducimos el gap para que quede más compacto */
   }
 
   .hero-text {
@@ -609,36 +608,56 @@ body {
   }
 
   .hero-name {
-    font-size: 3.2rem; /* más grande */
+    font-size: 3.5rem; /* más grande */
   }
 
   .hero-tagline {
-    font-size: 1.4rem;
+    font-size: 1.6rem; /* un poco más grande */
   }
 
   .hero-sub {
-    font-size: 1.2rem;
+    font-size: 1.3rem; /* más grande */
     margin-left: auto;
     margin-right: auto;
+    max-width: 90%;
   }
 
   .hero-foto {
     flex-basis: auto;
-    margin-bottom: 1rem;
+    margin: 0.5rem 0; /* separación controlada */
   }
 
   .foto-wrapper {
-    width: 320px;
-    height: 320px;
+    width: 340px; /* más grande */
+    height: 340px;
   }
 
   .btn-group {
     justify-content: center;
-    margin-bottom: 2rem;
+    margin: 1rem 0 2rem; /* espacio inferior para el botón scroll */
   }
 
   .btn-scroll {
-    bottom: 20px; /* Ajustado para que sea visible */
+    bottom: 15px; /* visible y no tan abajo */
+    width: 48px;
+    height: 48px;
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-name {
+    font-size: 3.2rem;
+  }
+  .hero-tagline {
+    font-size: 1.5rem;
+  }
+  .hero-sub {
+    font-size: 1.2rem;
+  }
+  .foto-wrapper {
+    width: 300px;
+    height: 300px;
   }
 }
 
@@ -646,25 +665,21 @@ body {
   .hero-name {
     font-size: 2.8rem;
   }
-
   .hero-tagline {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
-
   .hero-sub {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
-
   .foto-wrapper {
-    width: 280px;
-    height: 280px;
+    width: 260px;
+    height: 260px;
   }
-
   .btn-scroll {
-    bottom: 15px;
+    bottom: 10px;
     width: 44px;
     height: 44px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 }
 
@@ -673,14 +688,18 @@ body {
   .hero-name {
     font-size: 2.4rem;
   }
-
-  .foto-wrapper {
-    width: 240px;
-    height: 240px;
+  .hero-tagline {
+    font-size: 1.2rem;
   }
-
+  .hero-sub {
+    font-size: 1rem;
+  }
+  .foto-wrapper {
+    width: 220px;
+    height: 220px;
+  }
   .btn-scroll {
-    bottom: 10px;
+    bottom: 8px;
   }
 }
 /* ===== REVEAL ===== */
