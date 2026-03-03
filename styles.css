@@ -328,7 +328,7 @@ body {
   transform: translateY(-9px) rotate(-45deg);
 }
 
-/* ===== BOTÓN SCROLL ===== */
+/* ===== BOTÓN SCROLL (única definición) ===== */
 .btn-scroll {
   position: absolute;
   bottom: 30px;
@@ -537,76 +537,23 @@ body {
   100% { opacity: 0.6; box-shadow: 0 0 10px var(--mostaza); }
 }
 
-/* ===== BOTÓN SCROLL ===== */
-.btn-scroll {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  border: 2px solid var(--mostaza);
-  border-radius: 50%;
-  color: var(--mostaza);
-  font-size: 1.8rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  animation: bounce 2.5s infinite ease-in-out;
-  background: transparent;
-  backdrop-filter: blur(2px);
-  z-index: 10;
-}
-
-.btn-scroll i {
-  line-height: 1;
-  transition: transform 0.2s;
-}
-
-.btn-scroll:hover {
-  background-color: var(--mostaza);
-  color: var(--negro-mate);
-  border-color: var(--mostaza);
-  transform: translateX(-50%) scale(1.1);
-  animation: none;
-}
-
-.btn-scroll:hover i {
-  transform: translateY(3px);
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateX(-50%) translateY(0);
-  }
-  40% {
-    transform: translateX(-50%) translateY(-12px);
-  }
-  60% {
-    transform: translateX(-50%) translateY(-6px);
-  }
-}
-
 /* ===== RESPONSIVE PARA HERO ===== */
 @media (max-width: 992px) {
   .hero {
     flex-direction: column;
     justify-content: center;
-    padding-top: 60px; /* Reducido para subir el contenido */
-    padding-bottom: 0;
+    padding: 80px 5% 30px; /* Ajuste de padding para centrar */
   }
 
   .hero-content {
     flex-direction: column;
     text-align: center;
-    gap: 1.5rem; /* Reducido */
+    gap: 1.5rem;
     justify-content: center;
   }
 
   .hero-text {
-    margin-top: 0; /* Eliminado el margen superior */
+    margin-top: 0;
   }
 
   .hero-name {
@@ -621,12 +568,12 @@ body {
     font-size: 1.2rem;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1.5rem; /* Reducido */
+    margin-bottom: 1.5rem;
   }
 
   .hero-foto {
     flex-basis: auto;
-    margin-bottom: 0; /* Eliminado margen inferior */
+    margin-bottom: 0;
   }
 
   .foto-wrapper {
@@ -636,17 +583,20 @@ body {
 
   .btn-group {
     justify-content: center;
-    margin-bottom: 1rem; /* Reducido */
+    margin-bottom: 1.5rem;
   }
 
   .btn-scroll {
-    bottom: 5%; /* Posición relativa para adaptarse a la altura */
+    bottom: 20px; /* Fijo y visible */
+    width: 48px;
+    height: 48px;
+    font-size: 1.6rem;
   }
 }
 
 @media (max-width: 576px) {
   .hero {
-    padding-top: 50px;
+    padding: 60px 5% 20px;
   }
 
   .hero-name {
@@ -668,7 +618,7 @@ body {
   }
 
   .btn-scroll {
-    bottom: 5%;
+    bottom: 15px;
     width: 44px;
     height: 44px;
     font-size: 1.5rem;
@@ -677,7 +627,7 @@ body {
 
 @media (max-width: 400px) {
   .hero {
-    padding-top: 40px;
+    padding: 40px 5% 15px;
   }
 
   .hero-name {
@@ -690,9 +640,13 @@ body {
   }
 
   .btn-scroll {
-    bottom: 5%;
+    bottom: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
   }
 }
+
 /* ===== REVEAL ===== */
 .reveal {
   opacity: 0;
@@ -724,6 +678,7 @@ body {
 .section-title span {
   color: var(--mostaza);
 }
+
 /* ===== ABOUT (con imagen que aparece/desaparece y flota) ===== */
 .about-grid {
   display: grid;
@@ -740,7 +695,7 @@ body {
 
 .about-image {
   width: 100%;
-  max-width: 500px; /* Ajusta el tamaño de la imagen */
+  max-width: 500px;
   margin: 0 auto;
   overflow: hidden;
   transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.1, 1), transform 0.9s cubic-bezier(0.2, 0.9, 0.1, 1);
@@ -779,7 +734,7 @@ body {
   }
 
   .about-right {
-    order: 2; /* Coloca la imagen después del texto */
+    order: 2;
   }
 
   .about-image {
@@ -827,7 +782,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  aspect-ratio: 1 / 1; /* Hace la tarjeta cuadrada */
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -913,13 +868,13 @@ body {
 }
 
 .modal-content {
-  background-color: transparent; /* El fondo lo pone el slider */
+  background-color: transparent;
   width: 80%;
   max-width: 900px;
   height: 70%;
   max-height: 700px;
   border-radius: 5px;
-  overflow: hidden; /* Importante para que el slider no se salga */
+  overflow: hidden;
   position: relative;
   box-shadow: var(--sombra-media);
   animation: modalFadeIn 0.4s;
@@ -948,7 +903,7 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: color 0.2s;
-  z-index: 30; /* Por encima del slider */
+  z-index: 30;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -956,16 +911,14 @@ body {
   color: var(--mostaza);
 }
 
-/* Slider que contiene toda la ventana blanca (imagen + texto) */
 .modal-slider {
   width: 100%;
   height: 100%;
-  background-color: var(--blanco); /* Fondo blanco para que parezca la ventana */
+  background-color: var(--blanco);
   transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
   will-change: transform, opacity;
 }
 
-/* Clases para la animación de salida */
 .modal-slider.slide-out-left {
   transform: translateX(-100%);
   opacity: 0;
@@ -976,7 +929,6 @@ body {
   opacity: 0;
 }
 
-/* Clases para la animación de entrada */
 .modal-slider.slide-in-left {
   animation: slideInFromLeft 0.6s ease-in-out forwards;
 }
@@ -995,7 +947,6 @@ body {
   to { transform: translateX(0); opacity: 1; }
 }
 
-/* Carrusel de imágenes (pegado arriba) */
 .modal-carousel {
   position: relative;
   width: 100%;
@@ -1025,13 +976,12 @@ body {
   opacity: 1;
 }
 
-/* Cuerpo del modal (texto y botones) */
 .modal-body {
   display: flex;
   flex-direction: column;
-  height: calc(100% - 200px); /* Ajusta según la altura del carrusel */
+  height: calc(100% - 200px);
   padding: 1.5rem 2rem;
-  overflow: hidden; /* Evita scroll doble */
+  overflow: hidden;
 }
 
 #modalTitle {
@@ -1041,27 +991,25 @@ body {
 }
 
 #modalDescription {
-   flex: 1; /* Ocupa el espacio disponible */
-  overflow-y: auto; /* Scroll solo en la descripción si es necesario */
+  flex: 1;
+  overflow-y: auto;
   margin-bottom: 1rem;
-  padding-right: 0.5rem; /* Espacio para el scroll */
+  padding-right: 0.5rem;
 }
 
 #modalDescription p {
   margin-bottom: 0.8rem;
 }
 
-/* Navegación entre servicios (flechas pequeñas) */
 .modal-nav {
-  flex-shrink: 0; /* Evita que se encoja */
+  flex-shrink: 0;
   display: flex;
   justify-content: center;
   gap: 1rem;
   padding-top: 0.5rem;
   margin-top: 0.5rem;
-  border-top: 1px solid var(--gris-medio); /* Línea opcional para separar */
+  border-top: 1px solid var(--gris-medio);
 }
-
 
 .modal-nav button {
   background: var(--negro-mate);
@@ -1084,7 +1032,7 @@ body {
   transform: scale(1.1);
 }
 
-/* Responsive */
+/* Responsive del modal */
 @media (max-width: 768px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr) !important;
@@ -1100,10 +1048,8 @@ body {
   }
 
   .modal-body {
-     .modal-body {
+    height: calc(100% - 150px);
     padding: 1rem;
-    height: calc(100% - 150px); /* Altura del carrusel en móvil */
-  }
   }
 
   #modalTitle {
@@ -1137,15 +1083,18 @@ body {
   .service-content p {
     font-size: 0.8rem;
   }
-.modal-body {
+
+  .modal-body {
     height: calc(100% - 150px);
   }
+
   .modal-nav button {
     width: 30px;
     height: 30px;
     font-size: 0.9rem;
   }
 }
+
 /* ===== TARJETAS DE PRESENTACIÓN ===== */
 .tarjetas-grid {
   display: grid;
@@ -1560,57 +1509,12 @@ body {
   color: var(--mostaza);
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE GENERAL ===== */
 @media (max-width: 992px) {
   .about-grid,
   .skills-wrapper,
   .tarjetas-grid {
     grid-template-columns: 1fr;
-  }
-
-  .hero-content {
-    justify-content: center;
-    text-align: center;
-    gap: 2rem;
-  }
-
-  .hero-foto {
-    flex-basis: auto;
-    margin-bottom: 1rem;
-  }
-
-  .foto-wrapper {
-    width: 280px;
-    height: 280px;
-  }
-
-  .hero-text {
-    margin-top: 2rem; /* reducir espacio superior */
-  }
-
-  .hero-name {
-    font-size: 2.8rem;
-  }
-
-  .hero-tagline {
-    font-size: 1.2rem;
-  }
-
-  .hero-sub {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .btn-group {
-    justify-content: center;
-  }
-
-  /* Ajustar el botón scroll para que sea visible */
-  .btn-scroll {
-    bottom: 20px;
-    width: 44px;
-    height: 44px;
-    font-size: 1.5rem;
   }
 
   /* Menú responsivo desde la derecha - FONDO BLANCO */
@@ -1708,29 +1612,5 @@ body {
 @media (max-width: 576px) {
   .section-title {
     font-size: 2.4rem;
-  }
-
-  .hero-name {
-    font-size: 2.4rem;
-  }
-
-  .hero-tagline {
-    font-size: 1rem;
-  }
-
-  .hero-sub {
-    font-size: 0.9rem;
-  }
-
-  .foto-wrapper {
-    width: 240px;
-    height: 240px;
-  }
-
-  .btn-scroll {
-    bottom: 15px;
-    width: 40px;
-    height: 40px;
-    font-size: 1.3rem;
   }
 }
