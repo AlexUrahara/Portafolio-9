@@ -324,22 +324,42 @@ document.addEventListener('DOMContentLoaded', function() {
       carouselInterval = null;
     }
   }
-
-  // Navegación entre servicios con transición
-  function changeService(direction) {
-    stopCarousel();
+// Navegación entre servicios con efecto slide
+function changeService(direction) {
+  stopCarousel();
+  
+  const contentElement = document.querySelector('.modal-body');
+  const carouselElement = document.querySelector('.modal-carousel');
+  
+  // Determinar clases según dirección
+  const outClass = direction === 1 ? 'slide-out-left' : 'slide-out-right';
+  const inClass = direction === 1 ? 'slide-in-right' : 'slide-in-left';
+  
+  // Aplicar clase de salida
+  contentElement.classList.add(outClass);
+  carouselElement.classList.add(outClass);
+  
+  setTimeout(() => {
+    // Actualizar índice y contenido
     currentServiceIndex = (currentServiceIndex + direction + servicesData.length) % servicesData.length;
+    loadServiceInModal(currentServiceIndex);
     
-    // Transición suave en contenido
-    modalTitle.style.opacity = '0';
-    modalDesc.style.opacity = '0';
+    // Quitar clase de salida y aplicar clase de entrada
+    contentElement.classList.remove(outClass);
+    carouselElement.classList.remove(outClass);
+    contentElement.classList.add(inClass);
+    carouselElement.classList.add(inClass);
+    
+    // Reiniciar carrusel automático después de la entrada
+    startCarousel();
+    
+    // Quitar clase de entrada después de la animación
     setTimeout(() => {
-      loadServiceInModal(currentServiceIndex);
-      modalTitle.style.opacity = '1';
-      modalDesc.style.opacity = '1';
-      startCarousel();
-    }, 200);
-  }
+      contentElement.classList.remove(inClass);
+      carouselElement.classList.remove(inClass);
+    }, 300);
+  }, 150); // La mitad de la duración de la transición
+}
 
   if (prevServiceBtn) {
     prevServiceBtn.addEventListener('click', (e) => {

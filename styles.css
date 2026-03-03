@@ -932,7 +932,50 @@ body {
     font-size: 0.8rem;
   }
 }
+/* ===== TRANSICIONES DE SLIDE PARA MODAL ===== */
+.modal-body, .modal-carousel {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
 
+.modal-body.slide-out-left, .modal-carousel.slide-out-left {
+  transform: translateX(-30px);
+  opacity: 0;
+}
+
+.modal-body.slide-out-right, .modal-carousel.slide-out-right {
+  transform: translateX(30px);
+  opacity: 0;
+}
+
+.modal-body.slide-in-left, .modal-carousel.slide-in-left {
+  animation: slideInLeft 0.3s ease forwards;
+}
+
+.modal-body.slide-in-right, .modal-carousel.slide-in-right {
+  animation: slideInRight 0.3s ease forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
 /* ===== TARJETAS DE PRESENTACIÓN ===== */
 .tarjetas-grid {
