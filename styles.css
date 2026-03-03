@@ -413,7 +413,7 @@ body {
 }
 
 .hero-text {
-  flex: 1 1 500px;
+  flex: 1 1 300px;
 }
 
 .hero-name {
@@ -487,17 +487,14 @@ body {
 
 /* ===== FOTO CON BORDE ANIMADO ===== */
 .hero-foto {
-  flex: 0 0 auto;
+  flex: 0 0 360px;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .foto-wrapper {
-  width: min(520px, 40vw);
-  height: min(520px, 40vw);
-  max-width: 520px;
-  max-height: 520px;
+  width: 520px;
+  height: 520px;
   border-radius: 50%;
   position: relative;
   box-shadow: var(--sombra-media);
@@ -540,168 +537,120 @@ body {
   100% { opacity: 0.6; box-shadow: 0 0 10px var(--mostaza); }
 }
 
-/* ===== RESPONSIVE PARA HERO ===== */
-@media (max-width: 1200px) {
-  .hero-content {
-    gap: 2rem;
+/* ===== BOTÓN SCROLL ===== */
+.btn-scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 2px solid var(--mostaza);
+  border-radius: 50%;
+  color: var(--mostaza);
+  font-size: 1.8rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  animation: bounce 2.5s infinite ease-in-out;
+  background: transparent;
+  backdrop-filter: blur(2px);
+  z-index: 10;
+}
+
+.btn-scroll i {
+  line-height: 1;
+  transition: transform 0.2s;
+}
+
+.btn-scroll:hover {
+  background-color: var(--mostaza);
+  color: var(--negro-mate);
+  border-color: var(--mostaza);
+  transform: translateX(-50%) scale(1.1);
+  animation: none;
+}
+
+.btn-scroll:hover i {
+  transform: translateY(3px);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
   }
-  .foto-wrapper {
-    width: min(450px, 35vw);
-    height: min(450px, 35vw);
+  40% {
+    transform: translateX(-50%) translateY(-12px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-6px);
   }
 }
 
+/* ===== RESPONSIVE PARA HERO ===== */
 @media (max-width: 992px) {
   .hero {
-    align-items: center;
-    padding: 80px 5% 20px; /* espacio para navbar */
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 60px; /* Reducido para subir el contenido */
+    padding-bottom: 0;
   }
 
   .hero-content {
     flex-direction: column;
     text-align: center;
-    gap: 1.5rem;
+    gap: 1.5rem; /* Reducido */
+    justify-content: center;
   }
 
   .hero-text {
-    margin-top: 0;
+    margin-top: 0; /* Eliminado el margen superior */
   }
 
   .hero-name {
-    font-size: clamp(2.8rem, 7vw, 4rem);
+    font-size: 3.2rem;
   }
 
   .hero-tagline {
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-size: 1.4rem;
   }
 
   .hero-sub {
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-size: 1.2rem;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem; /* Reducido */
   }
 
   .hero-foto {
     flex-basis: auto;
+    margin-bottom: 0; /* Eliminado margen inferior */
   }
 
   .foto-wrapper {
-    width: min(350px, 50vw);
-    height: min(350px, 50vw);
-    max-width: 400px;
-    max-height: 400px;
+    width: 320px;
+    height: 320px;
   }
 
   .btn-group {
     justify-content: center;
-    margin-bottom: 1rem;
-  }
-
-  .btn {
-    padding: 0.9rem 2.2rem;
+    margin-bottom: 1rem; /* Reducido */
   }
 
   .btn-scroll {
-    bottom: 20px;
-    width: 48px;
-    height: 48px;
-    font-size: 1.6rem;
-  }
-}
-/* ===== RESPONSIVE MÓVIL - HERO ===== */
-/* ===== RESPONSIVE MÓVIL - HERO CENTRADO CON BOTÓN ABAJO ===== */
-@media (max-width: 992px) {
-  .hero {
-    min-height: 100vh;
-    padding: 80px 5% 70px; /* Superior para navbar, inferior para botón */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Centra el contenido verticalmente */
-    position: relative;
-  }
-
-  .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0.8rem;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  /* Foto arriba */
-  .hero-foto {
-    order: -1;
-    margin-bottom: 0.5rem;
-  }
-
-  .foto-wrapper {
-    width: min(300px, 50vw);
-    height: min(300px, 50vw);
-    max-width: 320px;
-    max-height: 320px;
-  }
-
-  .hero-text {
-    width: 100%;
-  }
-
-  .hero-name {
-    font-size: clamp(2.5rem, 7vw, 4rem);
-    margin-bottom: 0.2rem;
-  }
-
-  .hero-tagline {
-    font-size: 1.3rem;
-    margin-bottom: 0.2rem;
-  }
-
-  .hero-sub {
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .btn-group {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 0.5rem;
-  }
-
-  .btn {
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-  }
-
-  /* Botón scroll centrado abajo */
-  .btn-scroll {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 48px;
-    height: 48px;
-    font-size: 1.6rem;
+    bottom: 5%; /* Posición relativa para adaptarse a la altura */
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
   .hero {
-    padding: 70px 5% 60px;
-  }
-
-  .hero-content {
-    gap: 0.6rem;
+    padding-top: 50px;
   }
 
   .hero-name {
-    font-size: clamp(2.2rem, 6vw, 3.2rem);
+    font-size: 2.8rem;
   }
 
   .hero-tagline {
@@ -710,137 +659,38 @@ body {
 
   .hero-sub {
     font-size: 1rem;
-    margin-bottom: 0.6rem;
-  }
-
-  .btn-group {
-    gap: 0.8rem;
-  }
-
-  .btn {
-    padding: 0.7rem 1.8rem;
-    font-size: 0.95rem;
+    margin-bottom: 1rem;
   }
 
   .foto-wrapper {
-    width: min(260px, 45vw);
-    height: min(260px, 45vw);
+    width: 280px;
+    height: 280px;
   }
 
   .btn-scroll {
-    bottom: 15px;
+    bottom: 5%;
     width: 44px;
     height: 44px;
     font-size: 1.5rem;
   }
 }
 
-@media (max-width: 576px) {
-  .hero {
-    padding: 60px 5% 50px;
-  }
-
-  .hero-content {
-    gap: 0.4rem;
-  }
-
-  .hero-name {
-    font-size: clamp(2rem, 6vw, 2.5rem);
-  }
-
-  .hero-tagline {
-    font-size: 1.1rem;
-  }
-
-  .hero-sub {
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .btn-group {
-    gap: 0.6rem;
-  }
-
-  .btn {
-    padding: 0.6rem 1.5rem;
-    font-size: 0.9rem;
-  }
-
-  .foto-wrapper {
-    width: min(220px, 50vw);
-    height: min(220px, 50vw);
-  }
-
-  .btn-scroll {
-    bottom: 10px;
-    width: 40px;
-    height: 40px;
-    font-size: 1.3rem;
-  }
-}
-
 @media (max-width: 400px) {
   .hero {
-    padding: 50px 5% 40px;
-  }
-
-  .hero-content {
-    gap: 0.3rem;
+    padding-top: 40px;
   }
 
   .hero-name {
-    font-size: 1.8rem;
-  }
-
-  .hero-tagline {
-    font-size: 1rem;
-  }
-
-  .hero-sub {
-    font-size: 0.85rem;
-    margin-bottom: 0.4rem;
-  }
-
-  .btn-group {
-    gap: 0.5rem;
-  }
-
-  .btn {
-    padding: 0.5rem 1.2rem;
-    font-size: 0.85rem;
+    font-size: 2.4rem;
   }
 
   .foto-wrapper {
-    width: min(180px, 45vw);
-    height: min(180px, 45vw);
+    width: 240px;
+    height: 240px;
   }
 
   .btn-scroll {
-    bottom: 5px;
-    width: 36px;
-    height: 36px;
-    font-size: 1.2rem;
-  }
-}
-
-/* Ajuste para pantallas muy cortas en landscape */
-@media (max-height: 600px) and (orientation: landscape) {
-  .hero {
-    min-height: auto;
-    padding: 30px 5% 40px;
-  }
-  .hero-content {
-    gap: 0.3rem;
-  }
-  .foto-wrapper {
-    width: min(150px, 25vh);
-    height: min(150px, 25vh);
-  }
-  .btn {
-    padding: 0.4rem 1rem;
-  }
-  .btn-scroll {
-    bottom: 10px;
+    bottom: 5%;
   }
 }
 /* ===== REVEAL ===== */
@@ -874,8 +724,7 @@ body {
 .section-title span {
   color: var(--mostaza);
 }
-
-/* ===== ABOUT ===== */
+/* ===== ABOUT (con imagen que aparece/desaparece y flota) ===== */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -891,7 +740,7 @@ body {
 
 .about-image {
   width: 100%;
-  max-width: 500px;
+  max-width: 500px; /* Ajusta el tamaño de la imagen */
   margin: 0 auto;
   overflow: hidden;
   transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.1, 1), transform 0.9s cubic-bezier(0.2, 0.9, 0.1, 1);
@@ -904,6 +753,7 @@ body {
   transform: translateY(0);
 }
 
+/* Efecto flotante solo cuando es visible */
 .about-image.visible {
   animation: float 3s infinite ease-in-out;
 }
@@ -921,6 +771,7 @@ body {
   object-fit: cover;
 }
 
+/* Estilos para móvil */
 @media (max-width: 992px) {
   .about-grid {
     grid-template-columns: 1fr;
@@ -928,7 +779,7 @@ body {
   }
 
   .about-right {
-    order: 2;
+    order: 2; /* Coloca la imagen después del texto */
   }
 
   .about-image {
@@ -959,7 +810,7 @@ body {
   transform: translateY(0);
 }
 
-/* ===== SERVICIOS ===== */
+/* ===== SERVICIOS CUADRADOS - CONTENIDO CENTRADO ===== */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -976,7 +827,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1 / 1; /* Hace la tarjeta cuadrada */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1035,7 +886,7 @@ body {
   line-height: 1.4;
 }
 
-/* ===== MODAL ===== */
+/* ===== MODAL CON SLIDE COMPLETO ===== */
 .modal {
   display: none;
   position: fixed;
@@ -1062,13 +913,13 @@ body {
 }
 
 .modal-content {
-  background-color: transparent;
+  background-color: transparent; /* El fondo lo pone el slider */
   width: 80%;
   max-width: 900px;
   height: 70%;
   max-height: 700px;
   border-radius: 5px;
-  overflow: hidden;
+  overflow: hidden; /* Importante para que el slider no se salga */
   position: relative;
   box-shadow: var(--sombra-media);
   animation: modalFadeIn 0.4s;
@@ -1097,7 +948,7 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: color 0.2s;
-  z-index: 30;
+  z-index: 30; /* Por encima del slider */
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -1105,14 +956,16 @@ body {
   color: var(--mostaza);
 }
 
+/* Slider que contiene toda la ventana blanca (imagen + texto) */
 .modal-slider {
   width: 100%;
   height: 100%;
-  background-color: var(--blanco);
+  background-color: var(--blanco); /* Fondo blanco para que parezca la ventana */
   transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
   will-change: transform, opacity;
 }
 
+/* Clases para la animación de salida */
 .modal-slider.slide-out-left {
   transform: translateX(-100%);
   opacity: 0;
@@ -1123,6 +976,7 @@ body {
   opacity: 0;
 }
 
+/* Clases para la animación de entrada */
 .modal-slider.slide-in-left {
   animation: slideInFromLeft 0.6s ease-in-out forwards;
 }
@@ -1141,6 +995,7 @@ body {
   to { transform: translateX(0); opacity: 1; }
 }
 
+/* Carrusel de imágenes (pegado arriba) */
 .modal-carousel {
   position: relative;
   width: 100%;
@@ -1170,12 +1025,13 @@ body {
   opacity: 1;
 }
 
+/* Cuerpo del modal (texto y botones) */
 .modal-body {
   display: flex;
   flex-direction: column;
-  height: calc(100% - 200px);
+  height: calc(100% - 200px); /* Ajusta según la altura del carrusel */
   padding: 1.5rem 2rem;
-  overflow: hidden;
+  overflow: hidden; /* Evita scroll doble */
 }
 
 #modalTitle {
@@ -1185,25 +1041,27 @@ body {
 }
 
 #modalDescription {
-  flex: 1;
-  overflow-y: auto;
+   flex: 1; /* Ocupa el espacio disponible */
+  overflow-y: auto; /* Scroll solo en la descripción si es necesario */
   margin-bottom: 1rem;
-  padding-right: 0.5rem;
+  padding-right: 0.5rem; /* Espacio para el scroll */
 }
 
 #modalDescription p {
   margin-bottom: 0.8rem;
 }
 
+/* Navegación entre servicios (flechas pequeñas) */
 .modal-nav {
-  flex-shrink: 0;
+  flex-shrink: 0; /* Evita que se encoja */
   display: flex;
   justify-content: center;
   gap: 1rem;
   padding-top: 0.5rem;
   margin-top: 0.5rem;
-  border-top: 1px solid var(--gris-medio);
+  border-top: 1px solid var(--gris-medio); /* Línea opcional para separar */
 }
+
 
 .modal-nav button {
   background: var(--negro-mate);
@@ -1226,7 +1084,7 @@ body {
   transform: scale(1.1);
 }
 
-/* Responsive del modal */
+/* Responsive */
 @media (max-width: 768px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr) !important;
@@ -1242,8 +1100,10 @@ body {
   }
 
   .modal-body {
-    height: calc(100% - 150px);
+     .modal-body {
     padding: 1rem;
+    height: calc(100% - 150px); /* Altura del carrusel en móvil */
+  }
   }
 
   #modalTitle {
@@ -1277,18 +1137,15 @@ body {
   .service-content p {
     font-size: 0.8rem;
   }
-
-  .modal-body {
+.modal-body {
     height: calc(100% - 150px);
   }
-
   .modal-nav button {
     width: 30px;
     height: 30px;
     font-size: 0.9rem;
   }
 }
-
 /* ===== TARJETAS DE PRESENTACIÓN ===== */
 .tarjetas-grid {
   display: grid;
@@ -1703,7 +1560,7 @@ body {
   color: var(--mostaza);
 }
 
-/* ===== RESPONSIVE GENERAL (solo menú y otros) ===== */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
   .about-grid,
   .skills-wrapper,
@@ -1711,7 +1568,52 @@ body {
     grid-template-columns: 1fr;
   }
 
-  /* Menú responsivo */
+  .hero-content {
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-foto {
+    flex-basis: auto;
+    margin-bottom: 1rem;
+  }
+
+  .foto-wrapper {
+    width: 280px;
+    height: 280px;
+  }
+
+  .hero-text {
+    margin-top: 2rem; /* reducir espacio superior */
+  }
+
+  .hero-name {
+    font-size: 2.8rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.2rem;
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-group {
+    justify-content: center;
+  }
+
+  /* Ajustar el botón scroll para que sea visible */
+  .btn-scroll {
+    bottom: 20px;
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+  }
+
+  /* Menú responsivo desde la derecha - FONDO BLANCO */
   .nav-links {
     display: flex;
     flex-direction: column;
@@ -1806,5 +1708,29 @@ body {
 @media (max-width: 576px) {
   .section-title {
     font-size: 2.4rem;
+  }
+
+  .hero-name {
+    font-size: 2.4rem;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+  }
+
+  .hero-sub {
+    font-size: 0.9rem;
+  }
+
+  .foto-wrapper {
+    width: 240px;
+    height: 240px;
+  }
+
+  .btn-scroll {
+    bottom: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
   }
 }

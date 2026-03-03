@@ -270,47 +270,46 @@ document.addEventListener('DOMContentLoaded', function() {
       carouselInterval = null;
     }
   }
-
-  // Navegación entre servicios con slide completo de toda la ventana
-  function changeService(direction) {
-    stopCarousel(); // Detiene el carrusel automático mientras se anima
+// Navegación entre servicios con slide completo de toda la ventana
+function changeService(direction) {
+  stopCarousel(); // Detiene el carrusel automático mientras se anima
+  
+  const modalSlider = document.querySelector('.modal-slider');
+  
+  // Clases según dirección: 1 = siguiente, -1 = anterior
+  const outClass = direction === 1 ? 'slide-out-left' : 'slide-out-right';
+  const inClass = direction === 1 ? 'slide-in-right' : 'slide-in-left';
+  
+  // Aplicar clase de salida
+  modalSlider.classList.add(outClass);
+  
+  // Esperar a que termine la animación de salida (600ms)
+  setTimeout(() => {
+    // Calcular nuevo índice
+    currentServiceIndex = (currentServiceIndex + direction + servicesData.length) % servicesData.length;
     
-    const modalSlider = document.querySelector('.modal-slider');
+    // Actualizar todo el contenido con el nuevo servicio
+    const service = servicesData[currentServiceIndex];
+    document.getElementById('modalTitle').textContent = service.title;
+    document.getElementById('modalDescription').innerHTML = service.description;
+    document.getElementById('modalImg1').src = service.images[0];
+    document.getElementById('modalImg2').src = service.images[1];
+    currentImageIndex = 0;
+    updateCarousel(); // Reinicia el carrusel a la primera imagen
     
-    // Clases según dirección: 1 = siguiente, -1 = anterior
-    const outClass = direction === 1 ? 'slide-out-left' : 'slide-out-right';
-    const inClass = direction === 1 ? 'slide-in-right' : 'slide-in-left';
+    // Quitar clase de salida y aplicar clase de entrada
+    modalSlider.classList.remove(outClass);
+    modalSlider.classList.add(inClass);
     
-    // Aplicar clase de salida
-    modalSlider.classList.add(outClass);
+    // Reiniciar el carrusel automático después de que entre el nuevo contenido
+    startCarousel();
     
-    // Esperar a que termine la animación de salida (600ms)
+    // Quitar la clase de entrada después de la animación para dejar el estado limpio
     setTimeout(() => {
-      // Calcular nuevo índice
-      currentServiceIndex = (currentServiceIndex + direction + servicesData.length) % servicesData.length;
-      
-      // Actualizar todo el contenido con el nuevo servicio
-      const service = servicesData[currentServiceIndex];
-      document.getElementById('modalTitle').textContent = service.title;
-      document.getElementById('modalDescription').innerHTML = service.description;
-      document.getElementById('modalImg1').src = service.images[0];
-      document.getElementById('modalImg2').src = service.images[1];
-      currentImageIndex = 0;
-      updateCarousel(); // Reinicia el carrusel a la primera imagen
-      
-      // Quitar clase de salida y aplicar clase de entrada
-      modalSlider.classList.remove(outClass);
-      modalSlider.classList.add(inClass);
-      
-      // Reiniciar el carrusel automático después de que entre el nuevo contenido
-      startCarousel();
-      
-      // Quitar la clase de entrada después de la animación para dejar el estado limpio
-      setTimeout(() => {
-        modalSlider.classList.remove(inClass);
-      }, 600);
-    }, 600); // Mismo tiempo que la transición CSS
-  }
+      modalSlider.classList.remove(inClass);
+    }, 600);
+  }, 600); // Mismo tiempo que la transición CSS
+}
 
   if (prevServiceBtn) {
     prevServiceBtn.addEventListener('click', (e) => {
