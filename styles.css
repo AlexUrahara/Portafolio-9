@@ -380,7 +380,7 @@ body {
   }
 }
 
-/* ===== HERO (base) ===== */
+/* ===== HERO ===== */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -537,7 +537,7 @@ body {
   100% { opacity: 0.6; box-shadow: 0 0 10px var(--mostaza); }
 }
 
-/* ===== BOTÓN SCROLL ===== */
+/* ===== BOTÓN SCROLL (más lento) ===== */
 .btn-scroll {
   position: absolute;
   bottom: 30px;
@@ -554,7 +554,7 @@ body {
   font-size: 1.8rem;
   text-decoration: none;
   transition: all 0.3s ease;
-  animation: bounce 3.5s infinite ease-in-out; /* más lento */
+  animation: bounce 4s infinite ease-in-out; /* más lento */
   background: transparent;
   backdrop-filter: blur(2px);
   z-index: 10;
@@ -589,18 +589,18 @@ body {
   }
 }
 
-/* ===== RESPONSIVE PARA HERO (móviles) ===== */
+/* ===== RESPONSIVE PARA MÓVIL (buena distribución) ===== */
 @media (max-width: 992px) {
   .hero {
-    padding-top: 80px; /* espacio para navbar */
-    padding-bottom: 20px;
-    align-items: flex-start; /* para que el contenido no quede tan centrado verticalmente */
+    padding: 70px 5% 20px; /* espacio para navbar, reducido */
+    align-items: center; /* centrado vertical */
   }
 
   .hero-content {
     flex-direction: column;
     text-align: center;
-    gap: 1.5rem; /* reducimos el gap para que quede más compacto */
+    gap: 2rem; /* más espacio entre elementos */
+    justify-content: center;
   }
 
   .hero-text {
@@ -612,19 +612,21 @@ body {
   }
 
   .hero-tagline {
-    font-size: 1.6rem; /* un poco más grande */
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
   }
 
   .hero-sub {
-    font-size: 1.3rem; /* más grande */
+    font-size: 1.3rem;
+    max-width: 90%;
     margin-left: auto;
     margin-right: auto;
-    max-width: 90%;
+    margin-bottom: 1.5rem;
   }
 
   .hero-foto {
     flex-basis: auto;
-    margin: 0.5rem 0; /* separación controlada */
+    margin: 0.5rem 0;
   }
 
   .foto-wrapper {
@@ -634,11 +636,11 @@ body {
 
   .btn-group {
     justify-content: center;
-    margin: 1rem 0 2rem; /* espacio inferior para el botón scroll */
+    margin: 1.5rem 0 2.5rem; /* espacio inferior para el botón scroll */
   }
 
   .btn-scroll {
-    bottom: 15px; /* visible y no tan abajo */
+    bottom: 20px; /* visible y bien posicionado */
     width: 48px;
     height: 48px;
     font-size: 1.6rem;
@@ -662,6 +664,9 @@ body {
 }
 
 @media (max-width: 576px) {
+  .hero {
+    padding-top: 60px;
+  }
   .hero-name {
     font-size: 2.8rem;
   }
@@ -676,14 +681,13 @@ body {
     height: 260px;
   }
   .btn-scroll {
-    bottom: 10px;
+    bottom: 15px;
     width: 44px;
     height: 44px;
     font-size: 1.4rem;
   }
 }
 
-/* Ajuste extra para pantallas muy pequeñas */
 @media (max-width: 400px) {
   .hero-name {
     font-size: 2.4rem;
@@ -699,7 +703,7 @@ body {
     height: 220px;
   }
   .btn-scroll {
-    bottom: 8px;
+    bottom: 10px;
   }
 }
 /* ===== REVEAL ===== */
