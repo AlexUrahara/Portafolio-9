@@ -1850,3 +1850,348 @@ body {
     display: none !important;
   }
 }
+/* ===== TIMELINE EDUCACIÓN (izquierda) ===== */
+.timeline-education {
+  border-left: 4px solid var(--mostaza);
+  padding-left: 2rem;
+  margin-left: 1rem;
+}
+
+.timeline-item-education {
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.timeline-item-education::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  background: var(--mostaza);
+  border-radius: 50%;
+  position: absolute;
+  left: -2.6rem; /* ajustado para alinear con la línea */
+  top: 0.2rem;
+  box-shadow: 0 0 0 2px var(--blanco); /* opcional: borde blanco para resaltar */
+}
+
+.timeline-item-education h3 {
+  font-size: 1.5rem;
+  color: var(--negro-mate);
+}
+
+.timeline-item-education h4 {
+  font-weight: 400;
+  color: #666;
+  margin: 0.2rem 0 0.5rem;
+}
+
+.timeline-item-education p {
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Responsive: ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+  .timeline-education {
+    padding-left: 1.5rem;
+    margin-left: 0.5rem;
+  }
+  .timeline-item-education::before {
+    left: -2.2rem; /* ajuste fino para móvil */
+  }
+}
+
+/* ===== SECCIÓN IDIOMAS Y PASATIEMPOS CON IMAGEN DE FONDO ===== */
+.hobbies-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* Ocupa al menos el alto de la pantalla */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.hobbies-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hobbies-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cubre todo el área sin deformar */
+  display: block;
+}
+
+.hobbies-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--mostaza);
+  opacity: 0.3; /* Ajusta según prefieras */
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hobbies-content {
+  position: relative;
+  z-index: 3;
+  color: white;
+  width: 100%;
+  padding: 4rem 5%;
+  text-align: center;
+}
+
+.hobbies-content .section-title {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  margin-bottom: 2rem;
+}
+
+.hobbies-content .section-title span {
+  color: white;
+}
+
+.hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hobby-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 2rem 1rem;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hobby-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.hobby-card i {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.hobby-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: white;
+  font-weight: 600;
+}
+
+.hobby-card p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* Responsive: ajustes para diferentes tamaños */
+@media (max-width: 768px) {
+  .hobbies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .hobby-card {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .hobby-card i {
+    font-size: 2rem;
+  }
+
+  .hobby-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .hobby-card p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hobbies-grid {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+  }
+
+  .hobby-card {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .hobbies-content {
+    padding: 3rem 5%;
+  }
+}
+
+/* Ajuste para pantallas muy pequeñas (menos de 360px) */
+@media (max-width: 360px) {
+  .hobby-card i {
+    font-size: 1.8rem;
+  }
+
+  .hobby-card h3 {
+    font-size: 1rem;
+  }
+}
+
+/* ===== CONTACTO MEJORADO (SIN CUADROS) ===== */
+#contact {
+  position: relative;
+}
+
+.contact-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-decoration span {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: var(--mostaza);
+  opacity: 0.05;
+  border-radius: 50%;
+}
+
+.contact-decoration span:nth-child(1) {
+  top: -50px;
+  left: -50px;
+}
+
+.contact-decoration span:nth-child(2) {
+  bottom: -50px;
+  right: -50px;
+}
+
+.contact-decoration span:nth-child(3) {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  opacity: 0.03;
+}
+
+/* Información de contacto en línea */
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem 3rem;
+  margin: 2.5rem 0 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1rem;
+}
+
+.contact-item i {
+  font-size: 1.2rem;
+  color: var(--mostaza);
+  transition: transform 0.2s ease;
+}
+
+.contact-item:hover i {
+  transform: scale(1.15);
+}
+
+.contact-item a,
+.contact-item span {
+  color: var(--negro-mate);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  border-bottom: 1px dotted transparent;
+}
+
+.contact-item a:hover {
+  color: var(--mostaza);
+  border-bottom-color: var(--mostaza);
+}
+
+/* Formulario (sin cambios) */
+.contact-form {
+  max-width: 700px;
+  margin: 2rem auto 0;
+  display: grid;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 1.2rem 1.8rem;
+  border: 1px solid var(--gris-medio);
+  border-radius: 60px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: 0.2s;
+  background: var(--blanco);
+}
+
+.contact-form textarea {
+  border-radius: 30px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--mostaza);
+  box-shadow: 0 0 0 3px rgba(212, 160, 56, 0.2);
+}
+
+.contact-form button {
+  justify-self: center;
+  min-width: 200px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-info {
+    gap: 1.2rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-item {
+    width: 100%;
+    justify-content: center;
+  }
+}

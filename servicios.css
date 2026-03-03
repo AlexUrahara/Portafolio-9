@@ -1,0 +1,255 @@
+/* ===== ESTILOS ESPECÍFICOS PARA LA PÁGINA DE SERVICIOS ===== */
+
+/* Título principal */
+.page-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--negro-mate);
+}
+
+.page-title span {
+  color: var(--mostaza);
+}
+
+.page-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--gris-texto);
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+/* Secciones de planes */
+.planes-seccion {
+  margin-bottom: 5rem;
+}
+
+.planes-seccion .section-title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+/* Grid de planes (tarjetas) */
+.planes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.plan-card {
+  background: var(--blanco);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  box-shadow: var(--sombra-suave);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--gris-medio);
+  position: relative;
+  overflow: hidden;
+}
+
+.plan-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--sombra-media);
+  border-color: var(--mostaza);
+}
+
+.plan-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--negro-mate);
+  font-weight: 600;
+}
+
+.plan-precio {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--mostaza);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.plan-precio span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--gris-texto);
+}
+
+.plan-caracteristicas {
+  list-style: none;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.plan-caracteristicas li {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #333;
+}
+
+.plan-caracteristicas i {
+  color: var(--mostaza);
+  font-size: 1.1rem;
+}
+
+.plan-card .btn {
+  align-self: center;
+  width: 100%;
+  text-align: center;
+}
+
+/* Nota aclaratoria */
+.nota {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--gris-texto);
+  font-style: italic;
+}
+
+/* Grid para invitaciones (formato especial) */
+.invitaciones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.invitacion-card {
+  background: linear-gradient(145deg, var(--blanco), #fafafa);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--sombra-suave);
+  transition: all 0.3s ease;
+  border: 1px solid var(--gris-medio);
+}
+
+.invitacion-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sombra-media);
+  border-color: var(--mostaza);
+}
+
+.invitacion-card i {
+  font-size: 3rem;
+  color: var(--mostaza);
+  margin-bottom: 1rem;
+}
+
+.invitacion-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--negro-mate);
+}
+
+.invitacion-card .precio {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--mostaza);
+  margin-bottom: 1.5rem;
+}
+
+.invitacion-card ul {
+  list-style: none;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.invitacion-card ul li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.invitacion-card ul li::before {
+  content: "•";
+  color: var(--mostaza);
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.invitacion-card .btn {
+  width: 100%;
+}
+
+/* Banner de llamada a la acción */
+.cta-banner {
+  background: var(--gris-claro);
+  border-radius: 40px;
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-top: 3rem;
+  box-shadow: var(--sombra-suave);
+}
+
+.cta-banner h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--negro-mate);
+}
+
+.cta-banner p {
+  font-size: 1.1rem;
+  color: var(--gris-texto);
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2.5rem;
+  }
+
+  .page-subtitle {
+    font-size: 1rem;
+  }
+
+  .planes-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .plan-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .plan-precio {
+    font-size: 1.8rem;
+  }
+
+  .invitaciones-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .cta-banner {
+    padding: 2rem 1rem;
+  }
+
+  .cta-banner h3 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .planes-grid {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .invitaciones-grid {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
