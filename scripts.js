@@ -157,15 +157,39 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 
     skillsObserver.observe(skillsSection);
   }
+ // ===== MANEJO DEL FORMULARIO DE CONTACTO =====
+const contactForm = document.getElementById('contactForm');
+const popup = document.getElementById('popup-mensaje');
 
-  // Formulario demo
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Gracias por tu mensaje. Te contactaré a la brevedad (simulación).');
-    });
-  }
+if (contactForm) {
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Mostrar popup
+    popup.classList.add('mostrar');
+
+    // Vaciar campos del formulario
+    contactForm.reset();
+
+    // Enviar datos a FormSubmit (servicio gratuito de envío de correos)
+    const formData = new FormData(contactForm);
+    try {
+      await fetch('https://formsubmit.co/ajax/teeninformatics@gmail.com', {
+        method: 'POST',
+        body: formData
+      });
+      // Si deseas ver la respuesta, puedes agregar un .then()
+    } catch (error) {
+      console.error('Error al enviar el mensaje:', error);
+      // No mostramos error al usuario para mantener la experiencia fluida
+    }
+
+    // Ocultar popup después de 2 segundos
+    setTimeout(() => {
+      popup.classList.remove('mostrar');
+    }, 1000);
+  });
+}
 })();
 
 // ===== MODAL DE SERVICIOS =====

@@ -2060,3 +2060,62 @@ body {
   }
 }
 
+/* ===== POPUP ANIMADO ===== */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.popup.mostrar {
+  opacity: 1;
+  pointer-events: none;
+}
+
+.popup-contenido {
+  background: var(--blanco);
+  padding: 2rem 2.5rem;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: var(--sombra-media);
+  max-width: 400px;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+  border: 1px solid var(--mostaza);
+}
+
+.popup.mostrar .popup-contenido {
+  transform: scale(1);
+}
+
+.popup-contenido i {
+  font-size: 4rem;
+  color: var(--mostaza);
+  margin-bottom: 1rem;
+  animation: pop 0.5s ease;
+}
+
+.popup-contenido h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--negro-mate);
+}
+
+.popup-contenido p {
+  color: var(--gris-texto);
+}
+
+@keyframes pop {
+  0% { transform: scale(0.2); opacity: 0; }
+  80% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
