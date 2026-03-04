@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
     {
       title: 'Tecnologías de la Información',
       images: [
-        'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format',
+        'imagenes/seccion-servicios/ti.jpg',
         'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&auto=format'
       ],
       description: `<p>Me adapto con rapidez al uso de nuevas tecnologías, plataformas y sistemas como CRM y ERP. Manejo herramientas de comunicación profesional como Outlook, Gmail, Zoho Cliq, Teams y Discord, facilitando la organización y coordinación en entornos de trabajo digitales.</p>
@@ -235,8 +235,8 @@ document.addEventListener('DOMContentLoaded', function() {
     {
       title: 'Modelado 3D con Blender',
       images: [
-        'https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&auto=format',
-        'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format'
+        'imagenes/seccion-servicios/modelado1.jpg',
+        'imagenes/seccion-servicios/modelado2.jpg'
       ],
       description: `<p>Tengo conocimientos básicos en Blender, donde realizo modelado 3D sencillo y creación de elementos que pueden integrarse en proyectos audiovisuales o presentaciones. Desarrollo piezas visuales que complementan contenidos digitales y fortalecen la propuesta gráfica de un proyecto.</p>
         <p>También realizo renders optimizados dentro del programa, enfocados en obtener resultados claros y funcionales. Aunque mi nivel es básico, es una habilidad en constante desarrollo que puede potenciarse según las necesidades del proyecto.</p>`
@@ -244,8 +244,8 @@ document.addEventListener('DOMContentLoaded', function() {
     {
       title: 'Edición Audiovisual',
       images: [
-        'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&auto=format',
-        'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&auto=format'
+        'imagenes/seccion-servicios/video1.png',
+        'imagenes/seccion-servicios/video2.avif'
       ],
       description: `<p>Trabajo en entorno Windows utilizando Adobe Premiere Pro y After Effects para la edición de video, montaje, corrección básica de color y creación de motion graphics como títulos y gráficos animados. Desarrollo piezas audiovisuales para redes sociales, videos corporativos y contenidos promocionales.</p>
         <p>Mi nivel es básico–intermedio, lo que me permite desenvolverme con seguridad en la edición y creación de composiciones visuales. Es una habilidad que continúo fortaleciendo mediante práctica y capacitación constante para mejorar la calidad de cada proyecto.</p>`
@@ -253,8 +253,8 @@ document.addEventListener('DOMContentLoaded', function() {
     {
       title: 'Automatización Excel',
       images: [
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format',
-        'https://images.unsplash.com/photo-1555421689-3f034debb7a6?w=800&auto=format'
+        'imagenes/seccion-servicios/excel.jpg',
+        'imagenes/seccion-servicios/excel2.png'
       ],
       description: `<p>Cuento con un manejo medio–avanzado de Excel, trabajando con tablas dinámicas, fórmulas, funciones condicionales, validaciones de datos, formatos condicionales y gráficos para el análisis y organización de información. También utilizo macros y VBA para automatizar tareas y optimizar procesos repetitivos.</p>
         <p>Además, puedo realizar conexiones entre Excel y Access para importar y exportar datos según las necesidades del proyecto, facilitando una mejor gestión y control de la información.</p>`
