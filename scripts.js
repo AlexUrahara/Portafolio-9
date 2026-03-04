@@ -157,7 +157,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 
     skillsObserver.observe(skillsSection);
   }
- // ===== MANEJO DEL FORMULARIO DE CONTACTO =====
+ // ===== MANEJO DEL FORMULARIO DE CONTACTO (CORREGIDO) =====
 const contactForm = document.getElementById('contactForm');
 const popup = document.getElementById('popup-mensaje');
 
@@ -165,23 +165,29 @@ if (contactForm) {
   contactForm.addEventListener('submit', async function(e) {
     e.preventDefault();
 
+    // Recoger los datos del formulario
+    const formData = new FormData(contactForm);
+    
+    // Convertir FormData a un objeto URLSearchParams (formato que espera FormSubmit)
+    const urlEncodedData = new URLSearchParams(formData).toString();
+
     // Mostrar popup
     popup.classList.add('mostrar');
 
     // Vaciar campos del formulario
     contactForm.reset();
 
-    // Enviar datos a FormSubmit (servicio gratuito de envío de correos)
-    const formData = new FormData(contactForm);
     try {
       await fetch('https://formsubmit.co/ajax/teeninformatics@gmail.com', {
         method: 'POST',
-        body: formData
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: urlEncodedData
       });
-      // Si deseas ver la respuesta, puedes agregar un .then()
     } catch (error) {
       console.error('Error al enviar el mensaje:', error);
-      // No mostramos error al usuario para mantener la experiencia fluida
+      // Opcional: mostrar un mensaje de error al usuario
     }
 
     // Ocultar popup después de 2 segundos
