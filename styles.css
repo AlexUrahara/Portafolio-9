@@ -745,7 +745,14 @@ body {
   margin-bottom: 2rem;
   color: var(--negro-mate);
 }
-
+.section-title2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+  color: var(--gris-texto);
+  text-align: center;
+}
 .section-title span {
   color: var(--mostaza);
 }
@@ -1176,35 +1183,6 @@ body {
     font-size: 0.9rem;
   }
 }
-/* ===== TARJETAS DE PRESENTACIÓN ===== */
-.tarjetas-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
-  margin-top: 2rem;
-}
-
-.tarjetas-texto p {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #333;
-  background: var(--gris-claro);
-  padding: 2rem;
-  border-radius: 30px;
-  box-shadow: var(--sombra-suave);
-}
-
-.tarjetas-imagen img {
-  width: 100%;
-  border-radius: 30px;
-  box-shadow: var(--sombra-media);
-  transition: transform 0.4s;
-}
-
-.tarjetas-imagen img:hover {
-  transform: scale(1.02);
-}
 
 /* ===== PORTAFOLIO ===== */
 .portfolio-grid {
@@ -1493,7 +1471,9 @@ body {
   gap: 2rem;
   margin: 3rem 0;
 }
-
+.contact-item{
+  text-align: center;
+}
 .contact-card {
   background: var(--gris-claro);
   padding: 2rem;
@@ -1843,7 +1823,7 @@ body {
     transform: translateY(-3px);
   }
   .nav-links .social-item i {
-    color: var(--mostaza-oscuro);
+    color: var(--gris-texto);
 }
  /* QUITAR LA LÍNEA AMARILLA */
   .nav-links .social-item::after {
@@ -2118,4 +2098,55 @@ body {
   0% { transform: scale(0.2); opacity: 0; }
   80% { transform: scale(1.2); }
   100% { transform: scale(1); opacity: 1; }
+}
+
+/* ===== PROYECTOS SELECCIONADOS - FULL WIDTH ===== */
+.portfolio-section {
+  background-color: var(--blanco);
+  padding: 0; /* eliminamos padding para que las imágenes toquen los bordes */
+}
+.section-title{
+  text-align: center;
+}
+.container2 .section-title{
+  margin-bottom: -20px;
+}
+
+.portfolio-description {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--gris-texto);
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  padding: 40px;
+}
+
+.full-width-img {
+  display: block;
+  width: 100vw; /* ocupa el 100% del viewport */
+  margin: 2rem 0; /* espacio entre imágenes */
+  margin-left: calc(-50vw + 50%); /* truco para centrar el bloque y que ocupe todo el ancho */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+}
+
+.full-width-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Ajuste para evitar desbordamiento horizontal */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Responsive: ajuste de márgenes en móvil */
+@media (max-width: 768px) {
+  .full-width-img {
+    margin: 1rem 0;
+  }
 }
