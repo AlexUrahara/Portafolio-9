@@ -291,3 +291,41 @@
 .freelancer-grid .plan-card .plan-caracteristicas {
   flex-grow: 1;
 }
+/* ===== DISEÑO GRÁFICO REMOTO - PLANES QUINCENALES ===== */
+.grafico-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas siempre */
+  gap: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grafico-grid .plan-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.grafico-grid .plan-card .plan-caracteristicas {
+  flex-grow: 1;
+}
+
+.planes-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--gris-texto);
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive: en móvil se apilan */
+@media (max-width: 768px) {
+  .grafico-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+}
