@@ -329,3 +329,365 @@
     max-width: 400px;
   }
 }
+
+/* ===== DISEÑO DE LOGOS - PLANES ===== */
+.logos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas en desktop */
+  gap: 1.5rem;
+}
+
+.logos-grid .plan-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logos-grid .plan-card .plan-caracteristicas {
+  flex-grow: 1;
+}
+
+/* Responsive: tablet y móvil */
+@media (max-width: 992px) {
+  .logos-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+  }
+}
+
+@media (max-width: 576px) {
+  .logos-grid {
+    gap: 1rem;
+  }
+}
+
+/* ===== TARJETAS DE PRESENTACIÓN ===== */
+.tarjetas-grid-simple {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tarjeta-simple {
+  background: var(--blanco);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  box-shadow: var(--sombra-suave);
+  transition: all 0.3s ease;
+  border: 1px solid var(--gris-medio);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.tarjeta-simple:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--sombra-media);
+  border-color: var(--mostaza);
+}
+
+.tarjeta-icon {
+  font-size: 3rem;
+  color: var(--mostaza);
+  margin-bottom: 1rem;
+}
+
+.tarjeta-simple h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--negro-mate);
+}
+
+.tarjeta-precio {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--mostaza);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.tarjeta-precio span {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--gris-texto);
+}
+
+.tarjeta-caracteristicas {
+  list-style: none;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.tarjeta-caracteristicas li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  color: #333;
+}
+
+.tarjeta-caracteristicas i {
+  color: var(--mostaza);
+  font-size: 1rem;
+}
+
+@media (max-width: 576px) {
+  .tarjetas-grid-simple {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+  }
+}
+
+/* ===== BROCHURE ÚNICO ===== */
+.brochure-unico {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.brochure-card {
+  background: var(--blanco);
+  border-radius: 30px;
+  padding: 2.5rem;
+  box-shadow: var(--sombra-media);
+  border: 1px solid var(--gris-medio);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.brochure-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-media), 0 10px 30px rgba(212, 160, 56, 0.2);
+  border-color: var(--mostaza);
+}
+
+.brochure-icon {
+  font-size: 4rem;
+  color: var(--mostaza);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.brochure-card h3 {
+  font-size: 2.2rem;
+  text-align: center;
+  color: var(--negro-mate);
+  margin-bottom: 0.5rem;
+}
+
+.brochure-precio {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--mostaza);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.brochure-precio span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--gris-texto);
+}
+
+.brochure-descripcion {
+  margin-bottom: 1.5rem;
+}
+
+.brochure-descripcion p {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--negro-mate);
+}
+
+.brochure-caracteristicas {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.brochure-caracteristicas li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.brochure-caracteristicas i {
+  color: var(--mostaza);
+  font-size: 1.1rem;
+}
+
+.brochure-extras {
+  background: var(--gris-claro);
+  border-radius: 15px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.brochure-extras p {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--negro-mate);
+}
+
+.brochure-extras ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.brochure-extras li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.brochure-extras i {
+  color: var(--mostaza);
+  font-size: 1rem;
+}
+
+.nota-extra {
+  font-size: 0.85rem;
+  color: var(--gris-texto);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.brochure-card .btn {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .brochure-card {
+    padding: 1.5rem;
+  }
+  
+  .brochure-caracteristicas {
+    grid-template-columns: 1fr;
+  }
+  
+  .brochure-extras ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .brochure-precio {
+    font-size: 2rem;
+  }
+}
+
+/* ===== INVITACIONES DIGITALES MEJORADAS ===== */
+.invitaciones-grid-mejorado {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas en escritorio */
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.invitacion-card-mejorada {
+  background: linear-gradient(145deg, var(--blanco), #fafafa);
+  border-radius: 24px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--sombra-suave);
+  transition: all 0.3s ease;
+  border: 1px solid var(--gris-medio);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.invitacion-card-mejorada:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sombra-media);
+  border-color: var(--mostaza);
+}
+
+.invitacion-card-mejorada i {
+  font-size: 3rem;
+  color: var(--mostaza);
+  margin-bottom: 1rem;
+}
+
+.invitacion-card-mejorada h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: var(--negro-mate);
+}
+
+.invitacion-card-mejorada .precio {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--mostaza);
+  margin-bottom: 1.5rem;
+}
+
+.invitacion-card-mejorada ul {
+  list-style: none;
+  margin-bottom: 2rem;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.invitacion-card-mejorada ul li {
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  color: #555;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.3rem;
+  line-height: 1.4;
+}
+
+.invitacion-card-mejorada ul li::before {
+  content: "•";
+  color: var(--mostaza);
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.invitacion-card-mejorada .btn {
+  width: 100%;
+  margin-top: auto;
+}
+
+/* Responsive: tablet y móvil */
+@media (max-width: 992px) {
+  .invitaciones-grid-mejorado {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+  }
+}
+
+@media (max-width: 576px) {
+  .invitaciones-grid-mejorado {
+    gap: 1rem;
+  }
+  
+  .invitacion-card-mejorada {
+    padding: 1.5rem 1rem;
+  }
+  
+  .invitacion-card-mejorada h3 {
+    font-size: 1.4rem;
+  }
+  
+  .invitacion-card-mejorada .precio {
+    font-size: 1.8rem;
+  }
+}

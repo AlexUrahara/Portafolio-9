@@ -405,3 +405,108 @@ document.querySelectorAll('.btn-solicitar').forEach(button => {
     window.location.href = `mailto:teeninformatics@gmail.com?subject=${subject}&body=${body}`;
   });
 });
+
+// ===== MANEJO DE BOTONES CONTRATAR (DISEÑO GRÁFICO REMOTO) =====
+document.querySelectorAll('.btn-contratar-grafico').forEach(button => {
+  button.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const card = this.closest('.plan-card');
+    if (!card) return;
+
+    const planTitulo = card.querySelector('h3').textContent.trim();
+    const precio = card.querySelector('.plan-precio').textContent.trim();
+    const horas = planTitulo.includes('Media') ? '3 horas diarias' : '6 horas diarias';
+    const sueldo = planTitulo.includes('Media') ? '$1,500 quincenales' : '$3,000 quincenales';
+
+    // Obtener las características de la lista
+    const caracteristicas = Array.from(card.querySelectorAll('.plan-caracteristicas li'))
+      .map(li => li.textContent.trim())
+      .join('\n• ');
+
+    const subject = encodeURIComponent(`Solicitud de contratación: Diseñador Gráfico Remoto - ${planTitulo}`);
+    const body = encodeURIComponent(
+      `Hola Roberto,\n\nEstoy interesado en contratar tus servicios como diseñador gráfico remoto con el plan "${planTitulo}" (${sueldo}).\n\nDetalles del plan:\n• ${caracteristicas}\n\nMe gustaría que trabajes para mí de lunes a viernes, ${horas}, iniciando el [fecha de inicio]. Por favor, confírmame disponibilidad y los siguientes pasos.\n\nSaludos.`
+    );
+
+    window.location.href = `mailto:teeninformatics@gmail.com?subject=${subject}&body=${body}`;
+  });
+});
+
+
+// ===== MANEJO DE BOTONES SOLICITAR (DISEÑO DE LOGOS) =====
+document.querySelectorAll('.btn-solicitar-logo').forEach(button => {
+  button.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const card = this.closest('.plan-card');
+    if (!card) return;
+
+    const planTitulo = card.querySelector('h3').textContent.trim();
+    const precio = card.querySelector('.plan-precio').textContent.trim();
+    
+    // Obtener las características de la lista
+    const caracteristicas = Array.from(card.querySelectorAll('.plan-caracteristicas li'))
+      .map(li => li.textContent.trim())
+      .join('\n• ');
+
+    const subject = encodeURIComponent(`Solicitud de información: Diseño de Logo - Plan ${planTitulo}`);
+    const body = encodeURIComponent(
+      `Hola Roberto,\n\nEstoy interesado en el plan "${planTitulo}" (${precio}) para el diseño de mi logo.\n\nMe gustaría recibir más información sobre los siguientes puntos:\n• Plazos de entrega\n• Proceso de trabajo\n• Formas de pago\n\nQuedo atento a tu respuesta.\n\nSaludos.`
+    );
+
+    window.location.href = `mailto:teeninformatics@gmail.com?subject=${subject}&body=${body}`;
+  });
+});
+
+// ===== MANEJO DE BOTONES SOLICITAR (TARJETAS DE PRESENTACIÓN) =====
+document.querySelectorAll('.btn-solicitar-tarjeta').forEach(button => {
+  button.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const card = this.closest('.tarjeta-simple');
+    if (!card) return;
+
+    const tipo = card.querySelector('h3').textContent.trim();
+    const precio = card.querySelector('.tarjeta-precio').textContent.trim();
+    
+    const subject = encodeURIComponent(`Solicitud de tarjetas de presentación (${tipo})`);
+    const body = encodeURIComponent(
+      `Hola Roberto,\n\nEstoy interesado en solicitar la impresión de tarjetas de presentación (${tipo}) por ${precio}.\n\nMe gustaría saber:\n• ¿Necesito enviar mi diseño? (Si no, puedo contratar el diseño adicional por $70 o $100 según corresponda)\n• ¿Requiero envío a domicilio en Mérida? (costo $29 extra)\n• Formas de pago.\n\nQuedo atento a tu respuesta.\n\nSaludos.`
+    );
+
+    window.location.href = `mailto:teeninformatics@gmail.com?subject=${subject}&body=${body}`;
+  });
+});
+
+// ===== BOTÓN SOLICITAR BROCHURE =====
+document.querySelector('.btn-solicitar-brochure')?.addEventListener('click', function(e) {
+  e.preventDefault();
+  
+  const subject = encodeURIComponent('Solicitud de brochure empresarial');
+  const body = encodeURIComponent(
+    `Hola Roberto,\n\nEstoy interesado en contratar el servicio de brochure profesional (precio base $2,849).\n\nMe gustaría saber más sobre:\n• Plazos de entrega\n• Proceso de trabajo\n• Opciones de pago\n\nAdemás, necesito información sobre: [detalla aquí si requieres hojas extra, actualizaciones, etc.]\n\nQuedo atento a tu respuesta.\n\nSaludos.`
+  );
+
+  window.location.href = `mailto:teeninformatics@gmail.com?subject=${subject}&body=${body}`;
+});
+
+// ===== MANEJO DE BOTONES SOLICITAR (INVITACIONES DIGITALES) =====
+document.querySelectorAll('.btn-solicitar-invitacion').forEach(button => {
+  button.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const card = this.closest('.invitacion-card-mejorada');
+    if (!card) return;
+
+    const tipo = card.querySelector('h3').textContent.trim();
+    const precio = card.querySelector('.precio').textContent.trim();
+    
+    const subject = encodeURIComponent(`Solicitud de invitación digital (${tipo})`);
+    const body = encodeURIComponent(
+      `Hola Roberto,\n\nEstoy interesado en la invitación digital formato "${tipo}" (${precio}).\n\nMe gustaría conocer más detalles sobre:\n• Plazos de entrega\n• Proceso de personalización\n• Formas de pago\n\nQuedo atento a tu respuesta.\n\nSaludos.`
+    );
+
+    window.location.href = `mailto:teeninformatics@gmail.com?subject=${subject}&body=${body}`;
+  });
+});
