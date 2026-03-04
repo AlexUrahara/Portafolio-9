@@ -205,11 +205,14 @@ document.addEventListener('DOMContentLoaded', function() {
     {
       title: 'Diseño Gráfico Profesional',
       images: [
-        'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&auto=format',
-        'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&auto=format'
+        'imagenes/seccion-servicios/diseño.jpg',
+        'imagenes/seccion-servicios/diseño4.jpg'
       ],
-      description: `<p>Creación de identidades de marca únicas y memorables, incluyendo branding estratégico, diseño editorial y material publicitario. Desarrollamos folletos, catálogos, flyers y campañas visuales que conectan con tu audiencia.</p>
-        <p>Además, ofrecemos ilustración personalizada, asesoría de imagen corporativa, diseño de packaging y contenido para redes sociales. También creamos presentaciones ejecutivas profesionales en PowerPoint.</p>`
+      description: `<p>Desarrollo identidades de marca e identidades visuales coherentes, construyendo desde el concepto gráfico hasta la aplicación en papelería corporativa. Trabajo principalmente en Adobe Illustrator, asegurando sistemas visuales bien estructurados y funcionales.</p>
+        <p>Realizo diseño editorial en Adobe InDesign, creando documentos organizados y listos para impresión. Diseño folletos, brochures, catálogos, flyers y piezas para campañas publicitarias utilizando Illustrator, Photoshop y CorelDRAW, según las necesidades técnicas de cada proyecto.</p>
+        <p>Gran parte de mi experiencia se centra en la creación de presentaciones profesionales, siempre respetando y potenciando la paleta y lineamientos visuales de cada empresa.</p>
+        <p>Trabajo de manera remota mediante mensajes y videollamadas, manteniendo comunicación constante durante el proceso creativo. Entrego archivos editables y documentos finales correctamente preparados para impresión.</p>
+        <p>Para optimizar tiempos y garantizar eficiencia, utilizo plataformas y plantillas estratégicas que agilizan el desarrollo sin comprometer la calidad del diseño.</p>`
     },
     {
       title: 'Desarrollo FrontEnd',
@@ -217,26 +220,26 @@ document.addEventListener('DOMContentLoaded', function() {
         'https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&auto=format',
         'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format'
       ],
-      description: `<p>Diseñamos y desarrollamos sitios web corporativos, landing pages optimizadas para campañas y tiendas online con carritos de compra y pasarelas de pago. También creamos portafolios interactivos y blogs personalizados con panel de administración.</p>
-        <p>Nos enfocamos en la optimización SEO, diseño responsivo para todos los dispositivos y accesibilidad web cumpliendo estándares WCAG, garantizando una experiencia de usuario moderna y funcional.</p>`
+      description: `<p>Desarrollo interfaces web enfocadas en la presentación profesional de productos y servicios. Trabajo con HTML5 para una estructura clara y bien organizada, y utilizo CSS (Flexbox y Grid) para crear diseños modernos, atractivos y adaptables a distintos dispositivos.</p>
+        <p>Aplico conocimientos básicos de JavaScript para añadir interactividad y dinamismo a las páginas. Me enfoco principalmente en el diseño FrontEnd, apoyándome también en herramientas de inteligencia artificial para optimizar tiempos y mejorar la eficiencia en el proceso de desarrollo.</p>`
     },
     {
-      title: 'Seguridad Informática',
+      title: 'Tecnologías de la Información',
       images: [
         'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format',
         'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&auto=format'
       ],
-      description: `<p>Realizamos auditorías de seguridad y análisis de vulnerabilidades, hardening de servidores y protección contra malware con antivirus y firewalls. Aseguramos tus aplicaciones web mediante pruebas de penetración y cifrado de datos SSL/TLS.</p>
-        <p>Implementamos gestión de identidades con autenticación robusta (2FA, SSO), monitorización 24/7 para alertas tempranas y análisis forense en caso de incidentes, protegiendo tu negocio de principio a fin.</p>`
+      description: `<p>Me adapto con rapidez al uso de nuevas tecnologías, plataformas y sistemas como CRM y ERP. Manejo herramientas de comunicación profesional como Outlook, Gmail, Zoho Cliq, Teams y Discord, facilitando la organización y coordinación en entornos de trabajo digitales.</p>
+        <p>Trabajo principalmente en sistemas operativos Windows, donde puedo realizar optimizaciones básicas, respaldos y configuraciones generales. Utilizo paquetería de oficina (Microsoft Office) y me mantengo en constante actualización sobre nuevas tecnologías e inteligencia artificial, creando prompts y aprovechando plataformas digitales que optimizan procesos y producción tecnológica.</p>`
     },
     {
-      title: 'Modelado 3D / RA',
+      title: 'Modelado 3D con Blender',
       images: [
         'https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&auto=format',
         'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format'
       ],
-      description: `<p>Modelado de productos en 3D con representación realista y animaciones para videos promocionales. Creamos experiencias de Realidad Aumentada interactivas y renderizado fotorrealista de alta calidad para presentaciones.</p>
-        <p>Desarrollamos escenarios virtuales para videojuegos o simulaciones, modelado de personajes y avatares, así como proyectos de Realidad Mixta para aplicaciones inmersivas.</p>`
+      description: `<p>Tengo conocimientos básicos en Blender, donde realizo modelado 3D sencillo y creación de elementos que pueden integrarse en proyectos audiovisuales o presentaciones. Desarrollo piezas visuales que complementan contenidos digitales y fortalecen la propuesta gráfica de un proyecto.</p>
+        <p>También realizo renders optimizados dentro del programa, enfocados en obtener resultados claros y funcionales. Aunque mi nivel es básico, es una habilidad en constante desarrollo que puede potenciarse según las necesidades del proyecto.</p>`
     },
     {
       title: 'Edición Audiovisual',
@@ -244,8 +247,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&auto=format',
         'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&auto=format'
       ],
-      description: `<p>Edición de video profesional con montaje, corrección de color y motion graphics para títulos y gráficos animados. Producimos spots publicitarios para TV y redes sociales, así como videos corporativos y entrevistas.</p>
-        <p>Ofrecemos edición de audio (limpieza y mezcla), efectos especiales con composición CGI y restauración de material audiovisual antiguo para darle una nueva vida.</p>`
+      description: `<p>Trabajo en entorno Windows utilizando Adobe Premiere Pro y After Effects para la edición de video, montaje, corrección básica de color y creación de motion graphics como títulos y gráficos animados. Desarrollo piezas audiovisuales para redes sociales, videos corporativos y contenidos promocionales.</p>
+        <p>Mi nivel es básico–intermedio, lo que me permite desenvolverme con seguridad en la edición y creación de composiciones visuales. Es una habilidad que continúo fortaleciendo mediante práctica y capacitación constante para mejorar la calidad de cada proyecto.</p>`
     },
     {
       title: 'Automatización Excel',
@@ -253,8 +256,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format',
         'https://images.unsplash.com/photo-1555421689-3f034debb7a6?w=800&auto=format'
       ],
-      description: `<p>Automatización de tareas repetitivas con macros y VBA, creación de formularios interactivos y conexión con bases de datos para importar/exportar información. Generamos dashboards dinámicos e informes automáticos.</p>
-        <p>Desarrollamos plantillas inteligentes preconfiguradas, limpiamos datos eliminando duplicados e integramos Excel con otras aplicaciones como Outlook y Word. También gestionamos horarios y turnos de personal.</p>`
+      description: `<p>Cuento con un manejo medio–avanzado de Excel, trabajando con tablas dinámicas, fórmulas, funciones condicionales, validaciones de datos, formatos condicionales y gráficos para el análisis y organización de información. También utilizo macros y VBA para automatizar tareas y optimizar procesos repetitivos.</p>
+        <p>Además, puedo realizar conexiones entre Excel y Access para importar y exportar datos según las necesidades del proyecto, facilitando una mejor gestión y control de la información.</p>`
     }
   ];
 
