@@ -50,44 +50,56 @@
   <!-- Overlay para menú responsivo -->
   <div id="menu-overlay"></div>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <div class="logo"><a href="index.html">R.A.</a></div>
-    <div class="menu-toggle" id="menuToggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html#hero">Inicio</a></li>
-      <li><a href="index.html#about">Sobre mí</a></li>
-      <li><a href="index.html#services">Servicios</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropbtn">Planes y servicios <i class="fas fa-chevron-down"></i></a>
-        <ul class="dropdown-content">
-          <li><a href="#freelancer">Freelancer</a></li>
-          <li><a href="#grafico">Diseño gráfico</a></li>
-          <li><a href="#logos">Diseño de logos</a></li>
-          <li><a href="#tarjetas">Tarjetas</a></li>
-          <li><a href="#brochures">Brochures</a></li>
-          <li><a href="#invitaciones">Invitaciones</a></li>
-        </ul>
-      </li>
-      <li><a href="index.html#portfolio">Proyectos</a></li>
-      <li><a href="index.html#experience">Trayectoria</a></li>
-      <li><a href="index.html#contact">Contacto</a></li>
-      <li><a href="tel:+525544705244" class="phone-link"><i class="fas fa-phone-alt"></i> +52 554 470 5244</a></li>
-      <!-- Redes sociales en móvil -->
-      <li class="social-header">Encuéntrame en redes sociales</li>
-      <li class="social-items">
-        <a href="#" class="social-item" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="social-item" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="social-item" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="#" class="social-item" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="#" class="social-item" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      </li>
-    </ul>
-  </nav>
+<nav class="navbar" id="navbar">
+  <div class="logo"><a href="#hero">R.A.</a></div>
+  <!-- Botón hamburguesa animado -->
+  <div class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>    
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero">Inicio</a></li>
+    <li><a href="#about">Sobre mí</a></li>
+    <li><a href="#services">Servicios</a></li>
+    <!-- Ítem con submenú -->
+    <li class="dropdown">
+      <a href="servicios.html" class="dropbtn">Proyectos<i class="fas fa-chevron-down"></i></a>
+      <ul class="dropdown-content">
+        <li><a href="index.html#identidad">Identidad Visual</a></li>
+        <li><a href="index.html#Media">Media Social</a></li>
+        <li><a href="index.html#editorial">Editorial</a></li>
+        <li><a href="index.html#branding">Branding</a></li>
+        <li><a href="index.html#diseño">Diseño UI/UX</a></li>
+      </ul>
+    </li>
+    <li><a href="#experience">Trayectoria</a></li>
+    <li><a href="#contact">Contacto</a></li>
+    <li class="dropdown">
+      <a href="servicios.html" class="dropbtn">Planes y servicios <i class="fas fa-chevron-down"></i></a>
+      <ul class="dropdown-content">
+        <li><a href="servicios.html">Planes Freelancer</a></li>
+        <li><a href="servicios.html#grafico">Diseño Gráfico</a></li>
+        <li><a href="servicios.html#tarjetas">Tarjetas de Presentación</a></li>
+        <li><a href="servicios.html#brochures">Brochures</a></li>
+        <li><a href="servicios.html#invitaciones">Invitaciones</a></li>
+      </ul>
+    </li>
+    <li><a href="CV_Roberto_Azcorra.pdf" download>Descargar CV</a></li>
+    <li><a href="tel:+525544705244" class="phone-link"><i class="fas fa-phone-alt"></i> +52 554 470 5244</a></li>
+
+    <!-- REDES SOCIALES (solo visibles en móvil) -->
+    <li class="social-header">Encuéntrame en redes sociales</li>
+    <li class="social-items">
+      <a href="https://www.facebook.com/TeenInformaticsCode/" class="social-item" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/teen_informatics/" class="social-item" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@TeenInformatics-j7c" class="social-item" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@teen.informatics" class="social-item" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/5219901182550" class="social-item" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="#" class="social-item" target="_blank"><i class="fab fa-github"></i></a>
+    </li>
+  </ul>
+</nav>
 
   <!-- CONTENIDO PRINCIPAL DE SERVICIOS -->
   <main class="servicios-main">
@@ -420,15 +432,16 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
+   <footer class="footer">
     <div class="social-links">
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-behance"></i></a>
-      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.facebook.com/TeenInformaticsCode/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://wa.me/5219901182550" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.instagram.com/teen_informatics/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@TeenInformatics-j7c" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@teen.informatics" target="_blank"><i class="fab fa-tiktok"></i></a>
     </div>
-    <p>© 2025 Roberto Alejandro Azcorra Cauich · Diseño · Frontend · Seguridad</p>
+    <p>© 2026 Roberto Alejandro Azcorra Cauich · Diseño Gráfico · Diseño y Maquetación Frontend · Informática</p>
   </footer>
 
   <script src="scripts.js"></script>
