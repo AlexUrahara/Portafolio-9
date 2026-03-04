@@ -380,3 +380,28 @@ document.addEventListener('DOMContentLoaded', function() {
   modalTitle.style.transition = 'opacity 0.2s ease';
   modalDesc.style.transition = 'opacity 0.2s ease';
 });document.querySelectorAll('.nav-links a')
+
+// ===== MANEJO DE BOTONES SOLICITAR (PLANES FREELANCER) =====
+document.querySelectorAll('.btn-solicitar').forEach(button => {
+  button.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Obtener la tarjeta padre
+    const card = this.closest('.plan-card');
+    if (!card) return;
+
+    // Extraer información del plan
+    const planName = card.querySelector('h3').textContent.trim();
+    const precio = card.querySelector('.plan-precio').textContent.trim();
+    const caracteristicas = Array.from(card.querySelectorAll('.plan-caracteristicas li')).map(li => li.textContent.trim()).join('\n• ');
+
+    // Construir el cuerpo del correo
+    const subject = encodeURIComponent(`Solicitud de plan Freelancer: ${planName}`);
+    const body = encodeURIComponent(
+      `Hola Roberto,\n\nEstoy interesado en contratar el plan "${planName}" (${precio}).\n\nDetalles del plan:\n• ${caracteristicas}\n\nPor favor, contáctame para coordinar los detalles.\n\nSaludos.`
+    );
+
+    // Abrir el cliente de correo
+    window.location.href = `mailto:teeninformatics@gmail.com?subject=${subject}&body=${body}`;
+  });
+});

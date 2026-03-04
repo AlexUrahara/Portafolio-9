@@ -12,6 +12,35 @@
   <link rel="stylesheet" href="styles.css">
   <!-- CSS específico de servicios -->
   <link rel="stylesheet" href="servicios.css">
+  <style>
+    /* Ajustes adicionales para centrar contenido de las tarjetas */
+    .plan-card {
+      text-align: center;
+      align-items: center;
+    }
+    .plan-card ul {
+      text-align: center;
+      list-style: none;
+      padding: 0;
+    }
+    .plan-card ul li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .plan-card .plan-icon {
+      font-size: 2.5rem;
+      color: var(--mostaza);
+      margin-bottom: 1rem;
+    }
+    .invitacion-card {
+      text-align: center;
+    }
+    .invitacion-card ul {
+      text-align: left; /* las listas de invitaciones las dejamos alineadas a la izquierda para mejor lectura */
+    }
+  </style>
 </head>
 <body>
   <div id="loader"><div class="loader-spinner"></div></div>
@@ -21,7 +50,7 @@
   <!-- Overlay para menú responsivo -->
   <div id="menu-overlay"></div>
 
-  <!-- NAVBAR (idéntico al index) -->
+  <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="logo"><a href="index.html">R.A.</a></div>
     <div class="menu-toggle" id="menuToggle">
@@ -38,6 +67,7 @@
         <ul class="dropdown-content">
           <li><a href="#freelancer">Freelancer</a></li>
           <li><a href="#grafico">Diseño gráfico</a></li>
+          <li><a href="#logos">Diseño de logos</a></li>
           <li><a href="#tarjetas">Tarjetas</a></li>
           <li><a href="#brochures">Brochures</a></li>
           <li><a href="#invitaciones">Invitaciones</a></li>
@@ -47,7 +77,7 @@
       <li><a href="index.html#experience">Trayectoria</a></li>
       <li><a href="index.html#contact">Contacto</a></li>
       <li><a href="tel:+525544705244" class="phone-link"><i class="fas fa-phone-alt"></i> +52 554 470 5244</a></li>
-      <!-- Redes sociales en móvil (se muestran con CSS) -->
+      <!-- Redes sociales en móvil -->
       <li class="social-header">Encuéntrame en redes sociales</li>
       <li class="social-items">
         <a href="#" class="social-item" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -65,109 +95,160 @@
       <h1 class="page-title reveal">Planes y Servicios <span>Profesionales</span></h1>
       <p class="page-subtitle reveal">Elige el plan que mejor se adapte a tus necesidades. Todos incluyen asesoría personalizada y entrega en tiempo récord.</p>
 
-      <!-- PLANES FREELANCER -->
+     
+            <!-- PLANES FREELANCER - POR HORA -->
       <section id="freelancer" class="planes-seccion">
-        <h2 class="section-title reveal">Planes <span>Freelancer</span></h2>
-        <div class="planes-grid">
-          <div class="plan-card reveal">
+        <h2 class="section-title reveal">Planes <span>Freelancer por Hora</span></h2>
+        <div class="planes-grid freelancer-grid">
+          <!-- Plan Básico -->
+          <div class="plan-card reveal" data-plan="Básico" data-precio="65">
+            <div class="plan-icon"><i class="fas fa-clock"></i></div>
             <h3>Básico</h3>
-            <p class="plan-precio">$1,500 <span>/proyecto</span></p>
+            <p class="plan-precio">$65 <span>/hora</span></p>
             <ul class="plan-caracteristicas">
-              <li><i class="fas fa-check"></i> 1 concepto de diseño</li>
-              <li><i class="fas fa-check"></i> 2 rondas de revisiones</li>
-              <li><i class="fas fa-check"></i> Entrega en 5 días</li>
-              <li><i class="fas fa-check"></i> Archivos fuente</li>
+              <li><i class="fas fa-check"></i> Soporte vía chat</li>
+              <li><i class="fas fa-check"></i> Tareas sencillas (edición, ajustes)</li>
+              <li><i class="fas fa-check"></i> Entrega en 24-48h</li>
+              <li><i class="fas fa-check"></i> Ideal para pequeños cambios</li>
             </ul>
-            <a href="#contact" class="btn btn-primary">Contratar</a>
+            <button class="btn btn-primary btn-solicitar">Solicitar</button>
           </div>
-          <div class="plan-card reveal">
-            <h3>Profesional</h3>
-            <p class="plan-precio">$3,500 <span>/proyecto</span></p>
+          <!-- Plan Estándar -->
+          <div class="plan-card reveal" data-plan="Estándar" data-precio="120">
+            <div class="plan-icon"><i class="fas fa-laptop"></i></div>
+            <h3>Estándar</h3>
+            <p class="plan-precio">$120 <span>/hora</span></p>
             <ul class="plan-caracteristicas">
-              <li><i class="fas fa-check"></i> 3 conceptos de diseño</li>
-              <li><i class="fas fa-check"></i> 4 rondas de revisiones</li>
-              <li><i class="fas fa-check"></i> Entrega en 3 días</li>
-              <li><i class="fas fa-check"></i> Archivos fuente + formatos</li>
-              <li><i class="fas fa-check"></i> Manual de marca básico</li>
+              <li><i class="fas fa-check"></i> Soporte prioritario</li>
+              <li><i class="fas fa-check"></i> Diseño de piezas gráficas</li>
+              <li><i class="fas fa-check"></i> Hasta 2 revisiones por hora</li>
+              <li><i class="fas fa-check"></i> Entrega en 24h</li>
             </ul>
-            <a href="#contact" class="btn btn-primary">Contratar</a>
+            <button class="btn btn-primary btn-solicitar">Solicitar</button>
           </div>
-          <div class="plan-card reveal">
-            <h3>Premium</h3>
-            <p class="plan-precio">$6,500 <span>/proyecto</span></p>
+          <!-- Plan Avanzado -->
+          <div class="plan-card reveal" data-plan="Avanzado" data-precio="190">
+            <div class="plan-icon"><i class="fas fa-crown"></i></div>
+            <h3>Avanzado</h3>
+            <p class="plan-precio">$190 <span>/hora</span></p>
             <ul class="plan-caracteristicas">
-              <li><i class="fas fa-check"></i> 5 conceptos de diseño</li>
+              <li><i class="fas fa-check"></i> Soporte 24/7</li>
+              <li><i class="fas fa-check"></i> Desarrollo frontend / branding</li>
               <li><i class="fas fa-check"></i> Revisiones ilimitadas</li>
-              <li><i class="fas fa-check"></i> Entrega en 2 días</li>
-              <li><i class="fas fa-check"></i> Archivos fuente + formatos</li>
-              <li><i class="fas fa-check"></i> Manual de marca completo</li>
-              <li><i class="fas fa-check"></i> Asesoría personalizada</li>
+              <li><i class="fas fa-check"></i> Entrega en 12h</li>
             </ul>
-            <a href="#contact" class="btn btn-primary">Contratar</a>
+            <button class="btn btn-primary btn-solicitar">Solicitar</button>
           </div>
-          <div class="plan-card reveal">
-            <h3>Empresarial</h3>
-            <p class="plan-precio">$12,000 <span>/proyecto</span></p>
+          <!-- Plan Pro -->
+          <div class="plan-card reveal" data-plan="Pro" data-precio="290">
+            <div class="plan-icon"><i class="fas fa-star"></i></div>
+            <h3>Pro</h3>
+            <p class="plan-precio">$290 <span>/hora</span></p>
             <ul class="plan-caracteristicas">
-              <li><i class="fas fa-check"></i> 8+ conceptos de diseño</li>
-              <li><i class="fas fa-check"></i> Revisiones ilimitadas</li>
-              <li><i class="fas fa-check"></i> Entrega express 24h</li>
-              <li><i class="fas fa-check"></i> Archivos fuente + todos formatos</li>
-              <li><i class="fas fa-check"></i> Manual de marca premium</li>
-              <li><i class="fas fa-check"></i> Capacitación al equipo</li>
-              <li><i class="fas fa-check"></i> Soporte 3 meses</li>
+              <li><i class="fas fa-check"></i> Consultoría personalizada</li>
+              <li><i class="fas fa-check"></i> Proyectos complejos (web + diseño)</li>
+              <li><i class="fas fa-check"></i> Revisiones y entregas inmediatas</li>
+              <li><i class="fas fa-check"></i> Prioridad absoluta</li>
             </ul>
-            <a href="#contact" class="btn btn-primary">Contratar</a>
+            <button class="btn btn-primary btn-solicitar">Solicitar</button>
           </div>
         </div>
       </section>
 
-      <!-- PLANES DE DISEÑO GRÁFICO -->
+           <!-- DISEÑO GRÁFICO REMOTO (PLANES QUINCENALES) -->
       <section id="grafico" class="planes-seccion">
-        <h2 class="section-title reveal">Diseño <span>Gráfico</span></h2>
+        <h2 class="section-title reveal">Diseñador Gráfico <span>Remoto</span></h2>
+        <p class="planes-subtitle reveal">Contrátame como tu diseñador personal por horas diarias, de lunes a viernes. Pagos quincenales.</p>
+        <div class="planes-grid grafico-grid">
+          <!-- Plan 3 horas diarias -->
+          <div class="plan-card reveal" data-plan="3 horas diarias" data-precio="1500">
+            <div class="plan-icon"><i class="fas fa-sun"></i></div>
+            <h3>Media Jornada</h3>
+            <p class="plan-precio">$1,500 <span>/quincena</span></p>
+            <ul class="plan-caracteristicas">
+              <li><i class="fas fa-check"></i> 3 horas diarias (Lun-Vie)</li>
+              <li><i class="fas fa-check"></i> Horario flexible (mañana/tarde/noche)</li>
+              <li><i class="fas fa-check"></i> Diseño de hasta 3 piezas por día</li>
+              <li><i class="fas fa-check"></i> Revisiones ilimitadas en cada pieza</li>
+              <li><i class="fas fa-check"></i> Comunicación vía chat/WhatsApp</li>
+              <li><i class="fas fa-check"></i> Reporte semanal de avances</li>
+            </ul>
+            <button class="btn btn-primary btn-contratar-grafico">Contratar</button>
+          </div>
+          <!-- Plan 6 horas diarias -->
+          <div class="plan-card reveal" data-plan="6 horas diarias" data-precio="3000">
+            <div class="plan-icon"><i class="fas fa-star"></i></div>
+            <h3>Jornada Completa</h3>
+            <p class="plan-precio">$3,000 <span>/quincena</span></p>
+            <ul class="plan-caracteristicas">
+              <li><i class="fas fa-check"></i> 6 horas diarias (Lun-Vie)</li>
+              <li><i class="fas fa-check"></i> Prioridad en tus proyectos</li>
+              <li><i class="fas fa-check"></i> Diseño de hasta 7 piezas por día</li>
+              <li><i class="fas fa-check"></i> Entregas inmediatas</li>
+              <li><i class="fas fa-check"></i> Soporte 24/7</li>
+              <li><i class="fas fa-check"></i> Acceso a plantillas exclusivas</li>
+              <li><i class="fas fa-check"></i> Videollamada diaria de coordinación</li>
+            </ul>
+            <button class="btn btn-primary btn-contratar-grafico">Contratar</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- DISEÑO DE LOGOS -->
+      <section id="logos" class="planes-seccion">
+        <h2 class="section-title reveal">Diseño de <span>Logos</span></h2>
         <div class="planes-grid">
           <div class="plan-card reveal">
-            <h3>Identidad Básica</h3>
+            <div class="plan-icon"><i class="fas fa-pencil-alt"></i></div>
+            <h3>Logo Básico</h3>
+            <p class="plan-precio">$1,200</p>
+            <ul class="plan-caracteristicas">
+              <li><i class="fas fa-check"></i> 2 propuestas iniciales</li>
+              <li><i class="fas fa-check"></i> 2 rondas de revisiones</li>
+              <li><i class="fas fa-check"></i> Formato: PNG, JPG</li>
+              <li><i class="fas fa-check"></i> Entrega en 3 días</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Contratar</a>
+          </div>
+          <div class="plan-card reveal">
+            <div class="plan-icon"><i class="fas fa-pen-fancy"></i></div>
+            <h3>Logo Profesional</h3>
             <p class="plan-precio">$2,500</p>
             <ul class="plan-caracteristicas">
-              <li><i class="fas fa-check"></i> Logotipo (3 propuestas)</li>
-              <li><i class="fas fa-check"></i> Paleta de colores</li>
-              <li><i class="fas fa-check"></i> Tipografía corporativa</li>
-              <li><i class="fas fa-check"></i> Tarjeta de presentación</li>
+              <li><i class="fas fa-check"></i> 4 propuestas iniciales</li>
+              <li><i class="fas fa-check"></i> 4 rondas de revisiones</li>
+              <li><i class="fas fa-check"></i> Formato: PNG, JPG, SVG, EPS</li>
+              <li><i class="fas fa-check"></i> Manual de color y tipografía</li>
+              <li><i class="fas fa-check"></i> Entrega en 5 días</li>
             </ul>
             <a href="#contact" class="btn btn-primary">Contratar</a>
           </div>
           <div class="plan-card reveal">
-            <h3>Identidad Completa</h3>
-            <p class="plan-precio">$5,500</p>
-            <ul class="plan-caracteristicas">
-              <li><i class="fas fa-check"></i> Logotipo (5 propuestas)</li>
-              <li><i class="fas fa-check"></i> Manual de marca</li>
-              <li><i class="fas fa-check"></i> Papelería corporativa</li>
-              <li><i class="fas fa-check"></i> Plantillas para RRSS</li>
-              <li><i class="fas fa-check"></i> Presentación ejecutiva</li>
-            </ul>
-            <a href="#contact" class="btn btn-primary">Contratar</a>
-          </div>
-          <div class="plan-card reveal">
-            <h3>Redes Sociales</h3>
-            <p class="plan-precio">$3,200</p>
-            <ul class="plan-caracteristicas">
-              <li><i class="fas fa-check"></i> Pack de 10 posts</li>
-              <li><i class="fas fa-check"></i> 3 historias destacadas</li>
-              <li><i class="fas fa-check"></i> Portada para Facebook</li>
-              <li><i class="fas fa-check"></i> Plantilla editable</li>
-            </ul>
-            <a href="#contact" class="btn btn-primary">Contratar</a>
-          </div>
-          <div class="plan-card reveal">
-            <h3>Publicidad Impresa</h3>
+            <div class="plan-icon"><i class="fas fa-crown"></i></div>
+            <h3>Logo Premium</h3>
             <p class="plan-precio">$4,000</p>
             <ul class="plan-caracteristicas">
-              <li><i class="fas fa-check"></i> Flyer (3 diseños)</li>
-              <li><i class="fas fa-check"></i> Cartel tamaño estándar</li>
-              <li><i class="fas fa-check"></i> Banner para eventos</li>
-              <li><i class="fas fa-check"></i> Adaptación a distintos formatos</li>
+              <li><i class="fas fa-check"></i> 6 propuestas iniciales</li>
+              <li><i class="fas fa-check"></i> Revisiones ilimitadas</li>
+              <li><i class="fas fa-check"></i> Todos los formatos vectoriales</li>
+              <li><i class="fas fa-check"></i> Manual de marca completo</li>
+              <li><i class="fas fa-check"></i> 3 variaciones de color</li>
+              <li><i class="fas fa-check"></i> Entrega en 7 días</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Contratar</a>
+          </div>
+          <div class="plan-card reveal">
+            <div class="plan-icon"><i class="fas fa-star"></i></div>
+            <h3>Logo Empresarial</h3>
+            <p class="plan-precio">$6,500</p>
+            <ul class="plan-caracteristicas">
+              <li><i class="fas fa-check"></i> 8+ propuestas creativas</li>
+              <li><i class="fas fa-check"></i> Revisiones ilimitadas</li>
+              <li><i class="fas fa-check"></i> Todos los formatos + archivo fuente</li>
+              <li><i class="fas fa-check"></i> Manual de marca premium</li>
+              <li><i class="fas fa-check"></i> 5 variaciones de color</li>
+              <li><i class="fas fa-check"></i> Aplicaciones básicas (tarjeta, firma)</li>
+              <li><i class="fas fa-check"></i> Entrega en 10 días</li>
             </ul>
             <a href="#contact" class="btn btn-primary">Contratar</a>
           </div>
@@ -179,6 +260,7 @@
         <h2 class="section-title reveal">Tarjetas de <span>Presentación</span></h2>
         <div class="planes-grid">
           <div class="plan-card reveal">
+            <div class="plan-icon"><i class="fas fa-id-card"></i></div>
             <h3>Económico</h3>
             <p class="plan-precio">$350 <span>/100 pzas</span></p>
             <ul class="plan-caracteristicas">
@@ -190,6 +272,7 @@
             <a href="#contact" class="btn btn-primary">Cotizar</a>
           </div>
           <div class="plan-card reveal">
+            <div class="plan-icon"><i class="fas fa-id-card"></i></div>
             <h3>Estándar</h3>
             <p class="plan-precio">$600 <span>/100 pzas</span></p>
             <ul class="plan-caracteristicas">
@@ -202,6 +285,7 @@
             <a href="#contact" class="btn btn-primary">Cotizar</a>
           </div>
           <div class="plan-card reveal">
+            <div class="plan-icon"><i class="fas fa-id-card"></i></div>
             <h3>Premium</h3>
             <p class="plan-precio">$950 <span>/100 pzas</span></p>
             <ul class="plan-caracteristicas">
@@ -215,6 +299,7 @@
             <a href="#contact" class="btn btn-primary">Cotizar</a>
           </div>
           <div class="plan-card reveal">
+            <div class="plan-icon"><i class="fas fa-id-card"></i></div>
             <h3>Ejecutivo</h3>
             <p class="plan-precio">$1,500 <span>/100 pzas</span></p>
             <ul class="plan-caracteristicas">
@@ -236,6 +321,7 @@
         <h2 class="section-title reveal">Brochures <span>Empresariales</span></h2>
         <div class="planes-grid">
           <div class="plan-card reveal">
+            <div class="plan-icon"><i class="fas fa-book-open"></i></div>
             <h3>Básico</h3>
             <p class="plan-precio">$1,800</p>
             <ul class="plan-caracteristicas">
@@ -247,6 +333,7 @@
             <a href="#contact" class="btn btn-primary">Contratar</a>
           </div>
           <div class="plan-card reveal">
+            <div class="plan-icon"><i class="fas fa-book"></i></div>
             <h3>Profesional</h3>
             <p class="plan-precio">$3,200</p>
             <ul class="plan-caracteristicas">
@@ -258,6 +345,7 @@
             <a href="#contact" class="btn btn-primary">Contratar</a>
           </div>
           <div class="plan-card reveal">
+            <div class="plan-icon"><i class="fas fa-bookmark"></i></div>
             <h3>Premium</h3>
             <p class="plan-precio">$5,500</p>
             <ul class="plan-caracteristicas">
@@ -269,6 +357,7 @@
             <a href="#contact" class="btn btn-primary">Contratar</a>
           </div>
           <div class="plan-card reveal">
+            <div class="plan-icon"><i class="fas fa-briefcase"></i></div>
             <h3>Empresarial</h3>
             <p class="plan-precio">$8,500</p>
             <ul class="plan-caracteristicas">
@@ -347,7 +436,7 @@
     </div>
   </main>
 
-  <!-- FOOTER (idéntico al index) -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="social-links">
       <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -358,7 +447,6 @@
     <p>© 2025 Roberto Alejandro Azcorra Cauich · Diseño · Frontend · Seguridad</p>
   </footer>
 
-  <!-- JavaScript externo (el mismo que index) -->
   <script src="scripts.js"></script>
 </body>
 </html>
