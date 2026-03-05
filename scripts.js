@@ -78,38 +78,44 @@
     });
   }
 
-  // Cerrar menú al hacer clic en un enlace (excepto dropdown)
-// Manejo de clics en enlaces del nav
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', (e) => {
-    // Si es un enlace dentro de un dropdown en móvil
-    if (link.closest('.dropdown') && window.innerWidth <= 992) {
-      // Si es el enlace principal del dropdown (dropbtn)
-      if (link.classList.contains('dropbtn')) {
-        e.preventDefault(); // Prevenir navegación para desplegar submenú
-        e.stopPropagation();
-        const dropdown = link.closest('.dropdown');
-        dropdown.classList.toggle('active');
-        return;
-      } else {
-        // Es un enlace del submenú: permitir navegación y cerrar el menú principal
+  // Manejo de clics en enlaces del nav (mejorado)
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const isMobile = window.innerWidth <= 992;
+      
+      // Si es un enlace dentro de un dropdown
+      if (link.closest('.dropdown')) {
+        if (isMobile) {
+          // En móvil: si es el botón principal, prevenimos navegación y desplegamos
+          if (link.classList.contains('dropbtn')) {
+            e.preventDefault();
+            e.stopPropagation();
+            const dropdown = link.closest('.dropdown');
+            dropdown.classList.toggle('active');
+            return;
+          } else {
+            // Es un enlace del submenú: permitir navegación y cerrar el menú principal
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('open');
+            navbar.classList.remove('menu-open');
+            if (menuOverlay) menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            // El enlace navegará normalmente (no hacemos preventDefault)
+          }
+        } else {
+          // En escritorio: si es el botón principal, no prevenimos (para que vaya a la página)
+          // pero si es un enlace del submenú, navega normalmente
+        }
+      } else if (isMobile && !link.closest('.dropdown')) {
+        // Enlaces normales en móvil: cerrar menú
         navLinks.classList.remove('active');
         menuToggle.classList.remove('open');
         navbar.classList.remove('menu-open');
         if (menuOverlay) menuOverlay.classList.remove('active');
         document.body.style.overflow = '';
-        // El enlace navegará normalmente
       }
-    } else if (window.innerWidth <= 992 && !link.closest('.dropdown')) {
-      // Enlaces normales en móvil: cerrar menú
-      navLinks.classList.remove('active');
-      menuToggle.classList.remove('open');
-      navbar.classList.remove('menu-open');
-      if (menuOverlay) menuOverlay.classList.remove('active');
-      document.body.style.overflow = '';
-    }
+    });
   });
-});
 
   // Cerrar menú al redimensionar a desktop
   window.addEventListener('resize', function() {
@@ -157,45 +163,46 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 
     skillsObserver.observe(skillsSection);
   }
- // ===== MANEJO DEL FORMULARIO DE CONTACTO (CORREGIDO) =====
-const contactForm = document.getElementById('contactForm');
-const popup = document.getElementById('popup-mensaje');
+  
+  // ===== MANEJO DEL FORMULARIO DE CONTACTO (CORREGIDO) =====
+  const contactForm = document.getElementById('contactForm');
+  const popup = document.getElementById('popup-mensaje');
 
-if (contactForm) {
-  contactForm.addEventListener('submit', async function(e) {
-    e.preventDefault();
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
 
-    // Recoger los datos del formulario
-    const formData = new FormData(contactForm);
-    
-    // Convertir FormData a un objeto URLSearchParams (formato que espera FormSubmit)
-    const urlEncodedData = new URLSearchParams(formData).toString();
+      // Recoger los datos del formulario
+      const formData = new FormData(contactForm);
+      
+      // Convertir FormData a un objeto URLSearchParams (formato que espera FormSubmit)
+      const urlEncodedData = new URLSearchParams(formData).toString();
 
-    // Mostrar popup
-    popup.classList.add('mostrar');
+      // Mostrar popup
+      popup.classList.add('mostrar');
 
-    // Vaciar campos del formulario
-    contactForm.reset();
+      // Vaciar campos del formulario
+      contactForm.reset();
 
-    try {
-      await fetch('https://formsubmit.co/ajax/teeninformatics@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: urlEncodedData
-      });
-    } catch (error) {
-      console.error('Error al enviar el mensaje:', error);
-      // Opcional: mostrar un mensaje de error al usuario
-    }
+      try {
+        await fetch('https://formsubmit.co/ajax/teeninformatics@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: urlEncodedData
+        });
+      } catch (error) {
+        console.error('Error al enviar el mensaje:', error);
+        // Opcional: mostrar un mensaje de error al usuario
+      }
 
-    // Ocultar popup después de 2 segundos
-    setTimeout(() => {
-      popup.classList.remove('mostrar');
-    }, 1000);
-  });
-}
+      // Ocultar popup después de 2 segundos
+      setTimeout(() => {
+        popup.classList.remove('mostrar');
+      }, 1000);
+    });
+  }
 })();
 
 // ===== MODAL DE SERVICIOS =====
@@ -412,7 +419,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Añadir estilos para transición de contenido
   modalTitle.style.transition = 'opacity 0.2s ease';
   modalDesc.style.transition = 'opacity 0.2s ease';
-});document.querySelectorAll('.nav-links a')
+});
 
 // ===== MANEJO DE BOTONES SOLICITAR (PLANES FREELANCER) =====
 document.querySelectorAll('.btn-solicitar').forEach(button => {
