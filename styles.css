@@ -2130,8 +2130,8 @@ body {
 
 /* ===== PROYECTOS SELECCIONADOS - FULL WIDTH ===== */
 .portfolio-section {
-  background-color: var(--blanco);
-  padding: 0; /* eliminamos padding para que las imágenes toquen los bordes */
+  background-color: #f5f8ff;
+  padding-top: 89px; /* eliminamos padding para que las imágenes toquen los bordes */
 }
 .section-title{
   text-align: center;
@@ -2150,14 +2150,9 @@ body {
 }
 
 .full-width-img {
-  display: block;
-  width: 100vw; /* ocupa el 100% del viewport */
-  margin: 2rem 0; /* espacio entre imágenes */
-  margin-left: calc(-50vw + 50%); /* truco para centrar el bloque y que ocupe todo el ancho */
-  position: relative;
-  left: 50%;
-  right: 50%;
-  transform: translateX(-50%);
+ display: block;
+  width: 100%;
+  margin: 2rem 0;
 }
 
 .full-width-img img {
@@ -2187,4 +2182,12 @@ html, body {
 }
 .page-title span {
   color: var(--mostaza);
+} 
+
+hr {  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--mostaza), var(--mostaza-oscuro), var(--mostaza), transparent);
+  width: 70%;
+  margin: 2rem auto;
+  border-radius: 2px;
 }

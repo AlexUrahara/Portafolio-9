@@ -82,7 +82,7 @@
       display: flex;
       justify-content: center;
       margin-top: -50px; /* Hace que los cuadros se monten sobre la imagen */
-      margin-bottom: 10px; /* Reducido para acercar el formulario */
+      margin-bottom: 20px; /* Espacio antes del formulario (ajustable) */
       z-index: 10;
       padding: 0 5%;
     }
@@ -144,34 +144,33 @@
       color: var(--mostaza);
     }
 
-    /* ===== TOAST PARA COPIADO ===== */
-    .copy-toast {
+    /* ===== NOTIFICACIÓN DE COPIA ===== */
+    .copy-notification {
       position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: var(--negro-mate);
-      color: var(--blanco);
-      padding: 0.8rem 1.5rem;
-      border-radius: 40px;
+      top: 90px;
+      right: 10px;
+      background-color: var(--blanco);
+      color: var(--negro-mate);
+      padding: 12px 24px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
       font-size: 1rem;
-      box-shadow: var(--sombra-media);
-      z-index: 2000;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-      border: 1px solid var(--mostaza);
+      font-weight: 500;
+      z-index: 1000;
+      transform: translateX(120%);
+      transition: transform 0.3s ease;
+      border-left: 4px solid var(--mostaza);
     }
-
-    .copy-toast.show {
-      opacity: 1;
+ 
+    .copy-notification.show {
+      transform: translateX(0);
     }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .contact-cards-wrapper {
         margin-top: -30px; /* Menos superposición en móvil */
-        margin-bottom: 5px;
+        margin-bottom: 15px;
         padding: 0 1rem;
       }
 
@@ -202,7 +201,7 @@
     @media (max-width: 480px) {
       .contact-cards-wrapper {
         margin-top: -20px;
-        margin-bottom: 0;
+        margin-bottom: 10px;
       }
 
       .contact-card-modern {
@@ -223,20 +222,20 @@
       }
     }
 
-    /* Ajustes para el formulario (se mantiene igual) */
+    /* ===== FORMULARIO (más cerca de los cuadros) ===== */
     .contact-main {
       background-color: var(--blanco);
-      padding: 0 5% 3rem; /* Reducido el padding superior */
+      padding: 1rem 5% 3rem; /* Reducido el padding superior de 2rem a 1rem */
     }
 
     .contact-form {
       max-width: 700px;
-      margin: 0 auto 0; /* Ajuste de margen */
+      margin: 1rem auto 0; /* Reducido de 2rem a 1rem */
     }
 
     /* Eliminar estilos antiguos que puedan interferir */
     .contact-info-modern {
-      margin: 0; /* Reseteamos márgenes */
+      margin: 0;
     }
   </style>
 </head>
@@ -263,7 +262,7 @@
       <li><a href="index.html#services">Servicios</a></li>
       <!-- Primer dropdown: Proyectos -->
       <li class="dropdown">
-        <a href="index.html#portfolio" class="dropbtn">Proyectos <i class="fas fa-chevron-down"></i></a>
+        <a href="index.html#portfolio" class="dropbtn">Portafolio <i class="fas fa-chevron-down"></i></a>
         <ul class="dropdown-content">
           <li><a href="index.html#identidad">Identidad Visual</a></li>
           <li><a href="index.html#Media">Media Social</a></li>
@@ -304,7 +303,7 @@
   <!-- HERO DE CONTACTO CON IMAGEN DE FONDO -->
   <section class="contact-hero">
     <div class="contact-background">
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop" alt="Fondo de contacto">
+      <img src="https://images.unsplash.com/photo-1519408469771-2586093c3f14?q=80&w=702&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Fondo de contacto">
     </div>
     <div class="contact-overlay"></div>
     <div class="contact-hero-content">
@@ -333,8 +332,8 @@
     </div>
   </div>
 
-  <!-- TOAST PARA MENSAJE DE COPIA -->
-  <div id="copyToast" class="copy-toast">¡Correo copiado al portapapeles!</div>
+  <!-- NOTIFICACIÓN DE COPIA -->
+  <div id="copyNotification" class="copy-notification"></div>
 
   <!-- FORMULARIO DE CONTACTO -->
   <main class="contact-main">
@@ -378,42 +377,61 @@
 
   <!-- JavaScript externo -->
   <script src="scripts.js"></script>
+
+  <!-- JavaScript para copiar al portapapeles -->
   <script>
-    // Función para copiar al portapapeles y mostrar toast
-    document.querySelectorAll('.contact-card-modern').forEach(card => {
-      card.addEventListener('click', function() {
-        const textToCopy = this.dataset.copy;
-        const type = this.dataset.type; // "Correo", "Teléfono" o "Ubicación"
-        
-        // Usar la API del portapapeles moderna
-        navigator.clipboard.writeText(textToCopy).then(() => {
-          const toast = document.getElementById('copyToast');
-          toast.textContent = `¡${type} copiado al portapapeles!`;
-          toast.classList.add('show');
-          
-          setTimeout(() => {
-            toast.classList.remove('show');
-          }, 2000);
+    (function() {
+      // Elementos
+      const cards = document.querySelectorAll('.contact-card-modern');
+      const notification = document.getElementById('copyNotification');
+
+      if (!notification) return;
+
+      // Función para mostrar notificación
+      function showNotification(message) {
+        notification.textContent = message;
+        notification.classList.add('show');
+
+        // Ocultar después de 1.5 segundos
+        setTimeout(() => {
+          notification.classList.remove('show');
+        }, 2700);
+      }
+
+      // Función para copiar texto
+      function copyToClipboard(text) {
+        // Usar el API moderna
+        navigator.clipboard.writeText(text).then(() => {
+          // Éxito
         }).catch(err => {
-          console.error('Error al copiar: ', err);
           // Fallback para navegadores antiguos
           const textarea = document.createElement('textarea');
-          textarea.value = textToCopy;
+          textarea.value = text;
           document.body.appendChild(textarea);
           textarea.select();
           document.execCommand('copy');
           document.body.removeChild(textarea);
-          
-          const toast = document.getElementById('copyToast');
-          toast.textContent = `¡${type} copiado al portapapeles!`;
-          toast.classList.add('show');
-          
-          setTimeout(() => {
-            toast.classList.remove('show');
-          }, 2000);
+        });
+      }
+
+      // Asignar eventos a cada tarjeta
+      cards.forEach(card => {
+        card.addEventListener('click', function(e) {
+          // Prevenir que el clic en enlace dentro de la tarjeta navegue
+          if (e.target.tagName === 'A' || e.target.closest('a')) {
+            e.preventDefault();
+          }
+
+          const textToCopy = this.dataset.copy;
+          const type = this.dataset.type;
+
+          if (textToCopy) {
+            copyToClipboard(textToCopy);
+            showNotification(`${type} copiado en el portapapeles`);
+          }
         });
       });
-    });
+    })();
   </script>
 </body>
 </html>

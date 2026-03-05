@@ -24,7 +24,7 @@
     } else {
       navbar.classList.remove('scrolled');
     }
-  });
+  }); 
 
   // Back to top button
   const backToTop = document.getElementById('back-to-top');
