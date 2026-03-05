@@ -78,44 +78,53 @@
     });
   }
 
-  // Manejo de clics en enlaces del nav (mejorado)
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', (e) => {
-      const isMobile = window.innerWidth <= 992;
-      
-      // Si es un enlace dentro de un dropdown
-      if (link.closest('.dropdown')) {
-        if (isMobile) {
-          // En móvil: si es el botón principal, prevenimos navegación y desplegamos
-          if (link.classList.contains('dropbtn')) {
-            e.preventDefault();
-            e.stopPropagation();
-            const dropdown = link.closest('.dropdown');
-            dropdown.classList.toggle('active');
-            return;
-          } else {
-            // Es un enlace del submenú: permitir navegación y cerrar el menú principal
-            navLinks.classList.remove('active');
-            menuToggle.classList.remove('open');
-            navbar.classList.remove('menu-open');
-            if (menuOverlay) menuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-            // El enlace navegará normalmente (no hacemos preventDefault)
-          }
+ // ===== MANEJO DE CLICS EN EL NAV (MÓVIL CON CIERRE AUTOMÁTICO) =====
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const isMobile = window.innerWidth <= 992;
+
+    // Si es un enlace dentro de un dropdown
+    if (link.closest('.dropdown')) {
+      if (isMobile) {
+        // Si es el botón principal del dropdown (dropbtn)
+        if (link.classList.contains('dropbtn')) {
+          e.preventDefault(); // Evita navegación para desplegar
+          e.stopPropagation();
+
+          const currentDropdown = link.closest('.dropdown');
+          const isActive = currentDropdown.classList.contains('active');
+
+          // Cerrar todos los demás dropdowns
+          document.querySelectorAll('.dropdown').forEach(drop => {
+            if (drop !== currentDropdown) {
+              drop.classList.remove('active');
+            }
+          });
+
+          // Toggle el actual (si estaba abierto se cierra, si no se abre)
+          currentDropdown.classList.toggle('active', !isActive);
+          return;
         } else {
-          // En escritorio: si es el botón principal, no prevenimos (para que vaya a la página)
-          // pero si es un enlace del submenú, navega normalmente
+          // Es un enlace del submenú: permitir navegación y cerrar el menú principal
+          navLinks.classList.remove('active');
+          menuToggle.classList.remove('open');
+          navbar.classList.remove('menu-open');
+          if (menuOverlay) menuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+          // El enlace navegará normalmente
         }
-      } else if (isMobile && !link.closest('.dropdown')) {
-        // Enlaces normales en móvil: cerrar menú
-        navLinks.classList.remove('active');
-        menuToggle.classList.remove('open');
-        navbar.classList.remove('menu-open');
-        if (menuOverlay) menuOverlay.classList.remove('active');
-        document.body.style.overflow = '';
       }
-    });
+    } else if (isMobile && !link.closest('.dropdown')) {
+      // Enlaces normales en móvil: cerrar menú
+      navLinks.classList.remove('active');
+      menuToggle.classList.remove('open');
+      navbar.classList.remove('menu-open');
+      if (menuOverlay) menuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   });
+});
+// También hay que manejar el cierre al abrir el menú principal (ya está en el código original)
 
   // Cerrar menú al redimensionar a desktop
   window.addEventListener('resize', function() {
