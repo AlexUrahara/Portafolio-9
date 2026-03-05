@@ -44,7 +44,6 @@
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
   const menuOverlay = document.getElementById('menu-overlay');
-  // NOTA: navbar ya está declarado arriba, no volver a declarar
 
   if (menuToggle) {
     menuToggle.addEventListener('click', function(e) {
@@ -58,6 +57,8 @@
         navbar.classList.add('menu-open');
       } else {
         navbar.classList.remove('menu-open');
+        // Al cerrar el menú, también cerramos todos los dropdowns activos
+        document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
       }
       
       if (menuOverlay) {
@@ -75,56 +76,58 @@
       navbar.classList.remove('menu-open');
       menuOverlay.classList.remove('active');
       document.body.style.overflow = '';
+      document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
     });
   }
 
- // ===== MANEJO DE CLICS EN EL NAV (MÓVIL CON CIERRE AUTOMÁTICO) =====
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', (e) => {
-    const isMobile = window.innerWidth <= 992;
+  // ===== MANEJO DE CLICS EN EL NAV (MEJORADO) =====
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const isMobile = window.innerWidth <= 992;
 
-    // Si es un enlace dentro de un dropdown
-    if (link.closest('.dropdown')) {
-      if (isMobile) {
-        // Si es el botón principal del dropdown (dropbtn)
-        if (link.classList.contains('dropbtn')) {
-          e.preventDefault(); // Evita navegación para desplegar
-          e.stopPropagation();
+      // Si es un enlace dentro de un dropdown
+      if (link.closest('.dropdown')) {
+        if (isMobile) {
+          // En móvil: si es el botón principal, prevenimos navegación y desplegamos
+          if (link.classList.contains('dropbtn')) {
+            e.preventDefault();
+            e.stopPropagation();
+            const currentDropdown = link.closest('.dropdown');
+            const isActive = currentDropdown.classList.contains('active');
 
-          const currentDropdown = link.closest('.dropdown');
-          const isActive = currentDropdown.classList.contains('active');
+            // Cerrar todos los otros dropdowns
+            document.querySelectorAll('.dropdown').forEach(drop => {
+              if (drop !== currentDropdown) {
+                drop.classList.remove('active');
+              }
+            });
 
-          // Cerrar todos los demás dropdowns
-          document.querySelectorAll('.dropdown').forEach(drop => {
-            if (drop !== currentDropdown) {
-              drop.classList.remove('active');
-            }
-          });
-
-          // Toggle el actual (si estaba abierto se cierra, si no se abre)
-          currentDropdown.classList.toggle('active', !isActive);
-          return;
-        } else {
-          // Es un enlace del submenú: permitir navegación y cerrar el menú principal
-          navLinks.classList.remove('active');
-          menuToggle.classList.remove('open');
-          navbar.classList.remove('menu-open');
-          if (menuOverlay) menuOverlay.classList.remove('active');
-          document.body.style.overflow = '';
-          // El enlace navegará normalmente
+            // Toggle el actual
+            currentDropdown.classList.toggle('active', !isActive);
+            return;
+          } else {
+            // Es un enlace del submenú: permitir navegación y cerrar el menú principal
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('open');
+            navbar.classList.remove('menu-open');
+            if (menuOverlay) menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            // También cerramos todos los dropdowns activos
+            document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+            // El enlace navegará normalmente
+          }
         }
+      } else if (isMobile && !link.closest('.dropdown')) {
+        // Enlaces normales en móvil: cerrar menú
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('open');
+        navbar.classList.remove('menu-open');
+        if (menuOverlay) menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
       }
-    } else if (isMobile && !link.closest('.dropdown')) {
-      // Enlaces normales en móvil: cerrar menú
-      navLinks.classList.remove('active');
-      menuToggle.classList.remove('open');
-      navbar.classList.remove('menu-open');
-      if (menuOverlay) menuOverlay.classList.remove('active');
-      document.body.style.overflow = '';
-    }
+    });
   });
-});
-// También hay que manejar el cierre al abrir el menú principal (ya está en el código original)
 
   // Cerrar menú al redimensionar a desktop
   window.addEventListener('resize', function() {
@@ -173,7 +176,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     skillsObserver.observe(skillsSection);
   }
   
-  // ===== MANEJO DEL FORMULARIO DE CONTACTO (CORREGIDO) =====
+  // ===== MANEJO DEL FORMULARIO DE CONTACTO =====
   const contactForm = document.getElementById('contactForm');
   const popup = document.getElementById('popup-mensaje');
 
@@ -203,10 +206,9 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         });
       } catch (error) {
         console.error('Error al enviar el mensaje:', error);
-        // Opcional: mostrar un mensaje de error al usuario
       }
 
-      // Ocultar popup después de 2 segundos
+      // Ocultar popup después de 1 segundo
       setTimeout(() => {
         popup.classList.remove('mostrar');
       }, 1000);
