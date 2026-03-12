@@ -2131,46 +2131,38 @@ body {
 /* ===== PROYECTOS SELECCIONADOS - FULL WIDTH ===== */
 .portfolio-section {
   background-color: #f5f8ff;
-  padding-top: 89px; /* eliminamos padding para que las imágenes toquen los bordes */
-}
-.section-title{
-  text-align: center;
-}
-.container2 .section-title{
-  margin-bottom: -20px;
+  padding-top: 80px; /* compensa el navbar fijo */
+  padding-bottom: 0; /* sin padding inferior */
 }
 
-.portfolio-description {
-  text-align: center;
-  font-size: 1.2rem;
-  color: var(--gris-texto);
-  max-width: 800px;
-  margin: 0 auto 3rem auto;
-  padding: 40px;
-}
-
-.full-width-img {
- display: block;
+.portfolio-section .full-width-img {
+  display: block;
   width: 100%;
-  margin: 2rem 0;
+  margin: 0; /* elimina todo margen */
+  line-height: 0; /* elimina espacio fantasma */
 }
 
-.full-width-img img {
+.portfolio-section .full-width-img img {
   display: block;
   width: 100%;
   height: auto;
   object-fit: cover;
+  vertical-align: bottom; /* elimina espacio inferior de imagen inline */
 }
 
-/* Ajuste para evitar desbordamiento horizontal */
-html, body {
-  overflow-x: hidden;
+/* Ajuste de los hr dentro de la sección */
+.portfolio-section hr {
+  margin: 0;
+  width: 100%; /* opcional: si quieres que ocupe todo el ancho, o déjalo en 70% */
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--mostaza), var(--mostaza-oscuro), var(--mostaza), transparent);
 }
 
-/* Responsive: ajuste de márgenes en móvil */
+/* Responsive: sin márgenes también en móvil */
 @media (max-width: 768px) {
-  .full-width-img {
-    margin: 1rem 0;
+  .portfolio-section .full-width-img {
+    margin: 0;
   }
 }
 .page-title {

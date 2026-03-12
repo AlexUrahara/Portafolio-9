@@ -561,3 +561,4 @@ document.querySelectorAll('.btn-solicitar-invitacion').forEach(button => {
     window.location.href = `mailto:teeninformatics@gmail.com?subject=${subject}&body=${body}`;
   });
 });
+
